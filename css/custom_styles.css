@@ -1,0 +1,120 @@
+
+ html {
+  height: 100%;
+  box-sizing: border-box;
+}
+ body {
+    background-color:#212529;
+    position: relative;
+  margin: 0;
+  padding-bottom: 7rem;
+  min-height: 100%;
+  }
+  
+  nav, .page-footer, .dropdown-menu, .dropdown-menu a, .dropdown-menu a:hover {
+    background-color:#0b0d0e;
+    color:lightgray;
+  }
+
+  .page-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .page-footer, .page-footer a {
+    font-size:1rem;
+    color: grey;
+  }
+
+  .page-footer a:hover{
+    color:white;
+  }
+
+.footer-copyright {
+  font-sie:0.8rem;
+}
+
+
+  .dropdown-menu a:hover {
+
+    color:white;
+  }
+
+  .card-custom {
+    background-color:#0b0d0e;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    }
+    
+    .overlay button {
+    font: 600 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #3386c0;
+    color: #fff;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    }
+    
+    .overlay button:hover {
+    background-color: #4ea0da;
+    }
+    
+    
+    .legend {
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 200px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 25px;
+    z-index: 1;
+    }
+     
+    .legend h4 {
+    margin: 0 0 10px;
+    }
+     
+    .legend div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+    }
+    
+    
+    .legendb {
+    background-color: #fff;
+    border-radius: 3px;
+    bottom: 30px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    }
+     
+    .legendb h4 {
+    margin: 0 0 10px;
+    }
+     
+    .legendb div span {
+    border-radius: 50%;
+    display: inline-block;
+    height: 10px;
+    margin-right: 5px;
+    width: 10px;
+    }
+    
