@@ -220,7 +220,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 			map.addLayer({
 				'id': 'maine',
 				'type': 'fill',
-				'source': 'maine',
+				'source': 'orig_pandemic_data',
 				'layout': {},
 				'paint': {
 				'fill-color': {
