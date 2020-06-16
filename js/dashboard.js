@@ -185,6 +185,32 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 	
 	map.on('load', function () {
 
+		map.on('mouseleave', 'case-studies', function () {
+			map.getCanvas().style.cursor = '';
+		});
+
+		map.on('style.load', function () {
+		  // Triggered when `setStyle` is called.
+		  addDataLayer();
+		});
+
+		// document.getElementById("sattelite").addEventListener("click", function( event ) {
+		//   map.setStyle('mapbox://styles/payam-tabrizian/cjl48xtkb0ho82rqr69liejhf');
+		// }, false);
+
+		// document.getElementById("dark").addEventListener("click", function( event ) {
+		//   map.setStyle('mapbox://styles/payam-tabrizian/cjk1ljl2218oc2soya6oxztwm');
+		// }, false);
+
+
+		// document.getElementById("terrain").addEventListener("click", function( event ) {
+		//   map.setStyle('mapbox://styles/payam-tabrizian/cjl49km6s3e012ro7545jbtmq');
+		// }, false);
+
+		// document.getElementById("moonlight").addEventListener("click", function( event ) {
+		//   map.setStyle('mapbox://styles/payam-tabrizian/cjl2trc6m3gut2smkufdfosxt');
+		// }, false);
+
 // https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/custom.geo.json
 /*		map.addSource('maine', {
 'type': 'geojson',

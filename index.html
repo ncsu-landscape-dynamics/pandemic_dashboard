@@ -7,18 +7,32 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/custom_styles.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js" charset="utf-8"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-83862026-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
 
 <style>
-	body { margin: 0; padding: 0; }
-	#map { position: absolute; top: 0; bottom: 0; width: 90%; }
+
+	
 </style>
 </head>
 <body>
@@ -26,18 +40,16 @@
 
 
 </style>
-<script
-src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"
-charset="utf-8"
-></script>
+
  
 <div id="map"></div>
 <div class="overlay">
-  <button id="replay">Replay</button>
+<button id="replay">Replay</button>
+<input id="slider" style="cursor: grabbing" type="range" min="1993" max="2008" step="1" value="0" />
 </div>
  
 <div id="state-legend" class="legend">
-	<h4><p>Invasion</p><p>Probability</p></h4>
+	<h4> Invasion  <br>Probability </h4>
 	<div><span style="background-color: #F0F921"></span>1.0</div>
 	<div><span style="background-color: #FCCE25"></span>0.9</div>
 	<div><span style="background-color: #FCA636"></span>0.8</div>
@@ -52,7 +64,7 @@ charset="utf-8"
 	</div>
 
 <div id="border-legend" class="legendb">
-	<h4><p>Phytosanitary</p><p>Compliance</p></h4>
+	<h4>Phytosanitary Compliance </h4>
 	<div><span style="background-color: #0000FF"></span>High</div>
 	<div><span style="background-color: #FF0000"></span>Low</div>
 	</div>
