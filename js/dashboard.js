@@ -182,6 +182,44 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 
 	// Used to increment the value of the point measurement against the route.
 	var counter = 0;
+
+	var years = [
+		"1993", 
+		"1994", 
+		"1995", 
+		"1996", 
+		"1997", 
+		"1998", 
+		"1999", 
+		"2000",
+		"2001", 
+		"2002",
+		"2003", 
+		"2004", 
+		"2005", 
+		"2006", 
+		"2007", 
+		"2008",
+		"2009",
+		"2010",
+		"2011",
+		"2012", 
+		"2013", 
+		"2014", 
+		"2015", 
+		"2016", 
+		"2017", 
+		"2018"
+		];
+		 
+		function filterBy(year) {
+		var filters = ['==', 'year', year];
+		map.setFilter('probability-fill', filters);
+		// map.setFilter('earthquake-labels', filters);
+		 
+		// Set the label to the year
+		document.getElementById('year').textContent = years[year];
+		}
 	
 	map.on('load', function () {
 
@@ -195,59 +233,110 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 		});
 
 		d3.json(
-			'https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/blob/master/pandemic_output.geojson',
-			function(err, data) {
-			if (err) throw err;
-			 
-			// Create a month property value based on time
-			// used to filter against.
-			data.features = data.features.map(function(d) {
-			d.properties.month = new Date(d.properties.time).getMonth();
-			return d;
-			});
-			 
-			map.addSource('pandemic_output', {
-			'type': 'geojson',
-			data: data
-			});
+            'https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/pandemic_output.geojson',
+            function(err, data) {
+                if (err) throw err;
 
-			map.addSource('orig_pandemic_data', {
-				type: 'geojson',	
-				data: 'https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/blob/master/orig_pandemic_data.geojson'
-			});
+                // Create a month property value based on time
+                // used to filter against.
+                data.features = data.features.map(function(d) {
+					var year = new d.properties;
+					console.error(year);
+                    return d;
+                });
+
+                map.addSource('pandemic_output', {
+                    'type': 'geojson',
+                    data: data
+                });
+
+                map.addLayer({
+					'id': 'pandemic_output',
+						'type': 'fill',
+						'source': 'pandemic_output',
+						'layout': {},
+						'paint': {
+							'fill-color': {
+								property: 'V2', 
+								stops: [
+								[0, '#0D0887'],	
+								[0.1, '#42049E'], 
+								[0.2, '#6A00A8'],	
+								[0.3, '#900DA4'],
+								[0.4, '#B12A90'], 
+								[0.5, '#CC4678'],	
+								[0.6, '#E16462'], 
+								[0.7, '#F1844B'],
+								[0.8, '#FCA636'], 
+								[0.9, '#FCCE25'],	
+								[1, '#F0F921']
+							]
+						}, 
+						'fill-opacity': 0.6,
+						// 'fill-outline-color': {
+						// 			property: 'V3', 
+						// 			stops: [
+						// 				[0, '#0000FF'], 
+						// 				[1, '#FF0000']]
+						// 			}
+							},
+                });
+
+               
+                // Set filter to first month of the year
+                // 0 = January
+                filterBy(0);
+
+                document
+                    .getElementById('slider')
+                    .addEventListener('input', function(e) {
+                        var year = parseInt(e.target.value, 10);
+                        filterBy(year);
+                    });
+            }
+        );
+			// map.addSource('pandemic_output', {
+			// 'type': 'geojson',
+			// data: 'https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/pandemic_output.geojson'
+			// });
+
+			// map.addSource('orig_pandemic_data', {
+			// 	type: 'geojson',	
+			// 	data: 'https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/orig_pandemic_data.geojson'
+			// });
 		
 
-			map.addLayer({
-				'id': 'maine',
-				'type': 'fill',
-				'source': 'orig_pandemic_data',
-				'layout': {},
-				'paint': {
-				'fill-color': {
-					property: 'V2', 
-					stops: [
-						[0, '#0D0887'],	
-					[0.1, '#42049E'], 
-					[0.2, '#6A00A8'],	
-					[0.3, '#900DA4'],
-					[0.4, '#B12A90'], 
-					[0.5, '#CC4678'],	
-					[0.6, '#E16462'], 
-					[0.7, '#F1844B'],
-					[0.8, '#FCA636'], 
-					[0.9, '#FCCE25'],	
-					[1, '#F0F921']
-				]
-			}, 
-			'fill-opacity': 0.6,
-			'fill-outline-color': {
-						property: 'V3', 
-						stops: [
-							[0, '#0000FF'], 
-							[1, '#FF0000']]
-						}
-					},
-				});
+			// map.addLayer({
+			// 	'id': 'pandemic_output',
+			// 	'type': 'fill',
+			// 	'source': 'pandemic_output',
+			// 	'layout': {},
+			// 	'paint': {
+			// 		'fill-color': {
+			// 			property: 'V2', 
+			// 			stops: [
+			// 			[0, '#0D0887'],	
+			// 			[0.1, '#42049E'], 
+			// 			[0.2, '#6A00A8'],	
+			// 			[0.3, '#900DA4'],
+			// 			[0.4, '#B12A90'], 
+			// 			[0.5, '#CC4678'],	
+			// 			[0.6, '#E16462'], 
+			// 			[0.7, '#F1844B'],
+			// 			[0.8, '#FCA636'], 
+			// 			[0.9, '#FCCE25'],	
+			// 			[1, '#F0F921']
+			// 		]
+			// 	}, 
+			// 	'fill-opacity': 0.6,
+			// 	// 'fill-outline-color': {
+			// 	// 			property: 'V3', 
+			// 	// 			stops: [
+			// 	// 				[0, '#0000FF'], 
+			// 	// 				[1, '#FF0000']]
+			// 	// 			}
+			// 		},
+			// 	});
 		
 			  // Add a source and layer displaying a point which will be animated along a route.
 			  map.addSource('route', {
@@ -499,4 +588,4 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 
 	
     });
-    })
+    // })

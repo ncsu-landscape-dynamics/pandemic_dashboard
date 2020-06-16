@@ -84,12 +84,35 @@ font-sie:0.8rem;
     padding: 10px;
     opacity: 80%;
     margin-bottom: 10px;
-    bottom: 150px;
+    bottom: 20px;
     right: 10px;    
     z-index: 1;
     margin-left: 20px;
     color: white;
   }
+/* 
+  .row {
+    height: 12px;
+    width: 100%;
+  }
+
+  .colors {
+    background: linear-gradient(to right, #e3ea09, #1f1033);
+    margin-left: 10px;
+    width: 340px;
+    /* left: 10; */
+  }
+
+  .label {
+    width: 110%;
+    letter-spacing: normal;
+    /*text-align: right;*/
+    /* left: 0; */
+    font-size: 16px;
+    color:#fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+    cursor: pointer;
+  } */
      
 .legend h4 {
   font-family: 'Lato', sans-serif;
