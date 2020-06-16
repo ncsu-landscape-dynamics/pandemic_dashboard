@@ -211,6 +211,12 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 			data: data
 			});
 
+			map.addSource('orig_pandemic_data', {
+				type: 'geojson',	
+				data: 'https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/blob/master/orig_pandemic_data.geojson'
+			});
+		
+
 			map.addLayer({
 				'id': 'maine',
 				'type': 'fill',
