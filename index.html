@@ -8,62 +8,110 @@
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/custom_styles.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'> -->
-  <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+  <link href='css/lato.css' rel='stylesheet' type='text/css'>
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
   <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js" charset="utf-8"></script>
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.48.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
-  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
+  <script src="js/d3.v3.min.js" charset="utf-8"></script>
   <!-- Google Analytics -->
-    <!-- <script>
+    <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','js/google-analytics.js','ga');
 
       ga('create', 'UA-83862026-1', 'auto');
       ga('send', 'pageview');
-    </script> -->
+    </script>
+    
+    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+		/* body { 
+			min-height: 100%;
+  background-color: #404043;
+  position: static;
+		}
+		#map { 
+			position:absolute; 
+			top:0%; 
+			min-width: 100%; 
+			min-height: 100%
+			bottom:0;
+		} */
+        /* .map-overlay {
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: relative;
+            width: 25%;
+            top: 65%;
+            left: 73%;
+            margin-left: 20px;
+            color: black;
+            padding: 10px;
+        }
+
+        .map-overlay .map-overlay-inner {
+            background-color: rgba(0, 0, 0, 0.40);
+            box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+            border-radius: 5px;
+            padding: 10px;
+            opacity: 80%;
+            margin-bottom: 10px;
+        }
+
+        .map-overlay h2 {
+            line-height: 24px;
+            display: block;
+            margin: 0 0 10px;
+        }
+
+        .map-overlay .legend .bar {
+            height: 10px;
+            width: 100%;
+            background: linear-gradient(to right, #e3ea09, #1f1033);
+        }
+
+        .map-overlay input {
+            background-color: transparent;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            cursor: ew-resize;
+        } */
+    </style>
 
 
-<style>
-
-	
-</style>
 </head>
 <body>
-<style>
 
-
-</style>
-
- 
 <div id="map"></div>
 <div class="overlay">
 <button id="replay">Replay</button>
-<input id="slider" style="cursor: grabbing" type="range" min="1993" max="2008" step="1" value="0" />
+<input id="slider" style="cursor: grabbing" type="range" min="0" max="26" step="1" value="0"/>
 </div>
+<!-- <div id='map' class="panel-body" style = "width : 100%; height : 100%; margin-top: 40px"></div> -->
+<!-- <div class='map-overlay top'>
+	<div class='map-overlay-inner'>
+		<h4>Year: <label id='active-year'>1993</label></h4>
+		<label id='year'></label>
+		<input id="slider" style="cursor: grabbing" type="range" min="1993" max="2018" step="1" value="0" />
+
+		<div id='legend' class='legend'>
+		  <br>
+			<div class='bar'></div>
+			<div style = "color:white">Magnitude(m)</div>
+		</div> -->
+	</div>
+</div> -->
  
 <div id="state-legend" class="legend">
 	<h4> Invasion  Probability </h4>
-	 <!-- <div class='row colors'><br><br> -->
-		<!-- <div class='row '> -->
-			<!-- <p class="outset"></p>
-			<span><div class='label'><b>0.9</b></div></span> <br>
-			<span><div class='label'><b>0.8</b></div></span>
-			<span><div class='label'><b>0.7</b></div></span>
-			<span><div class='label'><b>0.6</b></div></span>
-			<span><div class='label'><b>0.5</b></div></span>
-			<span><div class='label'><b>0.4</b></div></span>
-			<span><div class='label'><b>0.3</b></div></span>
-			<span><div class='label'><b>0.2</b></div></span>
-			<span><div class='label'><b>0.1</b></div></span> -->
 			<div><span style="background-color: #F0F921"></span>1.0</div>
 			<div><span style="background-color: #FCCE25"></span>0.9</div>
 			<div><span style="background-color: #FCA636"></span>0.8</div>
@@ -76,16 +124,9 @@
 			<div><span style="background-color: #42049E"></span>0.1</div>
 			<div><span style="background-color: #0D0887"></span>0.0</div> 
 			</div> 
-<!-- 
-<div id="border-legend" class="legendb">
-	<h4>Phytosanitary Compliance </h4>
-	<div><span style="background-color: #0000FF"></span>High</div>
-	<div><span style="background-color: #FF0000"></span>Low</div>
-	</div> -->
-
-
 	
 <script src="js/dashboard.js"></script>
+<!-- <script src="js/test.js"></script> -->
 
 </body>
 </html>

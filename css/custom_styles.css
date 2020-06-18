@@ -38,7 +38,7 @@ nav, .page-footer, .dropdown-menu, .dropdown-menu a, .dropdown-menu a:hover {
 }
 
 .footer-copyright {
-font-sie:0.8rem;
+font-size:0.8rem;
 }
 
 
@@ -100,8 +100,8 @@ font-sie:0.8rem;
     background: linear-gradient(to right, #e3ea09, #1f1033);
     margin-left: 10px;
     width: 340px;
-    /* left: 10; */
-  }
+    /* left: 10; 
+  }*/
 
   .label {
     width: 110%;

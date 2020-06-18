@@ -183,160 +183,155 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 	// Used to increment the value of the point measurement against the route.
 	var counter = 0;
 
-	var years = [
-		"1993", 
-		"1994", 
-		"1995", 
-		"1996", 
-		"1997", 
-		"1998", 
-		"1999", 
-		"2000",
-		"2001", 
-		"2002",
-		"2003", 
-		"2004", 
-		"2005", 
-		"2006", 
-		"2007", 
-		"2008",
-		"2009",
-		"2010",
-		"2011",
-		"2012", 
-		"2013", 
-		"2014", 
-		"2015", 
-		"2016", 
-		"2017", 
-		"2018"
-		];
-		 
-		function filterBy(year) {
-		var filters = ['==', 'year', year];
-		map.setFilter('probability-fill', filters);
-		// map.setFilter('earthquake-labels', filters);
-		 
-		// Set the label to the year
-		document.getElementById('year').textContent = years[year];
-		}
-	
+
+
+var timesteps = [
+	["Probability of introduction T0"],
+	["Probability of introduction T1"],
+	["Probability of introduction T2"],
+	["Probability of introduction T3"],
+	["Probability of introduction T4"],
+	["Probability of introduction T5"],
+	["Probability of introduction T6"],
+	["Probability of introduction T7"],
+	["Probability of introduction T8"],
+	["Probability of introduction T9"],
+	["Probability of introduction T10"],
+	["Probability of introduction T11"],
+	["Probability of introduction T12"],
+	["Probability of introduction T13"],
+	["Probability of introduction T14"],
+	["Probability of introduction T15"],
+	["Probability of introduction T16"],
+	["Probability of introduction T17"],
+	["Probability of introduction T18"],
+	["Probability of introduction T19"],
+	["Probability of introduction T20"],
+	["Probability of introduction T21"],
+	["Probability of introduction T22"],
+	["Probability of introduction T23"],
+	["Probability of introduction T24"],
+	["Probability of introduction T25"],
+	["Probability of introduction T26"]
+		// var years = [
+	// 	"1993", 
+	// 	"1994", 
+	// 	"1995", 
+	// 	"1996", 
+	// 	"1997", 
+	// 	"1998", 
+	// 	"1999", 
+	// 	"2000",
+	// 	"2001", 
+	// 	"2002",
+	// 	"2003", 
+	// 	"2004", 
+	// 	"2005", 
+	// 	"2006", 
+	// 	"2007", 
+	// 	"2008",
+	// 	"2009",
+	// 	"2010",
+	// 	"2011",
+	// 	"2012", 
+	// 	"2013", 
+	// 	"2014", 
+	// 	"2015", 
+	// 	"2016", 
+	// 	"2017", 
+	// 	"2018"
+	// 	];
+];
+
+function filterBy(timestep) {
+	var filters = ['match', ['get', timesteps]].concat(timestep);
+	map.setFilter('pandemic_output', filters);
+	// Set the label to the month
+	document.getElementById('timestep').innerText = timestep;
+}
+// console.log(filters);
+
 	map.on('load', function () {
-
-		map.on('mouseleave', 'case-studies', function () {
-			map.getCanvas().style.cursor = '';
-		});
-
-		map.on('style.load', function () {
-		  // Triggered when `setStyle` is called.
-		  addDataLayer();
-		});
-
 		d3.json(
             'https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/pandemic_output.geojson',
             function(err, data) {
-                if (err) throw err;
+				if (err) throw err;
+                // Create a year property value based on timestep
+				// used to filter against.
+				data.features = data.features.map(function(d) {
+					
+					document.getElementById('slider').addEventListener('input', function(e) {
+						// var timestep = parseInt(e.target.value)
+						for (var i = 0; i < 27; i++) {
+						// console.log(timestep);
+						d.properties.timesteps = timesteps
+						// console.log(d.properties.timesteps )
 
-                // Create a month property value based on time
-                // used to filter against.
-                data.features = data.features.map(function(d) {
-					var year = new d.properties;
-					console.error(year);
-                    return d;
-                });
+						var id = JSON.stringify(timesteps[i]);
+						var id_step  = id.slice(31,33).replace(/\"/g, "");
+						// console.log(id_step);
+						// n = 30;
+						// var timestep =  
+						// d.properties.id_step =  id_step;
+						// console.log(d.properties);
+						// return timestep;
+					}
+					// timestep);
 
-                map.addSource('pandemic_output', {
-                    'type': 'geojson',
-                    data: data
-                });
+                        if (map.getLayer("pandemic_output")) {
+                            map.removeLayer("pandemic_output");
+                        };
 
-                map.addLayer({
-					'id': 'pandemic_output',
-						'type': 'fill',
-						'source': 'pandemic_output',
-						'layout': {},
-						'paint': {
-							'fill-color': {
-								property: 'V2', 
-								stops: [
-								[0, '#0D0887'],	
-								[0.1, '#42049E'], 
-								[0.2, '#6A00A8'],	
-								[0.3, '#900DA4'],
-								[0.4, '#B12A90'], 
-								[0.5, '#CC4678'],	
-								[0.6, '#E16462'], 
-								[0.7, '#F1844B'],
-								[0.8, '#FCA636'], 
-								[0.9, '#FCCE25'],	
-								[1, '#F0F921']
-							]
-						}, 
-						'fill-opacity': 0.6,
-						// 'fill-outline-color': {
-						// 			property: 'V3', 
-						// 			stops: [
-						// 				[0, '#0000FF'], 
-						// 				[1, '#FF0000']]
-						// 			}
-							},
-                });
+                        if (map.getSource("pandemic")) {
+                            map.removeSource("pandemic");
+						};
+						map.addSource('pandemic', {
+							'type': 'geojson',
+							data: d
+						});
+						// timesteps = JSON.stringify(timesteps);
+						// console.log(JSON.stringify(timesteps));
+						// var expression = ['match', ['get', timesteps]];
+						
+						// // Last value is the default, used where there is no data
+						// expression.push('rgba(0,0,0,0)');
+						timestep = [].concat.apply([], timesteps);
+						console.log( timestep);
+						
+						// year_step = console.log(JSON.stringify(year));
+						// ].concat.apply([], timesteps
 
-               
-                // Set filter to first month of the year
-                // 0 = January
-                filterBy(0);
-
-                document
-                    .getElementById('slider')
-                    .addEventListener('input', function(e) {
-                        var year = parseInt(e.target.value, 10);
-                        filterBy(year);
-                    });
-            }
-        );
-			// map.addSource('pandemic_output', {
-			// 'type': 'geojson',
-			// data: 'https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/pandemic_output.geojson'
-			// });
-
-			// map.addSource('orig_pandemic_data', {
-			// 	type: 'geojson',	
-			// 	data: 'https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/orig_pandemic_data.geojson'
-			// });
-		
-
-			// map.addLayer({
-			// 	'id': 'pandemic_output',
-			// 	'type': 'fill',
-			// 	'source': 'pandemic_output',
-			// 	'layout': {},
-			// 	'paint': {
-			// 		'fill-color': {
-			// 			property: 'V2', 
-			// 			stops: [
-			// 			[0, '#0D0887'],	
-			// 			[0.1, '#42049E'], 
-			// 			[0.2, '#6A00A8'],	
-			// 			[0.3, '#900DA4'],
-			// 			[0.4, '#B12A90'], 
-			// 			[0.5, '#CC4678'],	
-			// 			[0.6, '#E16462'], 
-			// 			[0.7, '#F1844B'],
-			// 			[0.8, '#FCA636'], 
-			// 			[0.9, '#FCCE25'],	
-			// 			[1, '#F0F921']
-			// 		]
-			// 	}, 
-			// 	'fill-opacity': 0.6,
-			// 	// 'fill-outline-color': {
-			// 	// 			property: 'V3', 
-			// 	// 			stops: [
-			// 	// 				[0, '#0000FF'], 
-			// 	// 				[1, '#FF0000']]
-			// 	// 			}
-			// 		},
-			// 	});
+						map.addLayer({
+							'id': 'pandemic_output',
+								'type': 'fill',
+								'source': 'pandemic',
+								'layout': {},
+								'paint': {
+									'fill-color': {
+										// expression
+										// property: ['match', ['get', timestep ]], 
+										stops: [
+										[0, '#0D0887'],	
+										[0.1, '#42049E'], 
+										[0.2, '#6A00A8'],	
+										[0.3, '#900DA4'],
+										[0.4, '#B12A90'], 
+										[0.5, '#CC4678'],	
+										[0.6, '#E16462'], 
+										[0.7, '#F1844B'],
+										[0.8, '#FCA636'], 
+										[0.9, '#FCCE25'],	
+										[1, '#F0F921']
+									]
+								}, 
+								'fill-opacity': 0.6,
+									},
+						});
+                        // update text in the UI
+                      });
+						return  d;
+				})
+				// document.getElementById('timesteps').innerText = timesteps;
 		
 			  // Add a source and layer displaying a point which will be animated along a route.
 			  map.addSource('route', {
@@ -587,5 +582,6 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3BhY2V0aW1lLWVjb2xvZ3kiLCJhIjoiY2s3bHlmZjNjM
 
 
 	
+			}
+		);
     });
-    // })
