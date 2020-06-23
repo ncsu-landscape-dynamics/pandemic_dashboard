@@ -38,7 +38,7 @@ nav, .page-footer, .dropdown-menu, .dropdown-menu a, .dropdown-menu a:hover {
 }
 
 .footer-copyright {
-font-size:0.8rem;
+font-sie:0.8rem;
 }
 
 
@@ -78,8 +78,8 @@ font-size:0.8rem;
     margin-left: 20px;
     color: white; 
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.40);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+    /* background-color: rgba(0, 0, 0, 0.40); */
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20); */
     border-radius: 5px;
     padding: 10px;
     opacity: 80%;
@@ -88,7 +88,6 @@ font-size:0.8rem;
     right: 10px;    
     z-index: 1;
     margin-left: 20px;
-    color: white;
   }
 /* 
   .row {
@@ -100,8 +99,8 @@ font-size:0.8rem;
     background: linear-gradient(to right, #e3ea09, #1f1033);
     margin-left: 10px;
     width: 340px;
-    /* left: 10; 
-  }*/
+    /* left: 10; */
+  /* } */
 
   .label {
     width: 110%;
@@ -112,12 +111,13 @@ font-size:0.8rem;
     color:#fff;
     font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
     cursor: pointer;
-  } */
+  } 
      
 .legend h4 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
   font-weight: bold;
   font-size: 18px;
+  color: white; 
 }
   
 .legend div span {
@@ -126,6 +126,7 @@ font-size:0.8rem;
   height: 10px;
   margin-right: 5px;
   width: 10px;
+  color: white; 
 }
 
 

@@ -13,7 +13,7 @@ var map = new mapboxgl.Map({
 	});
 
 
-	map.setMaxBounds(map.getBounds());
+	// map.setMaxBounds(map.getBounds());
 	var Draw = new MapboxDraw();
 	map.addControl(Draw, 'top-right');
 	
@@ -214,34 +214,34 @@ var map = new mapboxgl.Map({
 
 
 // var timesteps = [
-// 		// var years = [
-// 	// 	"1993", ["Probability of introduction T0"],
-// 	// 	"1994", ["Probability of introduction T1"],
-// 	// 	"1995", // ["Probability of introduction T10"],,
-// 	// 	"1996", // ["Probability of introduction T3"],
-// 	// 	"1997", // ["Probability of introduction T4"],
-// 	// 	"1998", // ["Probability of introduction T5"],
-// 	// 	"1999", // ["Probability of introduction T6"],
-// 	// 	"2000", // ["Probability of introduction T7"],
-// 	// 	"2001", // ["Probability of introduction T8"],
-// 	// 	"2002", // ["Probability of introduction T9"],
-// 	// 	"2003", // ["Probability of introduction T10"],
-// 	// 	"2004", // ["Probability of introduction T11"],,
-// 	// 	"2005", // ["Probability of introduction T12"],,
-// 	// 	"2006", // ["Probability of introduction T13"],,
-// 	// 	"2007", // ["Probability of introduction T14"],,
-// 	// 	"2008", // ["Probability of introduction T15"],,
-// 	// 	"2009", // ["Probability of introduction T16"],,
-// 	// 	"2010", // ["Probability of introduction T17"],,
-// 	// 	"2011", // ["Probability of introduction T18"],,
-// 	// 	"2012", // ["Probability of introduction T19"],,
-// 	// 	"2013", // ["Probability of introduction T20"],,
-// 	// 	"2014", // ["Probability of introduction T21"],,
-// 	// 	"2015", // ["Probability of introduction T22"],,
-// 	// 	"2016", // ["Probability of introduction T23"],,
-// 	// 	"2017", // ["Probability of introduction T24"],,
-// 	// 	"2018", // ["Probability of introduction T25"],,
-// 	// 	];
+		var years = [
+		"1993", //["Probability of introduction T0"],
+		"1994", //["Probability of introduction T1"],
+		"1995", // ["Probability of introduction T10"],,
+		"1996", // ["Probability of introduction T3"],
+		"1997", // ["Probability of introduction T4"],
+		"1998", // ["Probability of introduction T5"],
+		"1999", // ["Probability of introduction T6"],
+		"2000", // ["Probability of introduction T7"],
+		"2001", // ["Probability of introduction T8"],
+		"2002", // ["Probability of introduction T9"],
+		"2003", // ["Probability of introduction T10"],
+		"2004", // ["Probability of introduction T11"],,
+		"2005", // ["Probability of introduction T12"],,
+		"2006", // ["Probability of introduction T13"],,
+		"2007", // ["Probability of introduction T14"],,
+		"2008", // ["Probability of introduction T15"],,
+		"2009", // ["Probability of introduction T16"],,
+		"2010", // ["Probability of introduction T17"],,
+		"2011", // ["Probability of introduction T18"],,
+		"2012", // ["Probability of introduction T19"],,
+		"2013", // ["Probability of introduction T20"],,
+		"2014", // ["Probability of introduction T21"],,
+		"2015", // ["Probability of introduction T22"],,
+		"2016", // ["Probability of introduction T23"],,
+		"2017", // ["Probability of introduction T24"],,
+		"2018", // ["Probability of introduction T25"],,
+		];
 // ];
 
 
@@ -250,7 +250,8 @@ var map = new mapboxgl.Map({
 			
 
 			document.getElementById('slider').addEventListener('input', function(e) {
-			  var year = parseInt(e.target.value);
+				var year = parseInt(e.target.value);
+				// console.log(year);
 			  var geojsonSource = "https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/Outputs/pandemic_output_prob" + year + ".geojson";
 				d3.json(
 					geojsonSource, //the geoJSON data file
@@ -266,7 +267,7 @@ var map = new mapboxgl.Map({
 							
 								probIntro = o[prop]   ;
 								 d.properties.probIntro = probIntro
-								 console.log( probIntro);
+								//  console.log( probIntro);
 								 return d;
 								}); 
 
@@ -291,38 +292,40 @@ var map = new mapboxgl.Map({
 									'layout': {},
 									'paint': {
 										'fill-color': [
-											"case", 
-											['==', ['get', "probIntro"], 0], '#0D0887',	
-											['>=', ['get', "probIntro"], 0.1], '#42049E', 
-											['>=', ['get', "probIntro"], 0.2], '#6A00A8',	
-											['>=', ['get', "probIntro"], 0.3], '#900DA4',			
-											['>=', ['get', "probIntro"], 0.4], '#B12A90', 
-											['>=', ['get', "probIntro"], 0.5], '#CC4678',	
-											['>=', ['get', "probIntro"], 0.6], '#E16462', 
-											['>=', ['get', "probIntro"], 0.7], '#F1844B',		
-											['>=', ['get', "probIntro"], 0.8], '#FCA636', 
-											['>=', ['get', "probIntro"], 0.9], '#FCCE25',	
-											['==', ['get', "probIntro"], 1], '#F0F921',
-											'#F0F921'
+										'interpolate',
+										['linear'],
+										['get', 'probIntro'],
+											0, '#0D0887',	
+											0.1, '#42049E', 
+											0.2, '#6A00A8',	
+											0.3, '#900DA4',			
+											0.4, '#B12A90', 
+											0.5, '#CC4678',	
+											0.6, '#E16462', 
+											0.7, '#F1844B',		
+											0.8, '#FCA636', 
+											0.9, '#FCCE25',	
+											1, '#F0F921',
 										],
-										//   'fill-outline-color': [
-										// 	"case", 
-										// 	['==', ['get', "probIntro"], 0], '#0D0887',	
-										// 	['>=', ['get', "probIntro"], 0.1], '#42049E', 
-										// 	['>=', ['get', "probIntro"], 0.2], '#6A00A8',	
-										// 	['>=', ['get', "probIntro"], 0.3], '#900DA4',			
-										// 	['>=', ['get', "probIntro"], 0.4], '#B12A90', 
-										// 	['>=', ['get', "probIntro"], 0.5], '#CC4678',	
-										// 	['>=', ['get', "probIntro"], 0.6], '#E16462', 
-										// 	['>=', ['get', "probIntro"], 0.7], '#F1844B',		
-										// 	['>=', ['get', "probIntro"], 0.8], '#FCA636', 
-										// 	['>=', ['get', "probIntro"], 0.9], '#FCCE25',	
-										// 	['==', ['get', "probIntro"], 1], '#F0F921',
-										// 	'#F0F921'
-										// ],
-										  'fill-opacity': 0.3
-									},
-									// 'filter': ['==', 'participant', 8]
+										'fill-outline-color': [
+											'interpolate',
+										['linear'],
+										['get', 'probIntro'],
+											0, '#0D0887',	
+											0.1, '#42049E', 
+											0.2, '#6A00A8',	
+											0.3, '#900DA4',			
+											0.4, '#B12A90', 
+											0.5, '#CC4678',	
+											0.6, '#E16462', 
+											0.7, '#F1844B',		
+											0.8, '#FCA636', 
+											0.9, '#FCCE25',	
+											1, '#F0F921',
+										],
+										
+										'fill-opacity': 0.5
+										}
 								});
 								// Change it back to a pointer when it leaves.
 								map.on('mouseleave', 'overlay', function () {
@@ -586,6 +589,112 @@ var map = new mapboxgl.Map({
 
 							// Start the animation.
 							animate(counter);
+
+
+
+							// // var mySlider = new Slider('#date_slider');
+							// var margin = { top: 50, right: 10, bottom: 0, left: 10 },
+							// 	width = document.getElementById('slider').clientWidth ,
+							// 	height = 50 - margin.top - margin.bottom;
+
+							// var moving = false;
+							// var currentValue = 0;
+							// var targetValue = width;
+							// console.log(targetValue);
+							// var slider = d3.select("#slider")
+							// 		.append("svg")
+							// 		.attr("width", width + margin.left + margin.right)
+							// 		.attr("height", height + margin.top + margin.bottom)
+							// 		.attr("transform", "translate(" + 0 + "," + height + ")");
+
+							// 	var playButton = d3.select("#play-button");
+							// 	var x = d3.scaleLinear()//建立映射关系
+							// 		.domain([0, years.length - 1])
+							// 		.range([0, targetValue])
+							// 		.clamp(true);
+
+							// 	slider.append("line")
+							// 		.attr("class", "track")
+							// 		.attr("x1", x.range()[0])
+							// 		.attr("x2", x.range()[1])
+							// 		.select(function () { return this.parentNode.appendChild(this.cloneNode(true)); })
+							// 		.attr("class", "track-inset")
+							// 		.select(function () { return this.parentNode.appendChild(this.cloneNode(true)); })
+							// 		.attr("class", "track-overlay")
+							// 		.call(d3.drag()
+							// 			.on("start.interrupt", function () { slider.interrupt(); })
+							// 			.on("start drag", function () {
+							// 				currentValue = d3.event.x;
+							// 				console.log(currentValue)
+							// 				update(x.invert(currentValue));
+							// 			})
+							// 		);
+
+
+							// slider.insert("g", ".track-overlay")
+							// 	.attr("class", "ticks")
+							// 	.attr("transform", "translate(0," + 18 + ")")
+							// 	.selectAll("text")
+							// 	.data(x.ticks(10))
+							// 	.enter()
+							// 	.append("text")
+							// 	.attr("x", x)
+							// 	.attr("y", 10)
+							// 	.attr("text-anchor", "middle")
+							// 	.text(function (d) {
+							// 		return (d + 1);
+							// 	});
+							// 	var handle = slider.insert("circle", ".track-overlay")
+							// 		.attr("class", "handle")
+							// 		.attr("r", 9);
+
+							// 	var labels = slider.append("g").append("text")
+							// 		.attr("class", "labels")
+							// 		.attr("text-anchor", "middle")
+							// 		.text(years[0])
+							// 		.attr("transform", "translate(0," + (-15) + ")")
+							// 		.style("fill", "#4F442B")
+
+							// 	playButton
+							// 		.on("click", function () {
+							// 			var button = d3.select(this);
+							// 			if (button.text() == "Pause") {
+							// 				moving = false;
+							// 				clearInterval(timer);
+							// 				// timer = 0;
+							// 				button.text("Play");
+							// 			} else {
+							// 				moving = true;
+							// 				timer = setInterval(step, 1000);//调用interval周期函数
+							// 				button.text("Pause");
+							// 			}
+							// 			console.log("Slider moving: " + moving);//判定是否在运动
+							// 		})
+
+							// 	function step() {
+							// 		update(x.invert(currentValue));
+							// 		currentValue = currentValue + (targetValue / (year.length));
+							// 		if (currentValue > targetValue) {
+							// 			moving = false;
+							// 			currentValue = 0;
+							// 			clearInterval(timer);
+							// 			// timer = 0;
+							// 			playButton.text("Play");
+							// 			// console.log("Slider moving: " + moving);
+							// 		}
+							// 	}
+							// 	function update(year) {
+							// 		var year = parseInt(year, 10);
+							// 		console.log(year)
+							// 		handle.attr("cx", x(year));
+				
+							// 		labels
+							// 			.attr("x", x(year))
+							// 			.text(years[year]);
+				
+							// 		filterBy(year);
+							// 	}
+
 
 
 											})

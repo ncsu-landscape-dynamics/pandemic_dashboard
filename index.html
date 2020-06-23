@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,115 +22,99 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.css' type='text/css' />
 
-  <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','js/google-analytics.js','ga');
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+	  /* body { 
+		  min-height: 100%;
+background-color: #404043;
+position: static;
+	  }
+	  #map { 
+		  position:absolute; 
+		  top:0%; 
+		  min-width: 100%; 
+		  min-height: 100%
+		  bottom:0;
+	  } */
+	  .map-overlay {
+		  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		  position: absolute;
+		  width: 25%;
+		  top: 0;
+		  left: 0;
+		  padding: 10px;
+	  }
 
-      ga('create', 'UA-83862026-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-    
-    
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <style>
-		/* body { 
-			min-height: 100%;
-  background-color: #404043;
-  position: static;
-		}
-		#map { 
-			position:absolute; 
-			top:0%; 
-			min-width: 100%; 
-			min-height: 100%
-			bottom:0;
-		} */
-        .map-overlay {
-            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            position: absolute;
-            width: 25%;
-            top: 0;
-            left: 0;
-            padding: 10px;
-        }
+	  .map-overlay .map-overlay-inner {
+		  background-color: #fff;
+		  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+		  border-radius: 3px;
+		  padding: 10px;
+		  margin-bottom: 10px;
+	  }
 
-        .map-overlay .map-overlay-inner {
-            background-color: #fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
-            border-radius: 3px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
+	  .map-overlay h2 {
+		  line-height: 24px;
+		  display: block;
+		  margin: 0 0 10px;
+	  }
 
-        .map-overlay h2 {
-            line-height: 24px;
-            display: block;
-            margin: 0 0 10px;
-        }
+	  .map-overlay .legend .bar {
+		  height: 10px;
+		  width: 100%;
+		  background: linear-gradient(to right, #FCA107, #7F3121);
+	  }
 
-        .map-overlay .legend .bar {
-            height: 10px;
-            width: 100%;
-            background: linear-gradient(to right, #FCA107, #7F3121);
-        }
-
-        .map-overlay #slider {
-            background-color: transparent;
-            display: inline-block;
-            width: 100%;
-            position: relative;
-            margin: 10px auto;
-            cursor: ew-resize;
-        }
-    </style>
+	  .map-overlay #slider {
+		  background-color: transparent;
+		  display: inline-block;
+		  width: 100%;
+		  position: relative;
+		  margin: 10px auto;
+		  cursor: ew-resize;
+	  }
+  </style>
 
 
 </head>
 <body>
 <div id="map" style = "width : 100%; height : 100%" ></div>
-	<div class='overlay'>
-	
-		<div class='overlay-inner'>
-			<h4 style="color: #fff">Year: <label id='active-year' style="color: #fff">1993</label></h4>
-			<!-- <h4 id='active-year' style="color: #fff"> Year: 1993</h4> -->
-			<label id='year'></label>
-			<input id='slider' type='range' min='1993' max='2018' step='1' value='0' /><br><br>
-			<button style="color: black;  border-radius: 15px;
-			background-color: #fff; border: 4px lightslategray; " id="replay">Animate</button>
-			<!-- <tr>
-				<td class="overlay-inner"><label id="probability"></label></td>
-			</tr> -->
-			<div  id='legend' class='overlay-inner'>
-				<br>
-				  <div class='bar'></div>
-				  <!-- <div style = "color:white">Magnitude(m)</div> -->
-			  </div>
-		</div>
-	</div>
+  <div class='overlay'>
+  
+	  <div class='overlay-inner'>
+		  <h4 style="color: #fff">Year: <label id='active-year' style="color: #fff">1993</label></h4>
+		  <!-- <h4 id='active-year' style="color: #fff"> Year: 1993</h4> -->
+		  <label id='year'></label>
+		  <input id='slider' type='range' min='1993' max='2018' step='1' value='0' style="width: 300px;"/><br><br>
+		  <button style="color: black;  border-radius: 15px;
+		  background-color: #fff; border: 4px lightslategray; " id="replay">Play</button>
+		  <!-- <tr>
+			  <td class="overlay-inner"><label id="probability"></label></td>
+		  </tr> -->
+		
+	  </div>
+  </div>
 
- 
-		<div id='legend' class='legend'>
-			 
-	<h4> Invasion <br>  Probability </h4>	
 
-	
-	<!-- <div><span class='bar'> </span> -->
-			<div><span style="background-color: #F0F921"></span>1.0</div>
-			<div><span style="background-color: #FCCE25"></span>0.9</div>
-			<div><span style="background-color: #FCA636"></span>0.8</div>
-			<div><span style="background-color: #F1844B"></span>0.7</div>
-			<div><span style="background-color: #E16462"></span>0.6</div>
-			<div><span style="background-color: #CC4678"></span>0.5</div>
-			<div><span style="background-color: #B12A90"></span>0.4</div>
-			<div><span style="background-color: #900DA4"></span>0.3</div>
-			<div><span style="background-color: #6A00A8"></span>0.2</div>
-			<div><span style="background-color: #42049E"></span>0.1</div>
-			<div><span style="background-color: #0D0887"></span>0.0</div> 
-			</div> 
-	
+	  <div id='legend' style="color: #fff" class='legend'>
+		   
+  <h4> Invasion <br>  Probability </h4>	
+
+  
+  <!-- <div><span class='bar'> </span> -->
+		  <div><span style="background-color: #F0F921"></span>1.0</div>
+		  <div><span style="background-color: #FCCE25"></span>0.9</div>
+		  <div><span style="background-color: #FCA636"></span>0.8</div>
+		  <div><span style="background-color: #F1844B"></span>0.7</div>
+		  <div><span style="background-color: #E16462"></span>0.6</div>
+		  <div><span style="background-color: #CC4678"></span>0.5</div>
+		  <div><span style="background-color: #B12A90"></span>0.4</div>
+		  <div><span style="background-color: #900DA4"></span>0.3</div>
+		  <div><span style="background-color: #6A00A8"></span>0.2</div>
+		  <div><span style="background-color: #42049E"></span>0.1</div>
+		  <div><span style="background-color: #0D0887"></span>0.0</div> 
+		  </div> 
+  
 <script src="js/dashboard.js"></script>
 <!-- <script src="js/test.js"></script> -->
 
