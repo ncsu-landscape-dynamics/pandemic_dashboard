@@ -266,7 +266,7 @@ var map = new mapboxgl.Map({
 							
 								probIntro = o[prop]   ;
 								 d.properties.probIntro = probIntro
-								 console.log( d);
+								 console.log( probIntro);
 								 return d;
 								}); 
 
@@ -337,7 +337,7 @@ var map = new mapboxgl.Map({
 								  
 							// console.log(probIntro );
 		
-						// });
+						});
 						// return  d;
 						// Add a source and layer displaying a point which will be animated along a route.
 							map.addSource('route', {
@@ -594,4 +594,4 @@ var map = new mapboxgl.Map({
 
 }
 );
-});
+// });
