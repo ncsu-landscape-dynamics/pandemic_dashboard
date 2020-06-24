@@ -54,8 +54,9 @@ font-sie:0.8rem;
 .overlay {
   position: absolute;
   top: 10px;
-  right: 50px;
-  
+  left: 20px;
+  text-align: center;
+
   }
     
 .overlay button {

@@ -51,22 +51,22 @@ function toggleSidebar(id) {
 // 	toggleSidebar('right');
 // // });
 
-var Draw = new MapboxDraw();
-map.addControl(Draw, 'top-right');
+// var Draw = new MapboxDraw();
+// map.addControl(Draw, 'top-right');
 
-map.on('draw.modechange', (e) => {
-	const data = Draw.getAll();
-	if (Draw.getMode() == 'draw_polygon') {
-	var pids = []
-	const lid = data.features[data.features.length - 1].id
-	data.features.forEach((f) => {
-		if (f.geometry.type === 'Polygon' && f.id !== lid) {
-		pids.push(f.id)
-		}
-	})
-	Draw.delete(pids)
-	}
-});
+// map.on('draw.modechange', (e) => {
+// 	const data = Draw.getAll();
+// 	if (Draw.getMode() == 'draw_polygon') {
+// 	var pids = []
+// 	const lid = data.features[data.features.length - 1].id
+// 	data.features.forEach((f) => {
+// 		if (f.geometry.type === 'Polygon' && f.id !== lid) {
+// 		pids.push(f.id)
+// 		}
+// 	})
+// 	Draw.delete(pids)
+// 	}
+// });
 
 	
 // var hoveredStateId = null;
