@@ -1,10 +1,10 @@
 {
   "name": "basic",
   "version": "0.0.0",
-  "homepage": "https://ncsu-landscape-dynamics.github.io/pandemic_dashboard/",
+  "homepage": "https://ncsu-landscape-dynamics.github.io/pandemic_dashboard",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "predeploy": "npm run start",
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start"
   },
   "devDependencies": {
