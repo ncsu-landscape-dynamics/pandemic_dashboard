@@ -256,7 +256,7 @@ class App extends React.Component {
     return (
       <div>
         <div ref={this.mapRef} className="absolute top right left bottom" />
-        <div  className="range ctxt-bold color-white relative top left ml12 mt12 border border--2 border--white bg-transparent  shadow-darken10 z1 ">
+        <div  className="toggle-group absolute top left ml12 mt12 border border--2 border--white bg-transparent  shadow-darken10 z1 ">
           {options.map(renderOptions)}
         </div>
         <div  className=" bg-transparent color-white absolute bottom right mr12 mb24 py12 px12 border--white round border border--2 shadow-darken10 z1 wmax160">
