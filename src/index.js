@@ -172,7 +172,7 @@ class Application extends React.Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapRef.current,
-      style: 'mapbox://styles/gcmillar/ckc13kzd9295o1ipb52ltr5qg',
+      style: 'mapbox://styles/gcmillar/ckc13n1qe3rgx1ilchl8u3xax',
       // style: 'mapbox://styles/mapbox/dark-v10',
       center: [12, 26],
       zoom: 2,
@@ -233,7 +233,7 @@ class Application extends React.Component {
     return (
       <div>
         <div ref={this.mapRef} className="absolute top right left bottom" />
-        <div  className="toggle-group ctxt-bold olor-white absolute top left ml12 mt12 border border--2 border--white bg-transparent  shadow-darken10 z1">
+        <div  className="range ctxt-bold color-white relative top left ml12 mt12 border border--2 border--white bg-transparent  shadow-darken10 z1 ">
           {options.map(renderOptions)}
         </div>
         <div  className=" bg-transparent color-white absolute bottom right mr12 mb24 py12 px12 border--white round border border--2 shadow-darken10 z1 wmax160">
