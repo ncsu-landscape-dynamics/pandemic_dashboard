@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pandemic_dashboard/static/css/main.050523cc.chunk.css",
+    "main.js": "/pandemic_dashboard/static/js/main.500b65a6.chunk.js",
+    "main.js.map": "/pandemic_dashboard/static/js/main.500b65a6.chunk.js.map",
+    "runtime-main.js": "/pandemic_dashboard/static/js/runtime-main.ed90702f.js",
+    "runtime-main.js.map": "/pandemic_dashboard/static/js/runtime-main.ed90702f.js.map",
+    "static/js/2.54eab1ce.chunk.js": "/pandemic_dashboard/static/js/2.54eab1ce.chunk.js",
+    "static/js/2.54eab1ce.chunk.js.map": "/pandemic_dashboard/static/js/2.54eab1ce.chunk.js.map",
+    "index.html": "/pandemic_dashboard/index.html",
+    "precache-manifest.d66e0f3fb91c6679797f5dbd41ab6756.js": "/pandemic_dashboard/precache-manifest.d66e0f3fb91c6679797f5dbd41ab6756.js",
+    "service-worker.js": "/pandemic_dashboard/service-worker.js",
+    "static/css/main.050523cc.chunk.css.map": "/pandemic_dashboard/static/css/main.050523cc.chunk.css.map",
+    "static/js/2.54eab1ce.chunk.js.LICENSE.txt": "/pandemic_dashboard/static/js/2.54eab1ce.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/pandemic_dashboard/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ed90702f.js",
+    "static/js/2.54eab1ce.chunk.js",
+    "static/css/main.050523cc.chunk.css",
+    "static/js/main.500b65a6.chunk.js"
+  ]
+}
