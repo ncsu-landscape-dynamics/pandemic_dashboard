@@ -236,9 +236,9 @@ class App extends React.Component {
     const { name, description, stops, property } = this.state.active;
     const renderLegendKeys = (stop, i) => {
       return (
-        <div key={i} className='txt-s'>
-          <span className='mr6 round-full w12 h12 inline-block align-middle' style={{ backgroundColor: stop[1] }} />
-          <span>{`${stop[0].toLocaleString()}`}</span>
+        <div key={i} className='txt-s '>
+          <span className=' round-full w12 h12 inline-block ' style={{ backgroundColor: stop[1] }} />
+          <span >{`${stop[0].toLocaleString()}`}</span>
         </div>
       );
     }
@@ -246,20 +246,21 @@ class App extends React.Component {
    
     const renderOptions = (option, i) => {
       return (
-        <label key={i} className="toggle-container">
-          <input onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
-          <div className="toggle txt-s color-white py3 toggle--active-white">{option.name}</div>
+        <label key={i} className="toggle-container  right  left px3 py3">
+          <input  onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
+          <div  className="toggle grid txt-s color-white right   left toggle--active-white">{option.name}</div>
         </label>
       );
     }
 
     return (
       <div>
-        <div ref={this.mapRef} className="absolute top right left bottom" />
-        <div  className="toggle-group ctxt-bold color-white absolute top left ml12 mt12 border border--2 border--white bg-transparent  shadow-darken10 z1 ">
+        <div ref={this.mapRef} className="absolute top right left bottom align-middle grid" />
+        <label className="ctxt-bold color-white absolute mt6 ml12" >Select Year:</label>
+        <div  className="toggle-group grid ctxt-bold color-white absolute mt36 ml12 border border--2 border--white bg-transparent  shadow-darken10  absolute  ">
           {options.map(renderOptions)}
         </div>
-        <div  className=" bg-transparent color-white absolute bottom right mr12 mb24 py12 px12 border--white round border border--2 shadow-darken10 z1 wmax180">
+        <div  className=" bg-transparent color-white absolute bottom right mr12 mb24 py12 px12 border--white round border border--2 round shadow-darken10 z1 ">
           <div className='mb6 color-white'>
             <h2 className="txt-bold txt-s block color-white">{name}</h2>
             <p className='txt-s color-white'>{description}</p>
