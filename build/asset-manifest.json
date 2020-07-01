@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/pandemic_dashboard/static/css/main.050523cc.chunk.css",
-    "main.js": "/pandemic_dashboard/static/js/main.7b62e7e5.chunk.js",
-    "main.js.map": "/pandemic_dashboard/static/js/main.7b62e7e5.chunk.js.map",
+    "main.js": "/pandemic_dashboard/static/js/main.4797b1f2.chunk.js",
+    "main.js.map": "/pandemic_dashboard/static/js/main.4797b1f2.chunk.js.map",
     "runtime-main.js": "/pandemic_dashboard/static/js/runtime-main.ed90702f.js",
     "runtime-main.js.map": "/pandemic_dashboard/static/js/runtime-main.ed90702f.js.map",
     "static/js/2.a5285061.chunk.js": "/pandemic_dashboard/static/js/2.a5285061.chunk.js",
     "static/js/2.a5285061.chunk.js.map": "/pandemic_dashboard/static/js/2.a5285061.chunk.js.map",
     "index.html": "/pandemic_dashboard/index.html",
-    "precache-manifest.4ced5e1bcc3d112f8da570b2bba582d1.js": "/pandemic_dashboard/precache-manifest.4ced5e1bcc3d112f8da570b2bba582d1.js",
+    "precache-manifest.17a30de8036f93ad9a5649f6c3c0f7a0.js": "/pandemic_dashboard/precache-manifest.17a30de8036f93ad9a5649f6c3c0f7a0.js",
     "service-worker.js": "/pandemic_dashboard/service-worker.js",
     "static/css/main.050523cc.chunk.css.map": "/pandemic_dashboard/static/css/main.050523cc.chunk.css.map",
     "static/js/2.a5285061.chunk.js.LICENSE.txt": "/pandemic_dashboard/static/js/2.a5285061.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/pandemic_dashboard/static/media/logo.5d5d9eef.svg"
+    "static/media/logo.svg": "/pandemic_dashboard/static/media/logo.1094cb6d.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ed90702f.js",
     "static/js/2.a5285061.chunk.js",
     "static/css/main.050523cc.chunk.css",
-    "static/js/main.7b62e7e5.chunk.js"
+    "static/js/main.4797b1f2.chunk.js"
   ]
 }
