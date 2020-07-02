@@ -3,6 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import mapboxgl from 'mapbox-gl'
 import data from './pandemic_output.json'
+import Tooltip from './components/tooltip'
+import ReactDOM from 'react-dom'
+
 
 
   // return (
@@ -47,132 +50,132 @@ var stops =  [
 ]
 const options = [{
   name: '1993',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T0',
   stops: stops
 }, {
   name: '1994',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T1',
   stops: stops
 }, {
   name: '1995',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T2',
   stops: stops
 }, {
   name: '1996',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T3',
   stops: stops
 }, {
   name: '1997',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T4',
   stops: stops
 }, {
   name: '1998',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T5',
   stops: stops
 }, {
   name: '1999',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T6',
   stops: stops
 }, {
   name: '2000',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T7',
   stops: stops
 }, {
   name: '2001',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T8',
   stops: stops
 }, {
   name: '2002',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T9',
   stops: stops
 }, {
   name: '2003',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T10',
   stops: stops
 }, {
   name: '2004',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T11',
   stops: stops
 }, {
   name: '2005',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T12',
   stops: stops
 }, {
   name: '2006',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T13',
   stops: stops
 }, {
   name: '2007',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T14',
   stops: stops
 }, {
   name: '2008',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T15',
   stops: stops
 }, {
   name: '2009',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T16',
   stops: stops
 }, {
   name: '2010',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T17',
   stops: stops
 }, {
   name: '2011',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T18',
   stops: stops
 }, {
   name: '2012',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T19',
   stops: stops
 }, {
   name: '2013',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T20',
   stops: stops
 }, {
   name: '2014',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T21',
   stops: stops
 }, {
   name: '2015',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T22',
   stops: stops
 }, {
   name: '2016',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T23',
   stops: stops
 }, {
   name: '2017',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T24',
   stops: stops
 }, {
   name: '2018',
-  description: 'Invasion Probability',
+  description: 'Introduction Probability',
   property: 'Probability of introduction T25',
   stops: stops
 }
@@ -181,6 +184,23 @@ const options = [{
 class App extends React.Component {
   mapRef = React.createRef();
   map;
+  tooltipContainer;
+
+  setTooltip(features) {
+    if (features.length) {
+      ReactDOM.render(
+        React.createElement(
+          Tooltip, {
+            features
+          }
+        ),
+        this.tooltipContainer
+      );
+    } else {
+      ReactDOM.unmountComponentAtNode(this.tooltipContainer);
+    }
+  }
+
 
   constructor(props: Props) {
     super(props);
@@ -194,6 +214,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.tooltipContainer = document.createElement('div');
     this.map = new mapboxgl.Map({
       container: this.mapRef.current,
       style: 'mapbox://styles/gcmillar/ckc13n1qe3rgx1ilchl8u3xax',
@@ -215,6 +236,59 @@ class App extends React.Component {
       },'country-label'); // ID metches `mapbox/streets-v9`
 
       this.setFill();
+
+    
+
+   
+    });
+
+  // componentDidMount() {
+
+    // const map = new mapboxgl.Map({
+    //   container: this.mapRef.current,
+    //   style: 'mapbox://styles/gcmillar/ckc13n1qe3rgx1ilchl8u3xax',
+    //   // style: 'mapbox://styles/mapbox/dark-v10',
+    //   center: [12, 26],
+    //   zoom: 1.5,
+    // });
+    
+    const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
+      offset: [-120, 0]
+    }).setLngLat([0,0]).addTo(this.map);
+
+    var popup = new mapboxgl.Popup({
+      // className: "gray-dark",
+      closeButton: false,
+      closeOnClick: false
+      });
+      // txt-code--dark
+
+      this.map.on('mouseenter', 'countries', (e) => {
+        this.map.getCanvas().style.cursor =  'pointer';
+        // popup.remove();
+      });
+    this.map.on('click', 'countries', (e) => {
+      const features = this.map.queryRenderedFeatures(e.point, {
+       
+      });
+      // console.log(features[0].properties);
+      const { name, description, stops, property } = this.state.active;
+      // console.log(property);
+      const prob_intro = features[0].properties[property]
+      // this.map.getCanvas().style.cursor =  'pointer';
+      this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+      popup 
+      .setLngLat(e.lngLat)
+       .setHTML('<b><u>Country Information' + '</b></u>' +
+          '<ul>' +
+          '<li><b>Name: </b>' + features[0].properties["NAME"] + '</li>' +
+          '<li><b>Introduction Probability: </b>' + prob_intro  + '</li>' +
+          '</ul>')
+      .addTo(this.map);
+    });
+    this.map.on('mouseleave', 'countries', (e) => {
+      this.map.getCanvas().style.cursor =  '';
+      popup.remove();
     });
   }
 
