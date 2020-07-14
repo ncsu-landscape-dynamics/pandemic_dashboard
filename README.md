@@ -1,6 +1,6 @@
 # Pandemic Dashboard
 
----
+
 
 ![Demo gif](/example.gif)
 
