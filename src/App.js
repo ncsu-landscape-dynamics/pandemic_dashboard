@@ -6,31 +6,6 @@ import data from './pandemic_output.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
 
-
-
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
-
-
-
-    
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw';
 
 
@@ -233,49 +208,29 @@ class App extends React.Component {
         id: 'countries',
         type: 'fill',
         source: 'countries'
-      },'country-label'); // ID metches `mapbox/streets-v9`
+      },'country-label'); 
 
       this.setFill();
-
-    
-
-   
     });
-
-  // componentDidMount() {
-
-    // const map = new mapboxgl.Map({
-    //   container: this.mapRef.current,
-    //   style: 'mapbox://styles/gcmillar/ckc13n1qe3rgx1ilchl8u3xax',
-    //   // style: 'mapbox://styles/mapbox/dark-v10',
-    //   center: [12, 26],
-    //   zoom: 1.5,
-    // });
     
     const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
       offset: [-120, 0]
     }).setLngLat([0,0]).addTo(this.map);
 
     var popup = new mapboxgl.Popup({
-      // className: "gray-dark",
       closeButton: false,
       closeOnClick: false
       });
-      // txt-code--dark
 
       this.map.on('mouseenter', 'countries', (e) => {
         this.map.getCanvas().style.cursor =  'pointer';
-        // popup.remove();
       });
-    this.map.on('click', 'countries', (e) => {
-      const features = this.map.queryRenderedFeatures(e.point, {
+      this.map.on('click', 'countries', (e) => {
+        const features = this.map.queryRenderedFeatures(e.point, {
        
       });
-      // console.log(features[0].properties);
       const { name, description, stops, property } = this.state.active;
-      // console.log(property);
       const prob_intro = features[0].properties[property]
-      // this.map.getCanvas().style.cursor =  'pointer';
       this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
       popup 
       .setLngLat(e.lngLat)
@@ -330,7 +285,7 @@ class App extends React.Component {
     return (
       <div>
         <div ref={this.mapRef} className="absolute top right left bottom align-middle grid" />
-        <label className="ctxt-bold color-white absolute mt6 ml12" >Select Year:</label>
+        <label className="ctxt-bold color-white absolute mt6 ml12" ><b>Select Year:</b></label>
         <div  className="toggle-group grid ctxt-bold color-white absolute mt36 ml12 border border--2 border--white bg-transparent  shadow-darken10  absolute  ">
           {options.map(renderOptions)}
         </div>
