@@ -16,6 +16,7 @@
     "d3-scale": "^1.0.7",
     "deck.gl": "^8.2.2",
     "mapbox-gl": "^1.11.1",
+    "mapbox-gl-controls": "^1.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-map-gl": "^5.2.7",
