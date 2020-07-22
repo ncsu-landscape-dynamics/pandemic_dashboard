@@ -662,14 +662,16 @@ a.mapboxgl-ctrl-logo {
 .w1400{width:1400px!important}
 .w50{width:50px!important}
 .mb46{margin-bottom:46px!important}
+.ml42{margin-left:46px!important}
 .grid-2 {
   grid-area: footer;
   padding: 0;
   grid-row: 6 / -1;
   grid-row-gap: 0px; 
   grid-column-gap: 0px; 
-  margin-left: 7.5%;
+  margin-left: 2.5%;
   margin-right: 10%;
+  /* padding-left: 5%; */
   margin-bottom: 0.2%;
   position:relative;
   /* text-align: center; */
@@ -679,11 +681,11 @@ a.mapboxgl-ctrl-logo {
 }
 .grid-3 {
   grid-area:   footer;
-  margin-right: 7.5%;
-  margin-right: 1%;
-  margin-bottom: 3%;
-  position:relative;
-  padding: 5;
+  margin-right: 0.6%;
+  margin-bottom: 2.8%;
+  /* position:relative; */
+  /* padding: 5 5 5 5; */
+  /* grid- */
   /* text-align: center; */
    align-content: left;
   /* grid-auto-columns: 00px; */ 

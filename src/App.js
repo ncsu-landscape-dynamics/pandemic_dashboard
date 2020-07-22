@@ -1307,7 +1307,7 @@ class App extends React.Component {
       center: [-122.412946,37.8],
       // zoom: 1.5,
       zoom: 11.5,
-      // pitch: 60
+      pitch: 60
       });
           /* Zoom */
       this.map.addControl(new ZoomControl(), 'top-right');
@@ -1665,7 +1665,7 @@ class App extends React.Component {
    
     const renderOptions = (option, i) => {
       return (
-        <label key={i} className="toggle-container pl0 w50 maxw60 pa0">
+        <label key={i} className="toggle-container w50 maxw60 ">
           <input  onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
           <div  className="toggle txt-s color-white toggle--active-white maxw60 w50">{option.name}</div>
         </label>
@@ -1676,11 +1676,11 @@ class App extends React.Component {
       
       <div>
         <div ref={this.mapRef} width='100%' height='100%' className="absolute top right left bottom align-middle grid" />
-        <label className=" align-middle bottom  mb3 ml36 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken10 " ><b>Select Year:</b></label>
-        <div className="toggle-group grid-2 grid align-middle bottom ctxt-bold pa0 color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
+        <label className=" align-middle bottom  mb30 ml42 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken10 " ><b>Select Year:</b></label>
+        <div className="toggle-group grid-2 grid mb6  align-middle bottom ctxt-bold pa0 color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
         </div>
-        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom right border--white round border border--2 round shadow-darken10  ">
+        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w120 right border--white round border border--2 round shadow-darken10  ">
           <div className=' color-white px3 txt-s'>
             <h2 className="txt-bold txt-s block color-white px0 ">{name}</h2>
             <p className='txt-s color-white px0 py0'>{description}</p>
