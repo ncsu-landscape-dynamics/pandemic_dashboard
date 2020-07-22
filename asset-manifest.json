@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/pandemic_dashboard/static/css/main.b22ae8d0.chunk.css",
-    "main.js": "/pandemic_dashboard/static/js/main.a0853745.chunk.js",
-    "main.js.map": "/pandemic_dashboard/static/js/main.a0853745.chunk.js.map",
+    "main.css": "/pandemic_dashboard/static/css/main.cc315ea7.chunk.css",
+    "main.js": "/pandemic_dashboard/static/js/main.fb4e0a89.chunk.js",
+    "main.js.map": "/pandemic_dashboard/static/js/main.fb4e0a89.chunk.js.map",
     "runtime-main.js": "/pandemic_dashboard/static/js/runtime-main.ed90702f.js",
     "runtime-main.js.map": "/pandemic_dashboard/static/js/runtime-main.ed90702f.js.map",
     "static/css/2.d46cd15e.chunk.css": "/pandemic_dashboard/static/css/2.d46cd15e.chunk.css",
-    "static/js/2.474c5758.chunk.js": "/pandemic_dashboard/static/js/2.474c5758.chunk.js",
-    "static/js/2.474c5758.chunk.js.map": "/pandemic_dashboard/static/js/2.474c5758.chunk.js.map",
+    "static/js/2.b7ef56f9.chunk.js": "/pandemic_dashboard/static/js/2.b7ef56f9.chunk.js",
+    "static/js/2.b7ef56f9.chunk.js.map": "/pandemic_dashboard/static/js/2.b7ef56f9.chunk.js.map",
     "index.html": "/pandemic_dashboard/index.html",
-    "precache-manifest.1e460b967ecbea1a2ab6c31422ebad5d.js": "/pandemic_dashboard/precache-manifest.1e460b967ecbea1a2ab6c31422ebad5d.js",
+    "precache-manifest.de66ade8edc17c865b7f4f2130630926.js": "/pandemic_dashboard/precache-manifest.de66ade8edc17c865b7f4f2130630926.js",
     "service-worker.js": "/pandemic_dashboard/service-worker.js",
     "static/css/2.d46cd15e.chunk.css.map": "/pandemic_dashboard/static/css/2.d46cd15e.chunk.css.map",
-    "static/css/main.b22ae8d0.chunk.css.map": "/pandemic_dashboard/static/css/main.b22ae8d0.chunk.css.map",
-    "static/js/2.474c5758.chunk.js.LICENSE.txt": "/pandemic_dashboard/static/js/2.474c5758.chunk.js.LICENSE.txt",
+    "static/css/main.cc315ea7.chunk.css.map": "/pandemic_dashboard/static/css/main.cc315ea7.chunk.css.map",
+    "static/js/2.b7ef56f9.chunk.js.LICENSE.txt": "/pandemic_dashboard/static/js/2.b7ef56f9.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/pandemic_dashboard/static/media/logo.1094cb6d.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ed90702f.js",
     "static/css/2.d46cd15e.chunk.css",
-    "static/js/2.474c5758.chunk.js",
-    "static/css/main.b22ae8d0.chunk.css",
-    "static/js/main.a0853745.chunk.js"
+    "static/js/2.b7ef56f9.chunk.js",
+    "static/css/main.cc315ea7.chunk.css",
+    "static/js/main.fb4e0a89.chunk.js"
   ]
 }
