@@ -5,6 +5,9 @@
   "homepage": "http://ncsu-landscape-dynamics.github.io/pandemic_dashboard/",
   "dependencies": {
     "@deck.gl/mapbox": "^8.2.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@mapbox/mapbox-gl-draw": "^1.2.0",
     "@mapbox/mapbox-gl-geocoder": "^4.6.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -19,6 +22,7 @@
     "mapbox-gl-controls": "^1.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
     "react-map-gl": "^5.2.7",
     "react-map-gl-geocoder": "^2.0.11",
     "react-mapbox-gl": "^4.8.6",
