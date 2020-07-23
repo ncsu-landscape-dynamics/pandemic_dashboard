@@ -5,7 +5,6 @@ import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
 import { render } from "react-dom";
-import Geocoder from "react-map-gl-geocoder";
 import { Icon } from "semantic-ui-react";
 import data from './pandemic_output.json'
 import presence_data from './presence_pandemic.json'
@@ -15,7 +14,6 @@ import ReactMapboxGl from 'react-mapbox-gl';
 import DeckGL from '@deck.gl/react';
 import {ScatterplotLayer, GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {StaticMap} from 'react-map-gl';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import {MapboxLayer} from '@deck.gl/mapbox';
 import "mapbox-gl/dist/mapbox-gl.css";
 import  "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
@@ -298,8 +296,10 @@ const myDeckLayer = new MapboxLayer({
   data: arcData,
   getPosition: d => d.position,
   getRadius: d => d.size,
-  getSourceColor: d => [64, 255, 0],
+  getSourceColor: d => [144,238,144],
   getTargetColor: d => [0, 128, 200],
+   // getSourceColor: d => [255,127,80],
+  // getTargetColor: d => [240,230,140],
   // getFillColor: [255, 0, 0],
   strokeWidth:0.1,
   getSourcePosition: d => d.START,
@@ -355,7 +355,7 @@ class App extends React.Component {
       viewport: {
         // latitude: 17.44212,
         // longitude: 78.391384,
-        zoom: 15,
+        // zoom: 15,
         // bearing: 0,
         // pitch: 0,
         // width: 0,
@@ -380,18 +380,18 @@ class App extends React.Component {
       container: this.mapRef.current,
       style: 'mapbox://styles/gcmillar/ckc13n1qe3rgx1ilchl8u3xax',
       // style: 'mapbox://styles/mapbox/dark-v10',
-      center: [12, 26],
-      zoom: 1.5,
-      pitch: 30
+      center: [20, 40],
+      zoom: 1.45,
+      pitch: 80
       });
           /* Zoom */
-      this.map.addControl(new ZoomControl(), 'top-right');
+      // this.map.addControl(new ZoomControl(), 'top-right');
       // /* Ruler */
       // this.map.addControl(new RulerControl(), 'bottom-left');
       // /* Inspect */
       // this.map.addControl(new InspectControl(), 'bottom-left');
       /* Compass */
-      this.map.addControl(new CompassControl(), 'top-right');
+      // this.map.addControl(new CompassControl(), 'top-right');
 
     this.map.on('load', () => {
       this.map.addLayer(myDeckLayer);
@@ -452,11 +452,7 @@ class App extends React.Component {
       //   if (data) addLayer();
       // });
       // this.map.addControl(new mapboxgl.FullscreenControl());
-      this.map.addControl(new MapboxGeocoder({
-        accessToken: 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw',
-        mapboxgl: mapboxgl,
-        placeholder: 'Search for a Location'
-      }));
+      
     //   presence_data.features.forEach((marker) => {
     //     const markerEl = document.createElement('div');
     //     markerEl.innerHTML = '🦟';
@@ -587,7 +583,14 @@ class App extends React.Component {
   
         /* Add Controls to the Map */
         // this.map.addControl(new mapboxgl.NavigationControl(), "top-left");
+        this.map.addControl(new MapboxGeocoder({
+          accessToken: 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw',
+          mapboxgl: mapboxgl,
+          placeholder: 'Search for a Location'
+        }), 'top-right');
         this.map.addControl(new PitchToggle({ minpitchzoom: 11 }), "top-right");
+        
+        
         // this.map.addControl(ctrlPoint, "bottom-left");
         // this.map.addControl(ctrlLine, "bottom-right");
         // this.map.addControl(ctrlPolygon, "top-left");
@@ -685,9 +688,9 @@ class App extends React.Component {
     const { name, description, stops, property } = this.state.active;
     const renderLegendKeys = (stop, i) => {
     return ( 
-        <div key={i} className='txt-s '>
+        <div key={i} className='txt-xs '>
           <span className=' round-full w12 h12 inline-block ' style={{ backgroundColor: stop[1] }} />
-          <span className='px12' >{`${stop[0].toLocaleString()}`}</span>
+          <span className='px12 py12' >{`${stop[0].toLocaleString()}`}</span>
         </div>
       );
     }
@@ -695,9 +698,9 @@ class App extends React.Component {
    
     const renderOptions = (option, i) => {
       return (
-        <label key={i} className="toggle-container w50 maxw60 ">
+        <label key={i} className="toggle-container w36 maxw60 pa24">
           <input  onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
-          <div  className="toggle txt-s color-white toggle--active-white maxw60 w50">{option.name}</div>
+          <div  className="toggle txt-xs color-white toggle--gray toggle--active-darken100 maxw60 w50 pl6 pr6">{option.name}</div>
         </label>
       );
     }
@@ -706,14 +709,14 @@ class App extends React.Component {
       
       <div>
         <div ref={this.mapRef} width='100%' height='100%' className="absolute top right left bottom align-middle grid" />
-        <label className=" align-middle bottom  mb30 ml42 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken10 " ><b>Select Year:</b></label>
-        <div className="toggle-group grid-2 grid mb6  align-middle bottom ctxt-bold pa0 color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
+        <label className=" align-middle top  txt-s mb30 mt3 ml18 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken50 " ><b>Select Year:</b></label>
+        <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
         </div>
-        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w120 right border--white round border border--2 round shadow-darken10  ">
-          <div className=' color-white px3 txt-s'>
-            <h2 className="txt-bold txt-s block color-white px0 ">{name}</h2>
-            <p className='txt-s color-white px0 py0'>{description}</p>
+        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w100 right border--white round border border--2 round shadow-darken10  txt-xs">
+          <div className=' color-gray-light px3 txt-xs'>
+            <h2 className="txt-bold txt-xs block color-white px0 ">{name}</h2>
+            <p className='txt-xs color-white px0 py0'>{description}</p>
           </div>
           {stops.map(renderLegendKeys)}
         </div>
