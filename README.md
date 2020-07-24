@@ -9,6 +9,7 @@
 
 ## Authors
 
+* [Benjamin Seliger](https://github.com/bjseliger)
 * [Garrett Millar](https://github.com/gcmillar)
 * Chris Jones 
 
