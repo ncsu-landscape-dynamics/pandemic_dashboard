@@ -713,7 +713,7 @@ class App extends React.Component {
         <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
         </div>
-        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w100 right border--white round border border--2 round shadow-darken10  txt-xs">
+        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w100 left border--white round border border--2 round shadow-darken10  txt-xs">
           <div className=' color-gray-light px3 txt-xs'>
             <h2 className="txt-bold txt-xs block color-white px0 ">{name}</h2>
             <p className='txt-xs color-white px0 py0'>{description}</p>
