@@ -700,7 +700,7 @@ class App extends React.Component {
       return (
         <label key={i} className="toggle-container w36 maxw60 pa24">
           <input  onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
-          <div  className="toggle txt-xs color-white toggle--gray toggle--active-darken100 maxw60 w50 pl6 pr6">{option.name}</div>
+          <div  className="toggle txt-xs color-white toggle--gray  toggle--active-darken100 maxw60 w50 pl6 pr6">{option.name}</div>
         </label>
       );
     }
@@ -710,7 +710,7 @@ class App extends React.Component {
       <div>
         <div ref={this.mapRef} width='100%' height='100%' className="absolute top right left bottom align-middle grid" />
         <label className=" align-middle top  txt-s mb30 mt3 ml18 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken50 " ><b>Select Year:</b></label>
-        <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
+        <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold  color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
         </div>
         <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w100 left border--white round border border--2 round shadow-darken10  txt-xs">
