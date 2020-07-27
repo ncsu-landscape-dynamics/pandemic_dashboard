@@ -25,13 +25,14 @@ import LanguageControl from 'mapbox-gl-controls/lib/language';
 import InspectControl from 'mapbox-gl-controls/lib/inspect';
 import TooltipControl from 'mapbox-gl-controls/lib/tooltip';
 import arcData from './arcs.json'
-// import Geocoder from 'react-map-gl-geocoder';
-// import { Container, Col, Row } from 'reactstrap';
-// const mapStyle = {
-//   width: '100%',
-// import React, {useState, useRef, useCallback} from 'react';
+import { json } from 'd3-request';
+import {COORDINATE_SYSTEM} from '@deck.gl/core';
+
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
-// const TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw';
+
+
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 var stops =  [
@@ -290,24 +291,69 @@ const markerList = [{
 }
 ]
 
+console.log(arcData);
+
+var arcDataString = JSON.stringify(arcData);
+var arcData_Array = JSON.parse(arcDataString);
+console.log(arcData_Array);
+
 const myDeckLayer = new MapboxLayer({
+  coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
   id: 'my-scatterplot',
   type: ArcLayer,
   data: arcData,
-  getPosition: d => d.position,
-  getRadius: d => d.size,
+  // getPosition: d => d.position,
+  // getRadius: d => d.size,
   getSourceColor: d => [144,238,144],
   getTargetColor: d => [0, 128, 200],
    // getSourceColor: d => [255,127,80],
   // getTargetColor: d => [240,230,140],
   // getFillColor: [255, 0, 0],
-  strokeWidth:0.1,
+  // strokeWidth:0.1,
   getSourcePosition: d => d.START,
   getTargetPosition: d => d.END,
-  pickable: true,
-  auto_highlight: true
+  // pickable: true,
+  // auto_highlight: true
+  
 });
-// console.log(myDeckLayer);
+  
+// // });
+// const myDeckLayer =  new ArcLayer({
+//   id: 'arcs',
+//   data: 
+//        {
+//          inbound: 72633,
+//          outbound: 74735,
+//          from: {
+//            name: '19th St. Oakland (19TH)',
+//            coordinates: [-122.269029, 37.80787]
+//          },
+//          to: {
+//            name: '12th St. Oakland City Center (12TH)',
+//            coordinates: [-122.271604, 37.803664]
+//        },
+//   // dataTransform: d => d.features.filter(f => f.properties.scalerank < 4),
+//   // Styles
+//   getSourcePosition: d.coordinates
+//   getTargetPosition: f => f.geometry.coordinates,
+//   getSourceColor: [0, 128, 200],
+//   getTargetColor: [200, 0, 80],
+//   getWidth: 1
+// })
+// const myDeckLayer =  new ArcLayer({
+//   id: 'arcs',
+//   data: AIR_PORTS,
+//   dataTransform: d => d.features.filter(f => f.properties.scalerank < 4),
+//   // Styles
+//   getSourcePosition: f => [-0.4531566, 51.4709959], // London
+//   getTargetPosition: f => f.geometry.coordinates,
+//   getSourceColor: [0, 128, 200],
+//   getTargetColor: [200, 0, 80],
+//   getWidth: 1
+// })
+
+console.log(myDeckLayer);
+
 
 class App extends React.Component {
   mapRef = React.createRef();
