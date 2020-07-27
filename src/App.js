@@ -291,30 +291,27 @@ const markerList = [{
 }
 ]
 
-console.log(arcData);
+// console.log(arcData);
 
-var arcDataString = JSON.stringify(arcData);
-var arcData_Array = JSON.parse(arcDataString);
-console.log(arcData_Array);
+// var arcDataString = JSON.stringify(arcData);
+// var arcData_Array = JSON.parse(arcDataString);
+// console.log(arcData_Array);
 
 const myDeckLayer = new MapboxLayer({
   coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
   id: 'my-scatterplot',
   type: ArcLayer,
   data: arcData,
-  // getPosition: d => d.position,
-  // getRadius: d => d.size,
   getSourceColor: d => [144,238,144],
   getTargetColor: d => [0, 128, 200],
    // getSourceColor: d => [255,127,80],
   // getTargetColor: d => [240,230,140],
   // getFillColor: [255, 0, 0],
-  // strokeWidth:0.1,
+  strokeWidth:0.1,
   getSourcePosition: d => d.START,
   getTargetPosition: d => d.END,
-  // pickable: true,
-  // auto_highlight: true
-  
+  pickable: true,
+  auto_highlight: true
 });
   
 // // });
