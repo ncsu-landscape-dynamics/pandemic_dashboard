@@ -25,13 +25,14 @@ import LanguageControl from 'mapbox-gl-controls/lib/language';
 import InspectControl from 'mapbox-gl-controls/lib/inspect';
 import TooltipControl from 'mapbox-gl-controls/lib/tooltip';
 import arcData from './arcs.json'
-// import Geocoder from 'react-map-gl-geocoder';
-// import { Container, Col, Row } from 'reactstrap';
-// const mapStyle = {
-//   width: '100%',
-// import React, {useState, useRef, useCallback} from 'react';
+import { json } from 'd3-request';
+import {COORDINATE_SYSTEM} from '@deck.gl/core';
+
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
-// const TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw';
+
+
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 var stops =  [
@@ -290,12 +291,17 @@ const markerList = [{
 }
 ]
 
+// console.log(arcData);
+
+// var arcDataString = JSON.stringify(arcData);
+// var arcData_Array = JSON.parse(arcDataString);
+// console.log(arcData_Array);
+
 const myDeckLayer = new MapboxLayer({
+  coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
   id: 'my-scatterplot',
   type: ArcLayer,
   data: arcData,
-  getPosition: d => d.position,
-  getRadius: d => d.size,
   getSourceColor: d => [144,238,144],
   getTargetColor: d => [0, 128, 200],
    // getSourceColor: d => [255,127,80],
@@ -307,7 +313,44 @@ const myDeckLayer = new MapboxLayer({
   pickable: true,
   auto_highlight: true
 });
-// console.log(myDeckLayer);
+  
+// // });
+// const myDeckLayer =  new ArcLayer({
+//   id: 'arcs',
+//   data: 
+//        {
+//          inbound: 72633,
+//          outbound: 74735,
+//          from: {
+//            name: '19th St. Oakland (19TH)',
+//            coordinates: [-122.269029, 37.80787]
+//          },
+//          to: {
+//            name: '12th St. Oakland City Center (12TH)',
+//            coordinates: [-122.271604, 37.803664]
+//        },
+//   // dataTransform: d => d.features.filter(f => f.properties.scalerank < 4),
+//   // Styles
+//   getSourcePosition: d.coordinates
+//   getTargetPosition: f => f.geometry.coordinates,
+//   getSourceColor: [0, 128, 200],
+//   getTargetColor: [200, 0, 80],
+//   getWidth: 1
+// })
+// const myDeckLayer =  new ArcLayer({
+//   id: 'arcs',
+//   data: AIR_PORTS,
+//   dataTransform: d => d.features.filter(f => f.properties.scalerank < 4),
+//   // Styles
+//   getSourcePosition: f => [-0.4531566, 51.4709959], // London
+//   getTargetPosition: f => f.geometry.coordinates,
+//   getSourceColor: [0, 128, 200],
+//   getTargetColor: [200, 0, 80],
+//   getWidth: 1
+// })
+
+console.log(myDeckLayer);
+
 
 class App extends React.Component {
   mapRef = React.createRef();
@@ -700,7 +743,7 @@ class App extends React.Component {
       return (
         <label key={i} className="toggle-container w36 maxw60 pa24">
           <input  onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
-          <div  className="toggle txt-xs color-white toggle--gray toggle--active-darken100 maxw60 w50 pl6 pr6">{option.name}</div>
+          <div  className="toggle txt-xs color-white toggle--gray  toggle--active-darken100 maxw60 w50 pl6 pr6">{option.name}</div>
         </label>
       );
     }
@@ -710,10 +753,10 @@ class App extends React.Component {
       <div>
         <div ref={this.mapRef} width='100%' height='100%' className="absolute top right left bottom align-middle grid" />
         <label className=" align-middle top  txt-s mb30 mt3 ml18 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken50 " ><b>Select Year:</b></label>
-        <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
+        <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold  color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
         </div>
-        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w100 right border--white round border border--2 round shadow-darken10  txt-xs">
+        <div  className=" bg-transparent px3  grid-3 color-white absolute align-middle bottom w100 left border--white round border border--2 round shadow-darken10  txt-xs">
           <div className=' color-gray-light px3 txt-xs'>
             <h2 className="txt-bold txt-xs block color-white px0 ">{name}</h2>
             <p className='txt-xs color-white px0 py0'>{description}</p>
