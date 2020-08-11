@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import MapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
 import { render } from "react-dom";
-import { Icon } from "semantic-ui-react";
+// import { Icon } from "semantic-ui-react";
 import data from './pandemic_output.json'
 import presence_data from './presence_pandemic.json'
 import Tooltip from './components/tooltip'
@@ -51,251 +51,340 @@ var stops =  [
 
 
 const options = [{
-  name: '1993',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction T0',
-  stops: stops
-}, {
-  name: '1994',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction T1',
-  stops: stops
-}, {
-  name: '1995',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction T2',
-  stops: stops
-}, {
-  name: '1996',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction T3',
-  stops: stops
-}, {
-  name: '1997',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction T4',
-  stops: stops
-}, {
-  name: '1998',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction T5',
-  stops: stops
-}, {
-  name: '1999',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction T6',
-  stops: stops
-}, {
+//   name: '1993',
+//   description: 'Introduction Probability',
+//   property: 'Probability of introduction 1993',
+//   stops: stops,
+//   arcId: '1993',
+// }, {
+//   name: '1994',
+//   description: 'Introduction Probability',
+//   property: 'Probability of introduction 1994',
+//   stops: stops,
+//   arcId: '1994',
+// }, {
+//   name: '1995',
+//   description: 'Introduction Probability',
+//   property: 'Probability of introduction 1995',
+//   stops: stops,
+//   arcId: '1995',
+// }, {
+//   name: '1996',
+//   description: 'Introduction Probability',
+//   property: 'Probability of introduction 1996',
+//   stops: stops,
+//   arcId: '1996',
+// }, {
+//   name: '1997',
+//   description: 'Introduction Probability',
+//   property: 'Probability of introduction 1997',
+//   stops: stops,
+//   arcId: '1997',
+// }, {
+//   name: '1998',
+//   description: 'Introduction Probability',
+//   property: 'Probability of introduction 1998',
+//   stops: stops,
+//   arcId: '1998',
+// }, {
+//   name: '1999',
+//   description: 'Introduction Probability',
+//   property: 'Probability of introduction 1999',
+//   stops: stops,
+//   arcId: '1999',
+// }, {
   name: '2000',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T7',
-  stops: stops
+  property: 'Probability of introduction 2000',
+  stops: stops,
+  arcId: '2000',
 }, {
   name: '2001',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T8',
-  stops: stops
+  property: 'Probability of introduction 2001',
+  stops: stops,
+  arcId: '2001',
 }, {
   name: '2002',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T9',
-  stops: stops
+  property: 'Probability of introduction 2002',
+  stops: stops,
+  arcId: '2002',
 }, {
   name: '2003',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T10',
-  stops: stops
+  property: 'Probability of introduction 2003',
+  stops: stops,
+  arcId: '2003',
 }, {
   name: '2004',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T11',
-  stops: stops
+  property: 'Probability of introduction 2004',
+  stops: stops,
+  arcId: '2004',
 }, {
   name: '2005',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T12',
-  stops: stops
+  property: 'Probability of introduction 2005',
+  stops: stops,
+  arcId: '2005',
 }, {
   name: '2006',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T13',
-  stops: stops
+  property: 'Probability of introduction 2006',
+  stops: stops,
+  arcId: '2006',
 }, {
   name: '2007',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T14',
-  stops: stops
+  property: 'Probability of introduction 2007',
+  stops: stops,
+  arcId: '2007',
 }, {
   name: '2008',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T15',
-  stops: stops
+  property: 'Probability of introduction 2008',
+  stops: stops,
+  arcId: '2008',
 }, {
   name: '2009',
   description: 'Introduction Probability',
   property: 'Probability of introduction T16',
-  stops: stops
+  stops: stops,
+  arcId: '2009',
 }, {
   name: '2010',
   description: 'Introduction Probability',
   property: 'Probability of introduction T17',
-  stops: stops
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2011',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T18',
-  stops: stops
+  property: 'Probability of introduction 2011',
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2012',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T19',
-  stops: stops
+  property: 'Probability of introduction 2012',
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2013',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T20',
-  stops: stops
+  property: 'Probability of introduction 2013',
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2014',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T21',
-  stops: stops
+  property: 'Probability of introduction 2014',
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2015',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T22',
-  stops: stops
+  property: 'Probability of introduction 2015',
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2016',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T23',
-  stops: stops
+  property: 'Probability of introduction 2016',
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2017',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T24',
-  stops: stops
+  property: 'Probability of introduction 2017',
+  stops: stops,
+  arcId: '1993',
 }, {
   name: '2018',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T25',
-  propertyPresence: 'Presence 1993',
-  stops: stops
+  property: 'Probability of introduction 2018',
+  stops: stops,
+  arcId: '1993',
 }
 ]
 
-const markerList = [{
-  name: '1993',
-  description: 'Presence',
-  property: 'Presence 1993'
-}, {
-  name: '1994',
-  description: 'Presence',
-  property: 'Presence 1994'
-}, {
-  name: '1995',
-  description: 'Presence',
-  property: 'Presence 1995'
-}, {
-  name: '1996',
-  description: 'Presence',
-  property: 'Presence 1996'
-}, {
-  name: '1997',
-  description: 'Presence',
-  property: 'Presence 1997'
-}, {
-  name: '1998',
-  description: 'Presence',
-  property: 'Presence 1998'
-}, {
-  name: '1999',
-  description: 'Presence',
-  property: 'Presence 1999'
-}, {
-  name: '2000',
-  description: 'Presence',
-  property: 'Presence 2000'
-}, {
-  name: '2001',
-  description: 'Presence',
-  property: 'Presence 2001'
-}, {
-  name: '2002',
-  description: 'Presence',
-  property: 'Presence 2002'
-}, {
-  name: '2003',
-  description: 'Presence',
-  property: 'Presence 2003'
-}, {
-  name: '2004',
-  description: 'Presence',
-  property: 'Presence 2004'
-}, {
-  name: '2005',
-  description: 'Presence',
-  property: 'Presence 2005'
-}, {
-  name: '2006',
-  description: 'Presence',
-  property: 'Presence 2006'
-}, {
-  name: '2007',
-  description: 'Presence',
-  property: 'Presence 2007'
-}, {
-  name: '2008',
-  description: 'Presence',
-  property: 'Presence 2008'
-}, {
-  name: '2009',
-  description: 'Presence',
-  property: 'Presence 2009'
-}, {
-  name: '2010',
-  description: 'Presence',
-  property: 'Presence 2010'
-}, {
-  name: '2011',
-  description: 'Presence',
-  property: 'Presence 2011'
-}, {
-  name: '2012',
-  description: 'Presence',
-  property: 'Presence 2012'
-}, {
-  name: '2013',
-  description: 'Presence',
-  property: 'Presence 2013'
-}, {
-  name: '2014',
-  description: 'Presence',
-  property: 'Presence 2014'
-}, {
-  name: '2015',
-  description: 'Presence',
-  property: 'Presence 2015'
-}, {
-  name: '2016',
-  description: 'Presence',
-  property: 'Presence 2016'
-}, {
-  name: '2017',
-  description: 'Presence',
-  property: 'Presence 2017'
-}, {
-  name: '2018',
-  description: 'Presence',
-  property: 'Presence 2018'
-}
-]
 
-// console.log(arcData);
+// const arcOptions = [{
+//   name: '1993',
+//   property: 'id',
+// }, {
+//   name: '1994',
+//   property: 'id',
+// }, {
+//   name: '1995',
+//   property: 'id',
+// }, {
+//   name: '1996',  
+//   property: 'id',
+// }, {
+//   name: '1997',
+//   property: 'id',
+  
+// }, {
+//   name: '1998',
+//   property: 'id',
+  
+// }, {
+//   name: '1999',
+//   property: 'id',
+  
+// }, {
+//   name: '2000',
+//   property: 'id',
+  
+// }, {
+//   name: '2001',
+//   property: 'id',
+  
+// }, {
+//   name: '2002',
+//   property: 'id',
+  
+// }, {
+//   name: '2003',
+//   property: 'id',
+  
+// }, {
+//   name: '2004',
+//   property: 'id',
+  
+// }, {
+//   name: '2005',
+//   property: 'id',
+  
+// }, {
+//   name: '2006',
+//   property: 'id',
+  
+// }, {
+//   name: '2007',
+//   property: 'id',
+  
+// }, {
+//   name: '2008',
+//   property: 'id',
+  
+// }, {
+//   name: '2009',
+//   property: 'id',
+  
+// }
+// ]
 
-// var arcDataString = JSON.stringify(arcData);
-// var arcData_Array = JSON.parse(arcDataString);
-// console.log(arcData_Array);
+
+// const markerList = [{
+//   name: '1993',
+//   description: 'Presence',
+//   property: 'Presence 1993'
+// }, {
+//   name: '1994',
+//   description: 'Presence',
+//   property: 'Presence 1994'
+// }, {
+//   name: '1995',
+//   description: 'Presence',
+//   property: 'Presence 1995'
+// }, {
+//   name: '1996',
+//   description: 'Presence',
+//   property: 'Presence 1996'
+// }, {
+//   name: '1997',
+//   description: 'Presence',
+//   property: 'Presence 1997'
+// }, {
+//   name: '1998',
+//   description: 'Presence',
+//   property: 'Presence 1998'
+// }, {
+//   name: '1999',
+//   description: 'Presence',
+//   property: 'Presence 1999'
+// }, {
+//   name: '2000',
+//   description: 'Presence',
+//   property: 'Presence 2000'
+// }, {
+//   name: '2001',
+//   description: 'Presence',
+//   property: 'Presence 2001'
+// }, {
+//   name: '2002',
+//   description: 'Presence',
+//   property: 'Presence 2002'
+// }, {
+//   name: '2003',
+//   description: 'Presence',
+//   property: 'Presence 2003'
+// }, {
+//   name: '2004',
+//   description: 'Presence',
+//   property: 'Presence 2004'
+// }, {
+//   name: '2005',
+//   description: 'Presence',
+//   property: 'Presence 2005'
+// }, {
+//   name: '2006',
+//   description: 'Presence',
+//   property: 'Presence 2006'
+// }, {
+//   name: '2007',
+//   description: 'Presence',
+//   property: 'Presence 2007'
+// }, {
+//   name: '2008',
+//   description: 'Presence',
+//   property: 'Presence 2008'
+// }, {
+//   name: '2009',
+//   description: 'Presence',
+//   property: 'Presence 2009'
+// }, {
+//   name: '2010',
+//   description: 'Presence',
+//   property: 'Presence 2010'
+// }, {
+//   name: '2011',
+//   description: 'Presence',
+//   property: 'Presence 2011'
+// }, {
+//   name: '2012',
+//   description: 'Presence',
+//   property: 'Presence 2012'
+// }, {
+//   name: '2013',
+//   description: 'Presence',
+//   property: 'Presence 2013'
+// }, {
+//   name: '2014',
+//   description: 'Presence',
+//   property: 'Presence 2014'
+// }, {
+//   name: '2015',
+//   description: 'Presence',
+//   property: 'Presence 2015'
+// }, {
+//   name: '2016',
+//   description: 'Presence',
+//   property: 'Presence 2016'
+// }, {
+//   name: '2017',
+//   description: 'Presence',
+//   property: 'Presence 2017'
+// }, {
+//   name: '2018',
+//   description: 'Presence',
+//   property: 'Presence 2018'
+// }
+// ]
+
 
 const myDeckLayer = new MapboxLayer({
   coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
@@ -304,8 +393,6 @@ const myDeckLayer = new MapboxLayer({
   data: arcData,
   getSourceColor: d => [144,238,144],
   getTargetColor: d => [0, 128, 200],
-   // getSourceColor: d => [255,127,80],
-  // getTargetColor: d => [240,230,140],
   // getFillColor: [255, 0, 0],
   strokeWidth:0.1,
   getSourcePosition: d => d.START,
@@ -313,44 +400,6 @@ const myDeckLayer = new MapboxLayer({
   pickable: true,
   auto_highlight: true
 });
-  
-// // });
-// const myDeckLayer =  new ArcLayer({
-//   id: 'arcs',
-//   data: 
-//        {
-//          inbound: 72633,
-//          outbound: 74735,
-//          from: {
-//            name: '19th St. Oakland (19TH)',
-//            coordinates: [-122.269029, 37.80787]
-//          },
-//          to: {
-//            name: '12th St. Oakland City Center (12TH)',
-//            coordinates: [-122.271604, 37.803664]
-//        },
-//   // dataTransform: d => d.features.filter(f => f.properties.scalerank < 4),
-//   // Styles
-//   getSourcePosition: d.coordinates
-//   getTargetPosition: f => f.geometry.coordinates,
-//   getSourceColor: [0, 128, 200],
-//   getTargetColor: [200, 0, 80],
-//   getWidth: 1
-// })
-// const myDeckLayer =  new ArcLayer({
-//   id: 'arcs',
-//   data: AIR_PORTS,
-//   dataTransform: d => d.features.filter(f => f.properties.scalerank < 4),
-//   // Styles
-//   getSourcePosition: f => [-0.4531566, 51.4709959], // London
-//   getTargetPosition: f => f.geometry.coordinates,
-//   getSourceColor: [0, 128, 200],
-//   getTargetColor: [200, 0, 80],
-//   getWidth: 1
-// })
-
-console.log(myDeckLayer);
-
 
 class App extends React.Component {
   mapRef = React.createRef();
@@ -394,7 +443,8 @@ class App extends React.Component {
     this.state = {
       // width: 0, 
       // height: 0 ,
-      active: options[0],
+      active: options[0] ,
+      // active: arcOptions[0] ,
       viewport: {
         // latitude: 17.44212,
         // longitude: 78.391384,
@@ -415,6 +465,7 @@ class App extends React.Component {
 
   componentDidUpdate() {
     this.setFill();
+    // this.addLayer();
   }
 
   componentDidMount() {
@@ -436,21 +487,13 @@ class App extends React.Component {
       /* Compass */
       // this.map.addControl(new CompassControl(), 'top-right');
 
+      // Load the data and layers once Mapbox map style loads
+    // this.map.on('style.load', () => {
+    //   json(arcData);
+    // });
+
     this.map.on('load', () => {
       this.map.addLayer(myDeckLayer);
-      // this.map.addLayer({
-      //           id: 'my-arc',
-      //           type: 'ArcLayer',
-      //           data: arcData,
-      //           getSourcePosition: d => d.START,
-      //           getTargetPosition: d => d.END,
-      //           getSourceColor: d => [64, 255, 0],
-      //           getTargetColor: d => [0, 128, 200]
-      //       // });
-      
-      //       //Add the deck.gl arc layer to the map 
-      //       // .addLayer(arclayer, 'waterway-label')
-      // });
       // if (this.map.getLayer("countries")) {
       //   this.map.removeLayer("countries");
       // };
@@ -467,6 +510,10 @@ class App extends React.Component {
         type: 'geojson',
         presence_data
       });
+      // this.map.addSource('arcLayer', {
+      //   type: 'ArcLayer',
+      //   arcData
+      // });
 
       this.map.addLayer({
         id: 'countries',
@@ -488,8 +535,18 @@ class App extends React.Component {
           'text-anchor': 'top'
         }
       }); 
+      
       // this.map.addLayer(arclayer, 'waterway-label');
-      this.setFill();
+      
+    //   this.map.addLayer(myDeckLayer, {
+    //     id: 'arcLayer',
+    //     type: 'ArcLayer',
+    //   });
+
+    //   if (this.map.getLayer("arcLayer")) {
+    //     this.map.removeLayer("arcLayer");
+    // }
+
       // this.map.on('styledata', function () {
       //   // Triggered when `setStyle` is called.
       //   if (data) addLayer();
@@ -509,9 +566,14 @@ class App extends React.Component {
     //       });
     //     });
     // });
+    this.setFill();
     });
 
-     // Original ES6 Class— https://github.com/tobinbradley/mapbox-gl-pitch-toggle-control
+    const {arcId } = this.state.active;
+    console.log(arcId);
+
+    
+     // Original ES6 Class— https://github.com/tobinbradley/mapbox-gl-pitch-toggle-control
       // export default class PitchToggle {
         class PitchToggle {
           constructor({ bearing = -20, pitch = 70, minpitchzoom = null }) {
@@ -632,11 +694,6 @@ class App extends React.Component {
           placeholder: 'Search for a Location'
         }), 'top-right');
         this.map.addControl(new PitchToggle({ minpitchzoom: 11 }), "top-right");
-        
-        
-        // this.map.addControl(ctrlPoint, "bottom-left");
-        // this.map.addControl(ctrlLine, "bottom-right");
-        // this.map.addControl(ctrlPolygon, "top-left");
   
 
     const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
@@ -651,12 +708,14 @@ class App extends React.Component {
       this.map.on('mouseenter', 'countries', (e) => {
         this.map.getCanvas().style.cursor =  'pointer';
       });
-
-
+      // console.log(data)
+      const { name, description, stops, property } = this.state.active;
+      const prob_intro = data.features[0].properties[property]
+      console.log(prob_intro)
       this.map.on('click', 'countries', (e) => {
         const features = this.map.queryRenderedFeatures(e.point, {
       });
-      const { name, description, stops, property } = this.state.active;
+      const { property } = this.state.active;
       const prob_intro = features[0].properties[property]
       this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
       popup 
@@ -682,14 +741,11 @@ class App extends React.Component {
       //     },
       //   ],
       //   onChange: (style) => console.log(style),
-       
+
       // }, 
       // // this.map.getSource('countries').setData(data)
       // // this.map.addLayer('countries','country-label')
       // ), 'top-right');
-
-     
-
 
     this.map.on('click', 'presence_data', (p) => {
       const presenceFeatures = this.map.queryRenderedFeatures(p.point, {
@@ -703,9 +759,9 @@ class App extends React.Component {
 
    
   }
-
+  
   setFill() {
-    const { property, stops } = this.state.active;
+    const { property, stops, arcId } = this.state.active;
     this.map.setPaintProperty('countries', 'fill-color', {
       property,
       stops
@@ -716,12 +772,24 @@ class App extends React.Component {
       stops
     },
     )
+    // this.map.setPaintProperty('arcLayer',  {
+    //   arcId,
+    //   // stops
+    // },
+    // )
       // this.map.setTooltip('presence_data', '', {
       //   property,
       //   stops
       // })  ;
-      ;    
+      // ;    
   }
+  // addLayer() {
+  //   const { arcId } = this.state.active;
+  //   this.map.addLayer('arcLayer' , {
+  //     arcId
+  //   }
+  //   )
+  // }
 
 
   render() {

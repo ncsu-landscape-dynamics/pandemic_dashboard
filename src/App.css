@@ -1,7 +1,9 @@
 .App {
   text-align: center;
-  display: flex;
+  display: relative;
   background-color: black;
+  display: relative;
+  width: 100%;
   /* justify-content: center; */
 }
 
@@ -27,7 +29,7 @@
 }
 
 label {
-  display: inline-block;
+  display: block;
   width: 100px;
 }
 
@@ -92,13 +94,15 @@ input {
 }
 
 
-  .mb40{margin-bottom:40px!important}
+.mb40{margin-bottom:40px!important}
 
-  /* html, body, #app, #app>div {
-    height: 2000%
-  } */
-  .mapboxgl-ctrl-geocoder {
-    width: 300px!important;
+/* html, body, #app, #app>div {
+  height: 2000%
+} */
+.mapboxgl-ctrl-geocoder {
+  width: 300px!important;
+  display:block;
+  position:relative;
 }
 #menu {
   background: #fff;
@@ -145,18 +149,18 @@ input {
   background: #3074a4;
 }
 #menuLayer {
-position: fixed;
-bottom:10px;
-right:45px;
-height: 15px;
-width: 140px;
-box-shadow:0px 0px 3px rgba(0, 0, 0, 0.10);
-border-radius: 3px;
-background: #fff;
-/* padding: 10px; */
-font-family: 'Inconsolata';
-font-size: 12px;
-text-align: center;
+  position: fixed;
+  bottom:10px;
+  right:45px;
+  height: 15px;
+  width: 140px;
+  box-shadow:0px 0px 3px rgba(0, 0, 0, 0.10);
+  border-radius: 3px;
+  background: #fff;
+  /* padding: 10px; */
+  font-family: 'Inconsolata';
+  font-size: 12px;
+  text-align: center;
 }
 .mapboxgl-ctrl-compass{
   width: 25px!important;
@@ -282,13 +286,16 @@ a.mapboxgl-ctrl-logo {
   grid-row-gap: 0px; 
   grid-column-gap: 0px; 
   margin-left: 1%;
-  margin-right: 20%;
+  margin-right: 40%;
   text-justify: distribute!important;
   padding-right: 0.2%;
   padding-left: 0.2%;
   margin-top: 0%;
   position:relative;
-  
+  /* min-width: 1%; */
+  min-height: 1%;
+  max-height: 100%;
+  display:block;
   /* text-align: center; */
   align-content: center;
   grid-auto-columns: 00px;
@@ -305,6 +312,12 @@ a.mapboxgl-ctrl-logo {
    align-content: left;
   /* grid-auto-columns: 00px; */ 
   /* grid-template-rows:  10px; */
+}
+
+.toggle-group {
+ min-width: 1%;
+ min-height: 1%;
+ display:block;
 }
 
 .day-item {
@@ -378,6 +391,10 @@ margin-top: -22px!important;
 .mapboxgl-ctrl-geocoder *:after,
 .mapboxgl-ctrl-geocoder *:before {
   color: #fff!important;
+  display: block;
+  margin-left: 1000%!important;
+  padding-right: 0.2%!important;
+  padding-left: 0.2%!important;
   /* background: rgba(0,0,0,0.75)!important; */
   background-color:rgba(0,0,0,0.55)!important;
   text-justify: distribute!important;
@@ -404,12 +421,12 @@ margin-top: -22px!important;
   transition: width .15s, min-width .05s;
   box-shadow: none!important;
   font-size: 12px!important;
-  width: 120%!important;
-  max-width: 150%!important;
-  min-width: 10%!important;
-  min-height: 20px!important; 
-  height: 20px!important;
-  max-height: 60px!important;
+  width: 100%!important;
+  max-width: 110%!important;
+  min-width: 0%!important;
+  min-height: 0%!important; 
+  /* height: 20px!important; */
+  max-height: 500%!important;
   margin-right: 30%!important;
   /* position: fixed; */
 } 
@@ -427,6 +444,7 @@ margin-top: -22px!important;
   position: absolute;
   top: 1px!important;
   left: 12px;
+  /* margin-left: 0%!important; */
   width: 13px!important;
   fill: white!important;
   /* height:  */
@@ -450,6 +468,8 @@ margin-top: -22px!important;
   font-size: 9px!important;
   box-shadow: none!important;
   overflow: show!important;
+  min-width: 100%!important;
+  min-height: 100%!important;
 }
 
 .mapboxgl-ctrl-geocoder--input::-ms-clear {
@@ -538,3 +558,4 @@ margin-top: -22px!important;
   fill: grey!important;
   color:transparent!important;
 }
+

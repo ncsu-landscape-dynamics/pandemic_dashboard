@@ -1,0 +1,418 @@
+            /* Loading overlay
+------------------------------------------------------- */
+            .loading {
+                display:none;
+            }
+            .loading:after, .loading:before {
+                content:'';
+                display:block;
+                position:absolute;
+                z-index:99;
+            }
+            .loading:before {
+                background:transparent;
+                left:0;
+                top:0;
+                width:100%;
+                height:100%;
+            }
+            .loading:after {
+                background:rgba(0, 0, 0, .2) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICBpZD0ic3ZnMzEyMiIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjQ4LjUgcjEwMDQwIgogICB3aWR0aD0iMjQiCiAgIGhlaWdodD0iMjQiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImxvYWRzb3VyY2UyLnN2ZyI+CiAgPG1ldGFkYXRhCiAgICAgaWQ9Im1ldGFkYXRhMzEyOCI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGUgLz4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczMxMjYiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiCiAgICAgZ3JpZHRvbGVyYW5jZT0iMTAiCiAgICAgZ3VpZGV0b2xlcmFuY2U9IjEwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxMTgyIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjcwOCIKICAgICBpZD0ibmFtZWR2aWV3MzEyNCIKICAgICBzaG93Z3JpZD0idHJ1ZSIKICAgICBpbmtzY2FwZTpzbmFwLWJib3g9InRydWUiCiAgICAgaW5rc2NhcGU6b2JqZWN0LW5vZGVzPSJ0cnVlIgogICAgIGlua3NjYXBlOnpvb209IjE2IgogICAgIGlua3NjYXBlOmN4PSI4Ljk3Nzk0NzciCiAgICAgaW5rc2NhcGU6Y3k9IjEwLjczMjQ3NiIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iNDgyIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIxMjciCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmczMTIyIgogICAgIHNob3dndWlkZXM9ImZhbHNlIgogICAgIGlua3NjYXBlOmd1aWRlLWJib3g9InRydWUiCiAgICAgaW5rc2NhcGU6b2JqZWN0LXBhdGhzPSJ0cnVlIgogICAgIGZpdC1tYXJnaW4tdG9wPSIwIgogICAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICAgIGZpdC1tYXJnaW4tYm90dG9tPSIwIj4KICAgIDxpbmtzY2FwZTpncmlkCiAgICAgICB0eXBlPSJ4eWdyaWQiCiAgICAgICBpZD0iZ3JpZDMxMzIiCiAgICAgICBlbXBzcGFjaW5nPSI1IgogICAgICAgdmlzaWJsZT0idHJ1ZSIKICAgICAgIGVuYWJsZWQ9InRydWUiCiAgICAgICBzbmFwdmlzaWJsZWdyaWRsaW5lc29ubHk9InRydWUiCiAgICAgICBvcmlnaW54PSItMTQ4cHgiCiAgICAgICBvcmlnaW55PSItMzU4cHgiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIG9yaWVudGF0aW9uPSItMC43MDcxMDY3OCwwLjcwNzEwNjc4IgogICAgICAgcG9zaXRpb249IjEyLDEyIgogICAgICAgaWQ9Imd1aWRlNDEwNSIgLz4KICA8L3NvZGlwb2RpOm5hbWVkdmlldz4KICA8cGF0aAogICAgIHN0eWxlPSJjb2xvcjojMDAwMDAwO2ZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MTI7bWFya2VyOm5vbmU7dmlzaWJpbGl0eTp2aXNpYmxlO2Rpc3BsYXk6aW5saW5lO292ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6YWNjdW11bGF0ZSIKICAgICBkPSJNIDEyIDAgTCAxMiA1IEMgMTUuODY1OTkzIDUgMTkgOC4xMzQwMDY3IDE5IDEyIEwgMjQgMTIgQyAyNCA1LjM3MjU4MyAxOC42Mjc0MTcgMCAxMiAwIHogIgogICAgIGlkPSJwYXRoMzk1NiIgLz4KICA8cGF0aAogICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgc3R5bGU9Im9wYWNpdHk6MC40O2NvbG9yOiMwMDAwMDA7ZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxMjttYXJrZXI6bm9uZTt2aXNpYmlsaXR5OnZpc2libGU7ZGlzcGxheTppbmxpbmU7b3ZlcmZsb3c6dmlzaWJsZTtlbmFibGUtYmFja2dyb3VuZDphY2N1bXVsYXRlIgogICAgIGQ9Ik0gMTIsMCBDIDUuMzcyNTgzLDAgMCw1LjM3MjU4MyAwLDEyIGMgMCwzLjE4MjU5OCAxLjI0OTU2Myw2LjI0OTU2MyAzLjUsOC41IDIuMjUwNDM3LDIuMjUwNDM3IDUuMzE3NDAyLDMuNSA4LjUsMy41IDMuMTgyNTk4LDAgNi4yNDk1NjMsLTEuMjQ5NTYzIDguNSwtMy41IEMgMjIuNzUwNDM3LDE4LjI0OTU2MyAyNCwxNS4xODI1OTggMjQsMTIgbCAtNSwwIGMgMCwzLjg2NTk5MyAtMy4xMzQwMDcsNyAtNyw3IEMgOC4xMzQwMDY4LDE5IDUsMTUuODY1OTkzIDUsMTIgNSw4LjEzNDAwNjcgOC4xMzQwMDY4LDUgMTIsNSB6IgogICAgIGlkPSJwYXRoMzE3NCIKICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjY2NjY2NjY2NjIiAvPgo8L3N2Zz4K) 50% 50% no-repeat;
+                left:50%;
+                top:50%;
+                margin:-20px 0 0 -20px;
+                width:40px;
+                height:40px;
+                border-radius:50%;
+                -webkit-animation: rotate 1s linear infinite;
+                -moz-animation: rotate 1s linear infinite;
+                -ms-animation: rotate 1s linear infinite;
+                animation: rotate 1s linear infinite;
+            }
+            .spinner:after {
+                content:'';
+                position:absolute;
+                right:5px;
+                top:50%;
+                border-radius:50%;
+                background:rgba(0, 0, 0, .5) url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICBpZD0ic3ZnMzEyMiIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjQ4LjUgcjEwMDQwIgogICB3aWR0aD0iMjQiCiAgIGhlaWdodD0iMjQiCiAgIHNvZGlwb2RpOmRvY25hbWU9ImxvYWRzb3VyY2UyLnN2ZyI+CiAgPG1ldGFkYXRhCiAgICAgaWQ9Im1ldGFkYXRhMzEyOCI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGUgLz4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGRlZnMKICAgICBpZD0iZGVmczMxMjYiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxIgogICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiCiAgICAgZ3JpZHRvbGVyYW5jZT0iMTAiCiAgICAgZ3VpZGV0b2xlcmFuY2U9IjEwIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIgogICAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxMTgyIgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjcwOCIKICAgICBpZD0ibmFtZWR2aWV3MzEyNCIKICAgICBzaG93Z3JpZD0idHJ1ZSIKICAgICBpbmtzY2FwZTpzbmFwLWJib3g9InRydWUiCiAgICAgaW5rc2NhcGU6b2JqZWN0LW5vZGVzPSJ0cnVlIgogICAgIGlua3NjYXBlOnpvb209IjE2IgogICAgIGlua3NjYXBlOmN4PSI4Ljk3Nzk0NzciCiAgICAgaW5rc2NhcGU6Y3k9IjEwLjczMjQ3NiIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iNDgyIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIxMjciCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmczMTIyIgogICAgIHNob3dndWlkZXM9ImZhbHNlIgogICAgIGlua3NjYXBlOmd1aWRlLWJib3g9InRydWUiCiAgICAgaW5rc2NhcGU6b2JqZWN0LXBhdGhzPSJ0cnVlIgogICAgIGZpdC1tYXJnaW4tdG9wPSIwIgogICAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICAgIGZpdC1tYXJnaW4tYm90dG9tPSIwIj4KICAgIDxpbmtzY2FwZTpncmlkCiAgICAgICB0eXBlPSJ4eWdyaWQiCiAgICAgICBpZD0iZ3JpZDMxMzIiCiAgICAgICBlbXBzcGFjaW5nPSI1IgogICAgICAgdmlzaWJsZT0idHJ1ZSIKICAgICAgIGVuYWJsZWQ9InRydWUiCiAgICAgICBzbmFwdmlzaWJsZWdyaWRsaW5lc29ubHk9InRydWUiCiAgICAgICBvcmlnaW54PSItMTQ4cHgiCiAgICAgICBvcmlnaW55PSItMzU4cHgiIC8+CiAgICA8c29kaXBvZGk6Z3VpZGUKICAgICAgIG9yaWVudGF0aW9uPSItMC43MDcxMDY3OCwwLjcwNzEwNjc4IgogICAgICAgcG9zaXRpb249IjEyLDEyIgogICAgICAgaWQ9Imd1aWRlNDEwNSIgLz4KICA8L3NvZGlwb2RpOm5hbWVkdmlldz4KICA8cGF0aAogICAgIHN0eWxlPSJjb2xvcjojMDAwMDAwO2ZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MTI7bWFya2VyOm5vbmU7dmlzaWJpbGl0eTp2aXNpYmxlO2Rpc3BsYXk6aW5saW5lO292ZXJmbG93OnZpc2libGU7ZW5hYmxlLWJhY2tncm91bmQ6YWNjdW11bGF0ZSIKICAgICBkPSJNIDEyIDAgTCAxMiA1IEMgMTUuODY1OTkzIDUgMTkgOC4xMzQwMDY3IDE5IDEyIEwgMjQgMTIgQyAyNCA1LjM3MjU4MyAxOC42Mjc0MTcgMCAxMiAwIHogIgogICAgIGlkPSJwYXRoMzk1NiIgLz4KICA8cGF0aAogICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgc3R5bGU9Im9wYWNpdHk6MC40O2NvbG9yOiMwMDAwMDA7ZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxMjttYXJrZXI6bm9uZTt2aXNpYmlsaXR5OnZpc2libGU7ZGlzcGxheTppbmxpbmU7b3ZlcmZsb3c6dmlzaWJsZTtlbmFibGUtYmFja2dyb3VuZDphY2N1bXVsYXRlIgogICAgIGQ9Ik0gMTIsMCBDIDUuMzcyNTgzLDAgMCw1LjM3MjU4MyAwLDEyIGMgMCwzLjE4MjU5OCAxLjI0OTU2Myw2LjI0OTU2MyAzLjUsOC41IDIuMjUwNDM3LDIuMjUwNDM3IDUuMzE3NDAyLDMuNSA4LjUsMy41IDMuMTgyNTk4LDAgNi4yNDk1NjMsLTEuMjQ5NTYzIDguNSwtMy41IEMgMjIuNzUwNDM3LDE4LjI0OTU2MyAyNCwxNS4xODI1OTggMjQsMTIgbCAtNSwwIGMgMCwzLjg2NTk5MyAtMy4xMzQwMDcsNyAtNyw3IEMgOC4xMzQwMDY4LDE5IDUsMTUuODY1OTkzIDUsMTIgNSw4LjEzNDAwNjcgOC4xMzQwMDY4LDUgMTIsNSB6IgogICAgIGlkPSJwYXRoMzE3NCIKICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjY2NjY2NjY2NjIiAvPgo8L3N2Zz4K) 50% 50% no-repeat;
+                background-size: 20px;
+                margin:-15px 0 0 -15px;
+                width:30px;
+                height:30px;
+                opacity:.5;
+                -webkit-animation: rotate 1s linear infinite;
+                -moz-animation: rotate 1s linear infinite;
+                -ms-animation: rotate 1s linear infinite;
+                animation: rotate 1s linear infinite;
+            }
+            @-webkit-keyframes rotate {
+                from {
+                    -webkit-transform: rotate(0deg);
+                }
+                to {
+                    -webkit-transform: rotate(360deg);
+                }
+            }
+            @-moz-keyframes rotate {
+                from {
+                    -moz-transform: rotate(0deg);
+                }
+                to {
+                    -moz-transform: rotate(360deg);
+                }
+            }
+            @-ms-keyframes rotate {
+                from {
+                    -ms-transform: rotate(0deg);
+                }
+                to {
+                    -ms-transform: rotate(360deg);
+                }
+            }
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            /*------------------------------------------------------- */
+            .mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+                display: none;
+            }
+            body {
+                color: #404040;
+                font: 400 15px/22px'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+                margin: 0;
+                padding: 0;
+                -webkit-font-smoothing: antialiased;
+            }
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            .sidebar-header h1 {
+                border-bottom: 1px solid #ddd;
+            }
+            h1 {
+                font-size: 22px;
+                margin: 0;
+                font-weight: 800;
+                line-height: 20px;
+                padding: 10px 5px;
+                font-family: Raleway;
+                color: #000
+            }
+            h2 {
+                font-size: 20px;
+                margin: 0;
+                font-weight: 800;
+                line-height: 18px;
+                padding-top: 30px;
+                font-family: Raleway;
+                /*				color: #000*/
+            }
+            #info h2:hover {
+                cursor:pointer;
+            }
+            h3 {
+         /*       font-family:'Source Sans Pro';
+                font-size: 18px;*/
+                margin: 0;
+                font-weight: 700;
+                line-height: 18px;
+                padding: 10px 5px;
+            }*/
+            a {
+                color: #404040;
+                text-decoration: none;
+            }
+            .place {
+                display: inline-block;
+                padding-right: 20px;
+                background-color: #f1f1f1;
+                border-radius:6px;
+                text-align: center;
+                padding: 2px 8px 2px 8px;
+                margin-top: 10px;
+                font-weight: 400;
+                margin-right: 5px;
+            }
+            .place:hover, .tagCategory:hover, .tagPlace:hover, .tagItineraire:hover {
+                background-color:#777777;
+                color: #ffffff;
+                cursor: pointer;
+            }
+            .pad2 {
+                padding: 20px;
+            }
+            .sidebar {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            .sidebar.collapsed {
+                height: 120px !important;
+                transition: height 500ms;
+            }
+            .sidebar-tabs > ul > li > a {
+                border-bottom: 1px solid #ddd;
+            }
+            .sidebar-tabs > ul > li.active {
+                color: #fff;
+                background-color: #ff6fb9;
+            }
+            .sidebar-header {
+                background-color: #fff;
+                color: #777;
+                margin: 0 -20px;
+            }
+            .sidebar-content {
+                border-left: 1px solid #eee;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                background-color: rgba(255, 255, 255, 0.75);
+            }
+            .heading#infoTitle, .heading#flyTo {
+                border-bottom: 1px solid #eee;
+            }
+            @media (min-width: 768px) {
+                .sidebar-pane.active {
+                    margin-top: 0 !important;}
+}
+/*
+					.listings {
+					margin-top: 80px !important;
+                }
+            }
+            @media (min-width: 276px) and (max-width: 434px){
+				.listings {
+					margin-top: 90px !important;
+                }
+            }
+            @media (min-width: 240px) and (max-width: 272px){
+				.listings {
+					margin-top: 110px !important;
+                }
+            }
+            @media (min-width: 0px) and (max-width: 239px){
+				.listings {
+					margin-top: 125px !important;
+                }
+            }*/
+            .sidebar-pane.active {
+                transition: height 500ms;
+            }
+            .sidebar-pane {
+                padding: 0px 20px 10px 10px;
+            }
+            .sidebar-close {
+                top: 8px;
+            }
+            .map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                width:100%;
+                overflow:hidden;
+            }
+            .listings {
+                height: 100%;
+                overflow: auto;
+                z-index:1;
+                margin-top:60px;
+                /*padding: 60px 0;*/
+            }
+            .listings .item {
+                display: table-row;
+                text-decoration: none;
+            }
+            .listings .item:last-child {
+                border-bottom: none;
+            }
+            .listings .item .title {
+                display: block;
+                color: #fff;
+                font-weight: 700;
+            }
+            .listings .item .title small {
+                font-weight: 400;
+            }
+     /*       .listings .item.active {
+                background-color: #fff;
+            }*/
+			.item:hover {
+                background-color: #fff;
+            }
+            .sectionTitle:hover {
+                cursor: pointer;    
+            }
+            .sectionTitle {
+                height: 100px;
+                border-bottom: 3px solid #fff;
+                color: #fff;
+                font-size: 25px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+
+
+            }
+            .sectionContent {
+                display: none;
+            }
+            .viewer-icon {
+                margin-left: 3px;
+            }
+            ::-webkit-scrollbar {
+                width: 5px;
+                height: 3px;
+                border-left: 0;
+                background: rgba(0, 0, 0, 0.1);
+            }
+            ::-webkit-scrollbar-track {
+                background: none;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #ff6fb9;
+                border-radius: 0;
+            }
+            .clearfix {
+                display: block;
+            }
+            .clearfix::after {
+                content:'.';
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+            /*------------------- Marker tweaks -------------------*/
+            .mapboxgl-popup {
+                padding-bottom: 15px;
+            }
+            .mapboxgl-popup-close-button {
+                display:none;
+                top:-15px;
+                color:#ffffff;
+            }
+            .mapboxgl-popup-content {
+                font:400 15px/22px'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+                padding:0;
+                width:200px;
+                height:200px;
+                border-radius: 50%;
+            }
+            .mapboxgl-popup-content img {
+                height:190px !important;
+                width:190px !important;
+                object-fit: cover;
+                border-radius: 50%;
+                position: absolute;
+                transform: translate(5px, 5px);
+            }
+            .mapboxgl-popup-content img:hover {
+                opacity: .2;
+            }
+            .mapboxgl-popup-content-wrapper {
+                padding:1%;
+            }
+            .mapboxgl-popup-content h3 {
+                margin:0;
+                display:block;
+                padding:10px;
+                font-weight:700;
+                text-align: center;
+            }
+            .mapboxgl-popup-content h4 {
+                margin:0;
+                display:block;
+                font-weight:400;
+                margin: 0;
+            }
+            .mapboxgl-popup-content i {
+                font-size:small;
+                text-align: center;
+            }
+            .mapboxgl-popup-content div {
+                padding: 15px 10px 10px 10px;
+                font-size:small;
+            }
+            .mapboxgl-container .leaflet-marker-icon {
+                cursor:pointer;
+            }
+            .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+                margin-top: 15px;
+            }
+            .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+                border-bottom-color: #fff;
+            }
+            /* --------------- Markers popup ------------------ */
+            .texte-popup {
+                text-align: center;
+                margin:12px;
+                line-height: 18px;
+            }
+            img.thumb {
+                border-radius: 50%;
+                height: 80px;
+                width: 80px;
+                object-fit: cover;
+                float: left;
+                clear: left;
+                margin: 5px 10px;
+            }
+            /* --------------- Filter buttons ------------------ */
+            .filters {
+                font: 400 15px/22px'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+                background-color: #fff;
+                margin-left: -10px;
+                position: absolute;
+                width:100%;
+                z-index:2;
+            }
+            .tagPlace, .tagCategory, .tagItineraire, .tag {
+                font-size: .8em !important;
+                background: #f1f1f1;
+                color: #ffffff;
+                display: inline-block;
+                padding: 0 5px;
+                border-radius: 3px;
+                margin-right: 3px;
+                line-height: 16px;
+                transition: height 500ms;
+            }
+            .tagPlace.active, .tagCategory.active, .tag {
+                background: #d1d1d1;
+            }
+            #filterCategory, #filterPlace, #GBCat, #GBLieux, #filterItineraires {
+                padding-left: 5px;
+                text-align: left;
+                width: 50%;
+                vertical-align:top;
+                border-bottom: 1px solid #eee;
+            }
+
+			
+            #filterCategory, #filterPlace, #filterItineraires {
+                display:none;
+            }
+            .filterBarShowHide:hover {
+                cursor:pointer;
+            }
+			.GroupBy.active {
+				color: #777;
+				}
+ 			.GroupBy {
+				color: #dcdcdc;
+				}
+ 			.GroupBy:hover {
+				cursor:pointer;
+				}
+            td.imageCell {
+                width:auto;
+            }
