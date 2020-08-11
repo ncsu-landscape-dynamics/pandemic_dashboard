@@ -51,6 +51,7 @@ var stops =  [
 
 
 const options = [{
+<<<<<<< HEAD
 //   name: '1993',
 //   description: 'Introduction Probability',
 //   property: 'Probability of introduction 1993',
@@ -98,79 +99,181 @@ const options = [{
   property: 'Probability of introduction 2000',
   stops: stops,
   arcId: '2000',
+=======
+  name: '2000',
+  description: 'Introduction Probability',
+  property: 'Probability of introduction 2000',
+  stops: stops
 }, {
   name: '2001',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2001',
-  stops: stops,
-  arcId: '2001',
+  stops: stops
 }, {
   name: '2002',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2002',
-  stops: stops,
-  arcId: '2002',
+  stops: stops
 }, {
   name: '2003',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2003',
-  stops: stops,
-  arcId: '2003',
+  stops: stops
 }, {
   name: '2004',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2004',
-  stops: stops,
-  arcId: '2004',
+  stops: stops
 }, {
   name: '2005',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2005',
-  stops: stops,
-  arcId: '2005',
+  stops: stops
 }, {
   name: '2006',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2006',
-  stops: stops,
-  arcId: '2006',
+  stops: stops
 }, {
   name: '2007',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2007',
-  stops: stops,
-  arcId: '2007',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2008',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2008',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2001',
   stops: stops,
-  arcId: '2008',
+  arcId: '2001',
+=======
+  property: 'Probability of introduction 2008',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2009',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T16',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2002',
   stops: stops,
-  arcId: '2009',
+  arcId: '2002',
+=======
+  property: 'Probability of introduction 2009',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2010',
   description: 'Introduction Probability',
-  property: 'Probability of introduction T17',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2003',
   stops: stops,
-  arcId: '1993',
+  arcId: '2003',
+=======
+  property: 'Probability of introduction 2010',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2011',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2011',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2004',
   stops: stops,
-  arcId: '1993',
+  arcId: '2004',
+=======
+  property: 'Probability of introduction 2011',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2012',
   description: 'Introduction Probability',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2005',
+  stops: stops,
+  arcId: '2005',
+=======
+  property: 'Probability of introduction 2012',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+}, {
+  name: '2013',
+  description: 'Introduction Probability',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2006',
+  stops: stops,
+  arcId: '2006',
+=======
+  property: 'Probability of introduction 2013',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+}, {
+  name: '2014',
+  description: 'Introduction Probability',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2007',
+  stops: stops,
+  arcId: '2007',
+=======
+  property: 'Probability of introduction 2014',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+}, {
+  name: '2015',
+  description: 'Introduction Probability',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2008',
+  stops: stops,
+  arcId: '2008',
+=======
+  property: 'Probability of introduction 2015',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+}, {
+  name: '2016',
+  description: 'Introduction Probability',
+<<<<<<< HEAD
+  property: 'Probability of introduction T16',
+  stops: stops,
+  arcId: '2009',
+=======
+  property: 'Probability of introduction 2016',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+}, {
+  name: '2017',
+  description: 'Introduction Probability',
+<<<<<<< HEAD
+  property: 'Probability of introduction T17',
+  stops: stops,
+  arcId: '1993',
+=======
+  property: 'Probability of introduction 2017',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+}, {
+  name: '2018',
+  description: 'Introduction Probability',
+<<<<<<< HEAD
+  property: 'Probability of introduction 2011',
+  stops: stops,
+  arcId: '1993',
+=======
+  property: 'Probability of introduction 2018',
+  stops: stops
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+}, {
+  name: '2019',
+  description: 'Introduction Probability',
+<<<<<<< HEAD
   property: 'Probability of introduction 2012',
   stops: stops,
   arcId: '1993',
 }, {
+=======
+  property: 'Probability of introduction 2019',
+  stops: stops
+}, /*{
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
   name: '2013',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2013',
@@ -203,12 +306,127 @@ const options = [{
 }, {
   name: '2018',
   description: 'Introduction Probability',
+<<<<<<< HEAD
   property: 'Probability of introduction 2018',
   stops: stops,
   arcId: '1993',
 }
 ]
 
+=======
+  property: 'Probability of introduction T25',
+  propertyPresence: 'Presence 1993',
+  stops: stops
+}*/
+]
+
+const markerList = [{
+  name: '2000',
+  description: 'Presence',
+  property: 'Presence 2000'
+}, {
+  name: '2001',
+  description: 'Presence',
+  property: 'Presence 2001'
+}, {
+  name: '2002',
+  description: 'Presence',
+  property: 'Presence 2002'
+}, {
+  name: '2003',
+  description: 'Presence',
+  property: 'Presence 2003'
+}, {
+  name: '2004',
+  description: 'Presence',
+  property: 'Presence 2004'
+}, {
+  name: '2005',
+  description: 'Presence',
+  property: 'Presence 2005'
+}, {
+  name: '2006',
+  description: 'Presence',
+  property: 'Presence 2006'
+}, {
+  name: '2007',
+  description: 'Presence',
+  property: 'Presence 2007'
+}, {
+  name: '2008',
+  description: 'Presence',
+  property: 'Presence 2008'
+}, {
+  name: '2009',
+  description: 'Presence',
+  property: 'Presence 2009'
+}, {
+  name: '2010',
+  description: 'Presence',
+  property: 'Presence 2010'
+}, {
+  name: '2011',
+  description: 'Presence',
+  property: 'Presence 2011'
+}, {
+  name: '2012',
+  description: 'Presence',
+  property: 'Presence 2012'
+}, {
+  name: '2013',
+  description: 'Presence',
+  property: 'Presence 2013'
+}, {
+  name: '2014',
+  description: 'Presence',
+  property: 'Presence 2014'
+}, {
+  name: '2015',
+  description: 'Presence',
+  property: 'Presence 2015'
+}, {
+  name: '2016',
+  description: 'Presence',
+  property: 'Presence 2016'
+}, {
+  name: '2017',
+  description: 'Presence',
+  property: 'Presence 2017'
+}, {
+  name: '2018',
+  description: 'Presence',
+  property: 'Presence 2018'
+}, {
+  name: '2019',
+  description: 'Presence',
+  property: 'Presence 2019'
+}, /*{
+  name: '2013',
+  description: 'Presence',
+  property: 'Presence 2013'
+}, {
+  name: '2014',
+  description: 'Presence',
+  property: 'Presence 2014'
+}, {
+  name: '2015',
+  description: 'Presence',
+  property: 'Presence 2015'
+}, {
+  name: '2016',
+  description: 'Presence',
+  property: 'Presence 2016'
+}, {
+  name: '2017',
+  description: 'Presence',
+  property: 'Presence 2017'
+}, {
+  name: '2018',
+  description: 'Presence',
+  property: 'Presence 2018'
+}*/
+]
+>>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 
 // const arcOptions = [{
 //   name: '1993',
