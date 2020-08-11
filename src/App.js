@@ -28,8 +28,6 @@ import arcData from './arcs.json'
 import { json } from 'd3-request';
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 
-
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 
@@ -49,57 +47,7 @@ var stops =  [
   [1, 'rgba(240,249,33, 0.4)']
 ]
 
-
 const options = [{
-<<<<<<< HEAD
-//   name: '1993',
-//   description: 'Introduction Probability',
-//   property: 'Probability of introduction 1993',
-//   stops: stops,
-//   arcId: '1993',
-// }, {
-//   name: '1994',
-//   description: 'Introduction Probability',
-//   property: 'Probability of introduction 1994',
-//   stops: stops,
-//   arcId: '1994',
-// }, {
-//   name: '1995',
-//   description: 'Introduction Probability',
-//   property: 'Probability of introduction 1995',
-//   stops: stops,
-//   arcId: '1995',
-// }, {
-//   name: '1996',
-//   description: 'Introduction Probability',
-//   property: 'Probability of introduction 1996',
-//   stops: stops,
-//   arcId: '1996',
-// }, {
-//   name: '1997',
-//   description: 'Introduction Probability',
-//   property: 'Probability of introduction 1997',
-//   stops: stops,
-//   arcId: '1997',
-// }, {
-//   name: '1998',
-//   description: 'Introduction Probability',
-//   property: 'Probability of introduction 1998',
-//   stops: stops,
-//   arcId: '1998',
-// }, {
-//   name: '1999',
-//   description: 'Introduction Probability',
-//   property: 'Probability of introduction 1999',
-//   stops: stops,
-//   arcId: '1999',
-// }, {
-  name: '2000',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction 2000',
-  stops: stops,
-  arcId: '2000',
-=======
   name: '2000',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2000',
@@ -139,141 +87,67 @@ const options = [{
   description: 'Introduction Probability',
   property: 'Probability of introduction 2007',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2008',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2001',
-  stops: stops,
-  arcId: '2001',
-=======
   property: 'Probability of introduction 2008',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2009',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2002',
-  stops: stops,
-  arcId: '2002',
-=======
   property: 'Probability of introduction 2009',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2010',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2003',
-  stops: stops,
-  arcId: '2003',
-=======
   property: 'Probability of introduction 2010',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2011',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2004',
-  stops: stops,
-  arcId: '2004',
-=======
   property: 'Probability of introduction 2011',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2012',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2005',
-  stops: stops,
-  arcId: '2005',
-=======
   property: 'Probability of introduction 2012',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2013',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2006',
-  stops: stops,
-  arcId: '2006',
-=======
   property: 'Probability of introduction 2013',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2014',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2007',
-  stops: stops,
-  arcId: '2007',
-=======
   property: 'Probability of introduction 2014',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2015',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2008',
-  stops: stops,
-  arcId: '2008',
-=======
   property: 'Probability of introduction 2015',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2016',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction T16',
-  stops: stops,
-  arcId: '2009',
-=======
   property: 'Probability of introduction 2016',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2017',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction T17',
-  stops: stops,
-  arcId: '1993',
-=======
   property: 'Probability of introduction 2017',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2018',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2011',
-  stops: stops,
-  arcId: '1993',
-=======
   property: 'Probability of introduction 2018',
   stops: stops
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
 }, {
   name: '2019',
   description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2012',
-  stops: stops,
-  arcId: '1993',
-}, {
-=======
   property: 'Probability of introduction 2019',
   stops: stops
 }, /*{
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
   name: '2013',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2013',
@@ -313,7 +187,6 @@ const options = [{
 }
 ]
 
-=======
   property: 'Probability of introduction T25',
   propertyPresence: 'Presence 1993',
   stops: stops
@@ -426,7 +299,7 @@ const markerList = [{
   property: 'Presence 2018'
 }*/
 ]
->>>>>>> b77edb3b44d911e3b5c52a9e45b1e3bdcc1cb1bc
+
 
 // const arcOptions = [{
 //   name: '1993',
@@ -492,114 +365,6 @@ const markerList = [{
 //   name: '2009',
 //   property: 'id',
   
-// }
-// ]
-
-
-// const markerList = [{
-//   name: '1993',
-//   description: 'Presence',
-//   property: 'Presence 1993'
-// }, {
-//   name: '1994',
-//   description: 'Presence',
-//   property: 'Presence 1994'
-// }, {
-//   name: '1995',
-//   description: 'Presence',
-//   property: 'Presence 1995'
-// }, {
-//   name: '1996',
-//   description: 'Presence',
-//   property: 'Presence 1996'
-// }, {
-//   name: '1997',
-//   description: 'Presence',
-//   property: 'Presence 1997'
-// }, {
-//   name: '1998',
-//   description: 'Presence',
-//   property: 'Presence 1998'
-// }, {
-//   name: '1999',
-//   description: 'Presence',
-//   property: 'Presence 1999'
-// }, {
-//   name: '2000',
-//   description: 'Presence',
-//   property: 'Presence 2000'
-// }, {
-//   name: '2001',
-//   description: 'Presence',
-//   property: 'Presence 2001'
-// }, {
-//   name: '2002',
-//   description: 'Presence',
-//   property: 'Presence 2002'
-// }, {
-//   name: '2003',
-//   description: 'Presence',
-//   property: 'Presence 2003'
-// }, {
-//   name: '2004',
-//   description: 'Presence',
-//   property: 'Presence 2004'
-// }, {
-//   name: '2005',
-//   description: 'Presence',
-//   property: 'Presence 2005'
-// }, {
-//   name: '2006',
-//   description: 'Presence',
-//   property: 'Presence 2006'
-// }, {
-//   name: '2007',
-//   description: 'Presence',
-//   property: 'Presence 2007'
-// }, {
-//   name: '2008',
-//   description: 'Presence',
-//   property: 'Presence 2008'
-// }, {
-//   name: '2009',
-//   description: 'Presence',
-//   property: 'Presence 2009'
-// }, {
-//   name: '2010',
-//   description: 'Presence',
-//   property: 'Presence 2010'
-// }, {
-//   name: '2011',
-//   description: 'Presence',
-//   property: 'Presence 2011'
-// }, {
-//   name: '2012',
-//   description: 'Presence',
-//   property: 'Presence 2012'
-// }, {
-//   name: '2013',
-//   description: 'Presence',
-//   property: 'Presence 2013'
-// }, {
-//   name: '2014',
-//   description: 'Presence',
-//   property: 'Presence 2014'
-// }, {
-//   name: '2015',
-//   description: 'Presence',
-//   property: 'Presence 2015'
-// }, {
-//   name: '2016',
-//   description: 'Presence',
-//   property: 'Presence 2016'
-// }, {
-//   name: '2017',
-//   description: 'Presence',
-//   property: 'Presence 2017'
-// }, {
-//   name: '2018',
-//   description: 'Presence',
-//   property: 'Presence 2018'
 // }
 // ]
 
