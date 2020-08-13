@@ -1,16 +1,17 @@
-import React, {useState, useRef, useCallback, Component }  from 'react';
-import logo from './logo.svg';
+import React  from 'react';
+// import React, {useState, useRef, useCallback, Component }  from 'react';
+// import logo from './logo.svg';
 import './App.css';
 import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import MapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
-import { render } from "react-dom";
+// import MapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
+// import { render } from "react-dom";
 // import { Icon } from "semantic-ui-react";
 import data from './pandemic_output.json'
 import presence_data from './presence_pandemic.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
-import ReactMapboxGl from 'react-mapbox-gl';
+// import ReactMapboxGl from 'react-mapbox-gl';
 import DeckGL from '@deck.gl/react';
 import {ScatterplotLayer, GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
 import {StaticMap} from 'react-map-gl';
