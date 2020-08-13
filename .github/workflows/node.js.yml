@@ -38,9 +38,6 @@ jobs:
         rm -rf node_modules
         npm install
         npm start
-      
-    - name: Run the tests
-      run: npm test
     
     - name: Build
       run: npm run build
