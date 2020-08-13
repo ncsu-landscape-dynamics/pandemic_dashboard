@@ -35,9 +35,7 @@ jobs:
         
     - name: Install dependancies
       run: 
-        rm -rf node_modules
         npm install
-        npm start
     
     - name: Build
       run: npm run build
