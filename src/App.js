@@ -476,7 +476,7 @@ class App extends React.Component {
     // });
 
     this.map.on('load', () => {
-      this.map.addLayer(myDeckLayer);
+      // this.map.addLayer(myDeckLayer);
       // if (this.map.getLayer("countries")) {
       //   this.map.removeLayer("countries");
       // };
