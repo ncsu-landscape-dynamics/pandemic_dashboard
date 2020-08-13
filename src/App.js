@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 // import React, {useState, useRef, useCallback, Component }  from 'react';
 // import logo from './logo.svg';
 import './App.css';
@@ -12,21 +12,21 @@ import presence_data from './presence_pandemic.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
 // import ReactMapboxGl from 'react-mapbox-gl';
-import DeckGL from '@deck.gl/react';
-import {ScatterplotLayer, GeoJsonLayer, ArcLayer} from '@deck.gl/layers';
-import {StaticMap} from 'react-map-gl';
+// import DeckGL from '@deck.gl/react';
+import {ArcLayer} from '@deck.gl/layers';
+// import {StaticMap} from 'react-map-gl';
 import {MapboxLayer} from '@deck.gl/mapbox';
 import "mapbox-gl/dist/mapbox-gl.css";
 import  "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import StylesControl from 'mapbox-gl-controls/lib/styles';
-import CompassControl from 'mapbox-gl-controls/lib/compass';
-import RulerControl from 'mapbox-gl-controls/lib/ruler';
-import ZoomControl from 'mapbox-gl-controls/lib/zoom';
-import LanguageControl from 'mapbox-gl-controls/lib/language';
-import InspectControl from 'mapbox-gl-controls/lib/inspect';
-import TooltipControl from 'mapbox-gl-controls/lib/tooltip';
+// import StylesControl from 'mapbox-gl-controls/lib/styles';
+// import CompassControl from 'mapbox-gl-controls/lib/compass';
+// import RulerControl from 'mapbox-gl-controls/lib/ruler';
+// import ZoomControl from 'mapbox-gl-controls/lib/zoom';
+// import LanguageControl from 'mapbox-gl-controls/lib/language';
+// import InspectControl from 'mapbox-gl-controls/lib/inspect';
+// import TooltipControl from 'mapbox-gl-controls/lib/tooltip';
 import arcData from './arcs.json'
-import { json } from 'd3-request';
+// import { json } from 'd3-request';
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
@@ -427,7 +427,12 @@ class App extends React.Component {
     this.state = {
       // width: 0, 
       // height: 0 ,
+    //   position : {
+    //     latitude: 49.437090,
+    //     longitude: 1.097456,
+    //  },
       active: options[0] ,
+      // active: [options[0],markerList[0] ],
       // active: arcOptions[0] ,
       viewport: {
         // latitude: 17.44212,
@@ -452,15 +457,19 @@ class App extends React.Component {
     // this.addLayer();
   }
 
+
   componentDidMount() {
+    // const mapRef = useRef()
     this.tooltipContainer = document.createElement('div');
     this.map = new mapboxgl.Map({
       container: this.mapRef.current,
       style: 'mapbox://styles/gcmillar/ckc13n1qe3rgx1ilchl8u3xax',
       // style: 'mapbox://styles/mapbox/dark-v10',
-      center: [20, 40],
-      zoom: 1.45,
-      pitch: 80
+      center: [40, 40],
+      zoom: 1.2,
+      pitch: 0,
+      minpitchZoom: 1,
+      maxBounds: [ [-175, -80], [195, 86] ], // Sets bounds as max extent
       });
           /* Zoom */
       // this.map.addControl(new ZoomControl(), 'top-right');
@@ -477,7 +486,8 @@ class App extends React.Component {
     // });
 
     this.map.on('load', () => {
-      // this.map.addLayer(myDeckLayer);
+      this.map.addLayer(myDeckLayer);
+      
       // if (this.map.getLayer("countries")) {
       //   this.map.removeLayer("countries");
       // };
@@ -553,8 +563,8 @@ class App extends React.Component {
     this.setFill();
     });
 
-    const {arcId } = this.state.active;
-    console.log(arcId);
+    // const {arcId } = this.state.active;
+    // console.log(arcId);
 
     
      // Original ES6 Class— https://github.com/tobinbradley/mapbox-gl-pitch-toggle-control
@@ -677,7 +687,7 @@ class App extends React.Component {
           mapboxgl: mapboxgl,
           placeholder: 'Search for a Location'
         }), 'top-right');
-        this.map.addControl(new PitchToggle({ minpitchzoom: 11 }), "top-right");
+        this.map.addControl(new PitchToggle({ minpitchzoom: 16 }), "top-right");
   
 
     const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
@@ -775,6 +785,10 @@ class App extends React.Component {
   //   )
   // }
 
+// features () { 
+  
+//   this.mapRef.current.queryRenderedFeatures( { layers: ['countries'] })
+//   }
 
   render() {
     const { 
@@ -794,16 +808,39 @@ class App extends React.Component {
     const renderOptions = (option, i) => {
       return (
         <label key={i} className="toggle-container w36 maxw60 pa24">
-          <input  onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
+          <input  onChange={() => this.setState({ active: [options[i]] })} checked={option.property === property} name="toggle" type="radio" />
+          {/* <input  onChange={() => this.setState({ active: [options[i],markerList[i]] })} checked={option.property === property} name="toggle" type="radio" /> */}
           <div  className="toggle txt-xs color-white toggle--gray  toggle--active-darken100 maxw60 w50 pl6 pr6">{option.name}</div>
         </label>
       );
     }
-
+    // const [data, setData] = useState()
+    // const [setViewport] = useState({
+    //   latitude: 49.437090,
+    //     longitude: 1.097456,
+    // })
+    // useEffect(() => {
+    //   fetch('../data.json')
+    //     .then(res => res.json())
+    //     .then(res => setData(res))
+    // },[])
+    // const handleClick = () => {
+    //   setData(filterRamps())
+    // }
+    
     return (
       
       <div>
-        <div ref={this.mapRef} width='100%' height='100%' className="absolute top right left bottom align-middle grid" />
+        
+        <div ref={this.mapRef} 
+        {...viewport}
+        width="100%"
+        height="100%"
+        mapStyle="mapbox://styles/mapbox/dark-v9"
+        onViewportChange={viewport}
+        mapboxApiAccessToken={MAPBOX_TOKEN}
+        // queryRenderedFeatures={features} 
+        width='100%' height='100%' className="absolute top right left bottom align-middle grid" />
         <label className=" align-middle top  txt-s mb30 mt3 ml18 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken50 " ><b>Select Year:</b></label>
         <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold  color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
