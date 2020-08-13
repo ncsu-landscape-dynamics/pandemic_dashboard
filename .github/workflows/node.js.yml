@@ -34,13 +34,13 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
         
     - name: Install dependancies
-      run: npm install
-      
-    - name: Run the tests
-      run: npm test
+      run: 
+        npm install
     
     - name: Build
       run: npm run build
+      env:
+         CI: false
     
     - name: Deploy
       run: |
