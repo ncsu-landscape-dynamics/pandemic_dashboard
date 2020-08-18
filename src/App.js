@@ -655,7 +655,7 @@ console.log(myFeatures);
   
           onAdd(map) {
             this._btn = document.createElement("button");
-            this._btn.className = "mapboxgl-ctrl-icon" + " " + this._className;
+            this._btn.className = `mapboxgl-ctrl-icon${this._className}`;
             this._btn.type = "button";
             this._btn.title = this._title;
             this._btn.onclick = this._eventHandler;
@@ -690,23 +690,23 @@ console.log(myFeatures);
         }
   
         /* Instantiate new controls with custom event handlers */
-        const ctrlPoint = new MapboxGLButtonControl({
-          className: "mapbox-gl-draw_point",
-          title: "Draw Point",
-          eventHandler: one
-        });
+        // const ctrlPoint = new MapboxGLButtonControl({
+        //   className: "mapbox-gl-draw_point",
+        //   title: "Draw Point",
+        //   eventHandler: one
+        // });
   
-        const ctrlLine = new MapboxGLButtonControl({
-          className: "mapbox-gl-draw_line",
-          title: "Draw Line",
-          eventHandler: two
-        });
+        // const ctrlLine = new MapboxGLButtonControl({
+        //   className: "mapbox-gl-draw_line",
+        //   title: "Draw Line",
+        //   eventHandler: two
+        // });
   
-        const ctrlPolygon = new MapboxGLButtonControl({
-          className: "mapbox-gl-draw_polygon",
-          title: "Draw Polygon",
-          eventHandler: three
-        });
+        // const ctrlPolygon = new MapboxGLButtonControl({
+        //   className: "mapbox-gl-draw_polygon",
+        //   title: "Draw Polygon",
+        //   eventHandler: three
+        // });
   
         /* Add Controls to the Map */
         // this.map.addControl(new mapboxgl.NavigationControl(), "top-left");
@@ -718,9 +718,9 @@ console.log(myFeatures);
         this.map.addControl(new PitchToggle({ minpitchzoom: 16 }), "top-right");
   
 
-        const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
-          offset: [-120, 0]
-        }).setLngLat([0,0]).addTo(this.map);
+        // const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
+        //   offset: [-120, 0]
+        // }).setLngLat([0,0]).addTo(this.map);
     
         var popup = new mapboxgl.Popup({
           closeButton: false,
@@ -731,7 +731,7 @@ console.log(myFeatures);
             this.map.getCanvas().style.cursor =  'pointer';
           });
           // console.log(data)
-          const { name, description, stops, property } = this.state.active;
+          const { property } = this.state.active;
           const prob_intro = data.features[0].properties[property]
           console.log(prob_intro)
           this.map.on('click', 'countries', (e) => {
