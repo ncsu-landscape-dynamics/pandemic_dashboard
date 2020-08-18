@@ -1,11 +1,5 @@
 # Pandemic Dashboard
-
-
-
-![Demo gif](/example.gif)
-
-
-
+ <img src="example.gif" alt="Demo gif" style="width:400px;"/>
 
 --- 
 
@@ -40,7 +34,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 You can now see the app running in the localhost browser popup like this:
 
-![local app](/local_app_example.png)
+ <img src="local_app_example.png" alt="local app" style="width:400px;"/>
 
 ### Publishing Your Changes to Live Website
 * In your terminal / cmd, run this command:
