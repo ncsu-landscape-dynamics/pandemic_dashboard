@@ -56,16 +56,23 @@ You can now see the app running in the localhost browser popup like this:
 
 
 ### Publishing Your Changes to Live Website
-* In your terminal / cmd, run your typical GitHub commands to upload your changes:
-    > `git add `  
-    > `git commit -m "text describing changes / updates" `  
-    > `git push `  
-    
-* By running `git push 
+* The publication process for this application is automated with [GitHub Actions](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions)
+* So when the following commands are run on your local machine, the entire [npm](https://www.npmjs.com/get-npm) publishing process is automatically activated (as specified by this configured [Workflow file](https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/.github/workflows/deploy.yml))
+    * In your terminal / cmd, run your typical GitHub commands to upload your changes:
+        > `git add `  
+        > `git commit -m "text describing changes / updates" `  
+        > `git push `  
+
+* Now, any local changes made to the application will: 
+    1. Automatically update remote repository code and files
+    2. Compile an optimized application build
+    3. Deploy updated build to the [live version](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions) of the application (hosted on Github Pages)
+* To monitor the status of your changes, or investigate why a build was unsuccessful, visit the this repository's GitHub [Actions](https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/actions) tab. 
+<!-- Automate your NPM publish with GitHub Actions
 
     >  `yarn run deploy` 
  
- This command pushes any local changes you've made to the gh-pages branch of the *pandemic_dashboard* remote repository.
+ This command pushes any local changes you've made to the gh-pages branch of the *pandemic_dashboard* remote repository. -->
 
 ---
 
