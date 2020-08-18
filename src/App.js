@@ -35,17 +35,17 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 var stops =  [
-  [0, 'rgba(45,69,132, 0.7)'],	
-  [0.1, 'rgba(77,30,129, 0.7)'],	
-  [0.2, 'rgba(109,41,126, 0.7)'],			
-  [0.3, 'rgba(141,52,123, 0.7)'], 
-  [0.4, 'rgba(173,63,120, 0.7)'],	
-  [0.5, 'rgba(205,74,118, 0.7)'], 
-  [0.6, 'rgba(210,103,103	, 0.7)'],		
-  [0.7, 'rgba(216,132,89,0.7)'], 
-  [0.8, 'rgba(222,161,75, 0.7)'],	
-  [0.9, 'rgba(228,190,61, 0.7)'],
-  [1, 'rgba(240,249,33, 0.7)']
+  [0, 'rgba(45,69,132, 1.0)'],	
+  [0.1, 'rgba(77,30,129, 1.0)'],	
+  [0.2, 'rgba(109,41,126, 1.0)'],			
+  [0.3, 'rgba(141,52,123, 1.0)'], 
+  [0.4, 'rgba(173,63,120, 1.0)'],	
+  [0.5, 'rgba(205,74,118, 1.0)'], 
+  [0.6, 'rgba(210,103,103	, 1.0)'],		
+  [0.7, 'rgba(216,132,89, 1.0)'], 
+  [0.8, 'rgba(222,161,75, 1.0)'],	
+  [0.9, 'rgba(228,190,61, 1.0)'],
+  [1, 'rgba(240,249,33, 1.0)']
 ]
 
 const options = [{
