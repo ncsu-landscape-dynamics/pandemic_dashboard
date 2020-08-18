@@ -642,52 +642,52 @@ console.log(myFeatures);
         }
   
         /* Idea from Stack Overflow https://stackoverflow.com/a/51683226  */
-        class MapboxGLButtonControl {
-          constructor({
-            className = "",
-            title = "",
-            eventHandler = ""
-          }) {
-            this._className = className;
-            this._title = title;
-            this._eventHandler = eventHandler;
-          }
+        // class MapboxGLButtonControl {
+        //   constructor({
+        //     className = "",
+        //     title = "",
+        //     eventHandler = ""
+        //   }) {
+        //     this._className = className;
+        //     this._title = title;
+        //     this._eventHandler = eventHandler;
+        //   }
   
-          onAdd(map) {
-            this._btn = document.createElement("button");
-            this._btn.className = `mapboxgl-ctrl-icon${this._className}`;
-            this._btn.type = "button";
-            this._btn.title = this._title;
-            this._btn.onclick = this._eventHandler;
+        //   onAdd(map) {
+        //     this._btn = document.createElement("button");
+        //     this._btn.className = `mapboxgl-ctrl-icon${this._className}`;
+        //     this._btn.type = "button";
+        //     this._btn.title = this._title;
+        //     this._btn.onclick = this._eventHandler;
   
-            this._container = document.createElement("div");
-            this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
-            this._container.appendChild(this._btn);
+        //     this._container = document.createElement("div");
+        //     this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
+        //     this._container.appendChild(this._btn);
   
-            return this._container;
-          }
+        //     return this._container;
+        //   }
   
-          onRemove() {
-            this._container.parentNode.removeChild(this._container);
-            this._map = undefined;
-          }
-        }
+        //   onRemove() {
+        //     this._container.parentNode.removeChild(this._container);
+        //     this._map = undefined;
+        //   }
+        // }
   
         /* Event Handlers */
-        function one(event) {
-          alert("Event handler when clicking on \r\n" + event.target.className);
-          console.log("event number 1", event);
-        }
+        // function one(event) {
+        //   alert("Event handler when clicking on \r\n" + event.target.className);
+        //   console.log("event number 1", event);
+        // }
   
-        function two(event) {
-          alert("Event handler when clicking on \r\n" + event.target.className);
-          console.log("event number 2", event);
-        }
+        // function two(event) {
+        //   alert("Event handler when clicking on \r\n" + event.target.className);
+        //   console.log("event number 2", event);
+        // }
   
-        function three(event) {
-          alert("Event handler when clicking on \r\n" + event.target.className);
-          console.log("event number 3", event);
-        }
+        // function three(event) {
+        //   alert("Event handler when clicking on \r\n" + event.target.className);
+        //   console.log("event number 3", event);
+        // }
   
         /* Instantiate new controls with custom event handlers */
         // const ctrlPoint = new MapboxGLButtonControl({
@@ -742,11 +742,7 @@ console.log(myFeatures);
           this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
           popup 
           .setLngLat(e.lngLat)
-           .setHTML('<b><u>Country Information' + '</b></u>' +
-              '<ul>' +
-              '<li><b>Name: </b>' + features[0].properties["NAME"] + '</li>' +
-              '<li><b>Introduction Probability: </b>' + prob_intro  + '</li>' +
-              '</ul>')
+           .setHTML(`<b><u>Country Information</b></u><ul><li><b>Name: </b>${features[0].properties["NAME"]}</li><li><b>Introduction Probability: </b>${prob_intro}</li></ul>`)
           .addTo(this.map);
         });
 
@@ -799,11 +795,11 @@ console.log(myFeatures);
       // // this.map.addLayer('countries','country-label')
       // ), 'top-right');
 
-    this.map.on('click', 'presence_data', (p) => {
-      const presenceFeatures = this.map.queryRenderedFeatures(p.point, {
-    });
-    // console.log(presenceFeatures)
-  });
+  //   this.map.on('click', 'presence_data', (p) => {
+  //     const presenceFeatures = this.map.queryRenderedFeatures(p.point, {
+  //   });
+  //   // console.log(presenceFeatures)
+  // });
     this.map.on('mouseleave', 'countries', (e) => {
       this.map.getCanvas().style.cursor =  '';
       popup.remove();
