@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/actions/toolkit/actions?query=workflow%3Atoolkit-unit-tests"><img alt="app build status" height="26" src="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/workflows/Node.js%20CI/badge.svg"></a>
+  <a href="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/actions?query=workflow%3A%22Node.js+CI%22"><img alt="app build status" height="26" src="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/workflows/Node.js%20CI/badge.svg"></a>
 </p>
 
 ---
