@@ -52,101 +52,121 @@ const options = [{
   name: '2000',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2000',
+  presenceProperty: 'Presence 2000',
   stops: stops
 }, {
   name: '2001',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2001',
+  presenceProperty: 'Presence 2001',
   stops: stops
 }, {
   name: '2002',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2002',
+  presenceProperty: 'Presence 2002',
   stops: stops
 }, {
   name: '2003',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2003',
+  presenceProperty: 'Presence 2003',
   stops: stops
 }, {
   name: '2004',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2004',
+  presenceProperty: 'Presence 2004',
   stops: stops
 }, {
   name: '2005',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2005',
+  presenceProperty: 'Presence 2005',
   stops: stops
 }, {
   name: '2006',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2006',
+  presenceProperty: 'Presence 2006',
   stops: stops
 }, {
   name: '2007',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2007',
+  presenceProperty: 'Presence 2007',
   stops: stops
 }, {
   name: '2008',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2008',
+  presenceProperty: 'Presence 2008',
   stops: stops
 }, {
   name: '2009',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2009',
+  presenceProperty: 'Presence 2009',
   stops: stops
 }, {
   name: '2010',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2010',
+  presenceProperty: 'Presence 2010',
   stops: stops
 }, {
   name: '2011',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2011',
+  presenceProperty: 'Presence 2011',
   stops: stops
 }, {
   name: '2012',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2012',
+  presenceProperty: 'Presence 2012',
   stops: stops
 }, {
   name: '2013',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2013',
+  presenceProperty: 'Presence 2013',
   stops: stops
 }, {
   name: '2014',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2014',
+  presenceProperty: 'Presence 2014',
   stops: stops
 }, {
   name: '2015',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2015',
+  presenceProperty: 'Presence 2015',
   stops: stops
 }, {
   name: '2016',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2016',
+  presenceProperty: 'Presence 2016',
   stops: stops
 }, {
   name: '2017',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2017',
+  presenceProperty: 'Presence 2017',
   stops: stops
 }, {
   name: '2018',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2018',
+  presenceProperty: 'Presence 2018',
   stops: stops
 }, {
   name: '2019',
   description: 'Introduction Probability',
   property: 'Probability of introduction 2019',
+  presenceProperty: 'Presence 2019',
   stops: stops
 }, /*{
   name: '2013',
@@ -194,59 +214,88 @@ const options = [{
 }*/
 ]
 
-const markerList = [{
-  name: '2000',
-  description: 'Presence',
-  property: 'Presence 2000'
-}, {
-  name: '2001',
-  description: 'Presence',
-  property: 'Presence 2001'
-}, {
-  name: '2002',
-  description: 'Presence',
-  property: 'Presence 2002'
-}, {
-  name: '2003',
-  description: 'Presence',
-  property: 'Presence 2003'
-}, {
-  name: '2004',
-  description: 'Presence',
-  property: 'Presence 2004'
-}, {
-  name: '2005',
-  description: 'Presence',
-  property: 'Presence 2005'
-}, {
-  name: '2006',
-  description: 'Presence',
-  property: 'Presence 2006'
-}, {
-  name: '2007',
-  description: 'Presence',
-  property: 'Presence 2007'
-}, {
-  name: '2008',
-  description: 'Presence',
-  property: 'Presence 2008'
-}, {
-  name: '2009',
-  description: 'Presence',
-  property: 'Presence 2009'
-}, {
-  name: '2010',
-  description: 'Presence',
-  property: 'Presence 2010'
-}, {
-  name: '2011',
-  description: 'Presence',
-  property: 'Presence 2011'
-}, {
-  name: '2012',
-  description: 'Presence',
-  property: 'Presence 2012'
-}, {
+// const markerList = [{
+//   name: '2000',
+//   description: 'Presence',
+//   property: 'Presence 2000'
+// }, {
+//   name: '2001',
+//   description: 'Presence',
+//   property: 'Presence 2001'
+// }, {
+//   name: '2002',
+//   description: 'Presence',
+//   property: 'Presence 2002'
+// }, {
+//   name: '2003',
+//   description: 'Presence',
+//   property: 'Presence 2003'
+// }, {
+//   name: '2004',
+//   description: 'Presence',
+//   property: 'Presence 2004'
+// }, {
+//   name: '2005',
+//   description: 'Presence',
+//   property: 'Presence 2005'
+// }, {
+//   name: '2006',
+//   description: 'Presence',
+//   property: 'Presence 2006'
+// }, {
+//   name: '2007',
+//   description: 'Presence',
+//   property: 'Presence 2007'
+// }, {
+//   name: '2008',
+//   description: 'Presence',
+//   property: 'Presence 2008'
+// }, {
+//   name: '2009',
+//   description: 'Presence',
+//   property: 'Presence 2009'
+// }, {
+//   name: '2010',
+//   description: 'Presence',
+//   property: 'Presence 2010'
+// }, {
+//   name: '2011',
+//   description: 'Presence',
+//   property: 'Presence 2011'
+// }, {
+//   name: '2012',
+//   description: 'Presence',
+//   property: 'Presence 2012'
+// }, {
+//   name: '2013',
+//   description: 'Presence',
+//   property: 'Presence 2013'
+// }, {
+//   name: '2014',
+//   description: 'Presence',
+//   property: 'Presence 2014'
+// }, {
+//   name: '2015',
+//   description: 'Presence',
+//   property: 'Presence 2015'
+// }, {
+//   name: '2016',
+//   description: 'Presence',
+//   property: 'Presence 2016'
+// }, {
+//   name: '2017',
+//   description: 'Presence',
+//   property: 'Presence 2017'
+// }, {
+//   name: '2018',
+//   description: 'Presence',
+//   property: 'Presence 2018'
+// }, {
+//   name: '2019',
+//   description: 'Presence',
+//   property: 'Presence 2019'
+// }, 
+/*{
   name: '2013',
   description: 'Presence',
   property: 'Presence 2013'
@@ -270,36 +319,8 @@ const markerList = [{
   name: '2018',
   description: 'Presence',
   property: 'Presence 2018'
-}, {
-  name: '2019',
-  description: 'Presence',
-  property: 'Presence 2019'
-}, /*{
-  name: '2013',
-  description: 'Presence',
-  property: 'Presence 2013'
-}, {
-  name: '2014',
-  description: 'Presence',
-  property: 'Presence 2014'
-}, {
-  name: '2015',
-  description: 'Presence',
-  property: 'Presence 2015'
-}, {
-  name: '2016',
-  description: 'Presence',
-  property: 'Presence 2016'
-}, {
-  name: '2017',
-  description: 'Presence',
-  property: 'Presence 2017'
-}, {
-  name: '2018',
-  description: 'Presence',
-  property: 'Presence 2018'
-}*/
-]
+}
+]*/
 
 
 // const arcOptions = [{
@@ -372,7 +393,7 @@ const markerList = [{
 
 const myDeckLayer = new MapboxLayer({
   coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
-  id: 'my-scatterplot',
+  id: 'connectionsArcs',
   type: ArcLayer,
   data: arcData,
   getSourceColor: d => [144,238,144],
@@ -432,7 +453,6 @@ class App extends React.Component {
     //     longitude: 1.097456,
     //  },
       active: options[0] ,
-      // active: [options[0],markerList[0] ],
       // active: arcOptions[0] ,
       viewport: {
         // latitude: 17.44212,
@@ -515,20 +535,20 @@ class App extends React.Component {
         source: 'countries'
       },'country-label'); 
 
-      this.map.addLayer({
-        id: 'presence_data',
-        interactive: true,
-        type: "symbol",
-        source:  'presence_data',
-        layout: {
-          'icon-image': 
-          ['concat', ['get', 'icon'], '-15'],
-          'text-field': ['get', 'title'],
-          'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-          'text-offset': [0, 0.6],
-          'text-anchor': 'top'
-        }
-      }); 
+      // this.map.addLayer({
+      //   id: 'presence_data',
+      //   interactive: true,
+      //   type: "symbol",
+      //   source:  'countries',
+      //   // layout: {
+      //   //   'icon-image': 
+      //   //   ['concat', ['get', 'icon'], '-15'],
+      //   //   'text-field': ['get', 'title'],
+      //   //   'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+      //   //   'text-offset': [0, 0.6],
+      //   //   'text-anchor': 'top'
+      //   // }
+      // }); 
       
       // this.map.addLayer(arclayer, 'waterway-label');
       
@@ -560,6 +580,14 @@ class App extends React.Component {
     //       });
     //     });
     // });
+    var myFeatures = this.map.queryRenderedFeatures('countries', 
+    {
+        layers: 'countries',
+       // i'm confident there is data matching this filter 
+    }
+    );
+
+console.log(myFeatures);
     this.setFill();
     });
 
@@ -690,37 +718,67 @@ class App extends React.Component {
         this.map.addControl(new PitchToggle({ minpitchzoom: 16 }), "top-right");
   
 
-    const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
-      offset: [-120, 0]
-    }).setLngLat([0,0]).addTo(this.map);
+        const tooltip = new mapboxgl.Marker(this.tooltipContainer, {
+          offset: [-120, 0]
+        }).setLngLat([0,0]).addTo(this.map);
+    
+        var popup = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: false
+          });
+    
+          this.map.on('mouseenter', 'countries', (e) => {
+            this.map.getCanvas().style.cursor =  'pointer';
+          });
+          // console.log(data)
+          const { name, description, stops, property } = this.state.active;
+          const prob_intro = data.features[0].properties[property]
+          console.log(prob_intro)
+          this.map.on('click', 'countries', (e) => {
+            const features = this.map.queryRenderedFeatures(e.point, {
+          });
+          const { property } = this.state.active;
+          const prob_intro = features[0].properties[property]
+          this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+          popup 
+          .setLngLat(e.lngLat)
+           .setHTML('<b><u>Country Information' + '</b></u>' +
+              '<ul>' +
+              '<li><b>Name: </b>' + features[0].properties["NAME"] + '</li>' +
+              '<li><b>Introduction Probability: </b>' + prob_intro  + '</li>' +
+              '</ul>')
+          .addTo(this.map);
+        });
 
-    var popup = new mapboxgl.Popup({
-      closeButton: false,
-      closeOnClick: false
-      });
+        // setTimeout(function() {
+        //   var features = this.map.queryRenderedFeatures({ layers: ['countries'] })
+        //   this.map(function(feat) {
+        //     return feat.properties && feat.properties.DEV_STATUS;
+        //   });
+            
+        //   console.log(features);
+        // }, 500);
 
-      this.map.on('mouseenter', 'countries', (e) => {
-        this.map.getCanvas().style.cursor =  'pointer';
-      });
-      // console.log(data)
-      const { name, description, stops, property } = this.state.active;
-      const prob_intro = data.features[0].properties[property]
-      console.log(prob_intro)
-      this.map.on('click', 'countries', (e) => {
-        const features = this.map.queryRenderedFeatures(e.point, {
-      });
-      const { property } = this.state.active;
-      const prob_intro = features[0].properties[property]
-      this.map.getCanvas().style.cursor = features.length ? 'pointer' : '';
-      popup 
-      .setLngLat(e.lngLat)
-       .setHTML('<b><u>Country Information' + '</b></u>' +
-          '<ul>' +
-          '<li><b>Name: </b>' + features[0].properties["NAME"] + '</li>' +
-          '<li><b>Introduction Probability: </b>' + prob_intro  + '</li>' +
-          '</ul>')
-      .addTo(this.map);
-    });
+        console.log(this.state.active)
+        const { presenceProperty } = this.state.active;
+        const presenceBool = data.features[0].properties[presenceProperty]
+        console.log(presenceBool)
+
+        const markerEl = document.createElement('div');
+        markerEl.innerHTML = '🦟';
+        var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+        presence_data.features.forEach((marker) => {
+            presenceMarker
+              .setLngLat(marker.geometry.coordinates)
+              .addTo(this.map);
+                markerEl.addEventListener('click', () => {
+                  this.map.flyTo({
+                      center: marker.geometry.coordinates,
+                      zoom: 3,
+                  });
+                });
+        });
+        
     //// with custom styles:
       // this.map.addControl(new StylesControl({
       //   styles: [
@@ -785,10 +843,10 @@ class App extends React.Component {
   //   )
   // }
 
-// features () { 
+features () { 
   
-//   this.mapRef.current.queryRenderedFeatures( { layers: ['countries'] })
-//   }
+  this.mapRef.current.queryRenderedFeatures( { layers: ['countries'] })
+  }
 
   render() {
     const { 
@@ -808,8 +866,7 @@ class App extends React.Component {
     const renderOptions = (option, i) => {
       return (
         <label key={i} className="toggle-container w36 maxw60 pa24">
-          <input  onChange={() => this.setState({ active: [options[i]] })} checked={option.property === property} name="toggle" type="radio" />
-          {/* <input  onChange={() => this.setState({ active: [options[i],markerList[i]] })} checked={option.property === property} name="toggle" type="radio" /> */}
+          <input  onChange={() => this.setState({ active: options[i] })} checked={option.property === property} name="toggle" type="radio" />
           <div  className="toggle txt-xs color-white toggle--gray  toggle--active-darken100 maxw60 w50 pl6 pr6">{option.name}</div>
         </label>
       );
@@ -836,7 +893,7 @@ class App extends React.Component {
         {...viewport}
         width="100%"
         height="100%"
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        // mapStyle="mapbox://styles/mapbox/dark-v9"
         onViewportChange={viewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         // queryRenderedFeatures={features} 

@@ -5,7 +5,53 @@
 ![Demo gif](/example.gif)
 
 
+
+
+--- 
+
+
+## Running the Application 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+#### Prerequisites:
+
+
+1.  Github account and git installed
+
+2. An adequate version of [NodeJS](https://nodejs.org/en/) and npm should be installed. Here is the command to check the installation and version.
+    >   `node --version`
+
+    >   `npm --version`
+
+### Getting Started
+
+* __Step 1__: Clone this repository to get the project files: 
+    >   `git clone "https://github.com/ncsu-landscape-dynamics/pandemic_dashboard.git"`
+
+
+* __Step 2__: Go to the project repo: 
+    > `cd pandemic_dashboard` 
+
+* __Step 3__: Run the application: 
+    > `npm start`
+
+You can now see the app running in the localhost browser popup like this:
+
+![local app](/local_app_example.png)
+
+### Publishing Your Changes to Live Website
+* In your terminal / cmd, run this command:
+    > `npm run deploy`  
+    
+    *OR* 
+
+    >  `yarn run deploy` 
+ 
+ This command pushes any local changes you've made to the gh-pages branch of the *pandemic_dashboard* remote repository.
+
 ---
+
+
 
 ## Authors
 
@@ -13,9 +59,22 @@
 * [Benjamin Seliger](https://github.com/bjseliger)
 * [Chris Jones](https://github.com/ChrisJones687)
 
---- 
-## Running the Application 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+
+## License
+
+Permission to use, copy, modify, and distribute this software and
+its documentation under the terms of the GNU General Public License
+is hereby granted. No representations are made about the suitability
+of this software for any purpose. It is provided "as is" without express
+or implied warranty. See the
+[GNU General Public License](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
+for more details.
+
+
+<!-- 
+
+
 
 ### Available Scripts
 Once the repository is cloned or downloaded to local machine, in the project directory, you can run:
@@ -53,14 +112,5 @@ npm start
 * You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. 
 ---
 
-## License
 
-Permission to use, copy, modify, and distribute this software and
-its documentation under the terms of the GNU General Public License
-is hereby granted. No representations are made about the suitability
-of this software for any purpose. It is provided "as is" without express
-or implied warranty. See the
-[GNU General Public License](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
-for more details.
-
-
+ -->
