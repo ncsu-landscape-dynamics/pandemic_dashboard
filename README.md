@@ -32,7 +32,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * __Step 2__: Go to the project repo: 
     > `cd pandemic_dashboard` 
 
-* __Step 3__: Run the application: 
+* __Step 3__: Install local *node_module* dependencies folder: 
+    > `npm install`
+
+* __Step 4__: Run the application: 
     > `npm start`
 
 You can now see the app running in the localhost browser popup like this:
