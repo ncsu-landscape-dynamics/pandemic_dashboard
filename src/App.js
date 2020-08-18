@@ -809,7 +809,7 @@ console.log(myFeatures);
   }
   
   setFill() {
-    const { property, stops, arcId } = this.state.active;
+    const { property, stops } = this.state.active;
     this.map.setPaintProperty('countries', 'fill-color', {
       property,
       stops
@@ -893,7 +893,7 @@ features () {
         onViewportChange={viewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
         // queryRenderedFeatures={features} 
-        width='100%' height='100%' className="absolute top right left bottom align-middle grid" />
+        className="absolute top right left bottom align-middle grid" />
         <label className=" align-middle top  txt-s mb30 mt3 ml18 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken50 " ><b>Select Year:</b></label>
         <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold  color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
