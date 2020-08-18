@@ -67,7 +67,7 @@ You can now see the app running in the localhost browser popup like this:
     1. Automatically update remote repository code and files
     2. Compile an optimized application build
     3. Deploy updated build to the [live version](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions) of the application (hosted on Github Pages)
-* To monitor the status of your changes, or investigate why a build was unsuccessful, visit the this repository's GitHub [Actions](https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/actions) tab. 
+* To monitor the status of your changes, or investigate why a build was unsuccessful, visit this repository's GitHub [Actions](https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/actions) tab 
 <!-- Automate your NPM publish with GitHub Actions
 
     >  `yarn run deploy` 
