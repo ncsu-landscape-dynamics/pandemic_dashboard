@@ -1,7 +1,23 @@
 # Pandemic Dashboard
- <img src="example.gif" alt="Demo gif" style="width:400px;"/>
+<p align="center">
+  <img src="example.gif" alt="Demo gif" style="width:500px;">
+</p>
 
---- 
+<p align="center">
+  <a href="https://github.com/actions/toolkit/actions?query=workflow%3Atoolkit-unit-tests"><img alt="app build status" height="26" src="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/workflows/Node.js%20CI/badge.svg"></a>
+</p>
+
+---
+
+<!-- 
+
+<img src="example.gif" alt="Demo gif" style="width:500px;"/>
+
+
+<img  src="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/workflows/Node.js%20CI/badge.svg" alt="build status"  height="32" style="align:center" > </img> -->
+
+<!-- ---  -->
+
 
 
 ## Running the Application 
@@ -40,10 +56,12 @@ You can now see the app running in the localhost browser popup like this:
 
 
 ### Publishing Your Changes to Live Website
-* In your terminal / cmd, run this command:
-    > `npm run deploy`  
+* In your terminal / cmd, run your typical GitHub commands to upload your changes:
+    > `git add `  
+    > `git commit -m "text describing changes / updates" `  
+    > `git push `  
     
-    *OR* 
+* By running `git push 
 
     >  `yarn run deploy` 
  
