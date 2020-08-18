@@ -16,6 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     >   `node --version`
 
     >   `npm --version`
+---
 
 ### Getting Started
 
@@ -35,6 +36,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 You can now see the app running in the localhost browser popup like this:
 
  <img src="local_app_example.png" alt="local app" style="width:400px;"/>
+
+---
 
 ### Publishing Your Changes to Live Website
 * In your terminal / cmd, run this command:
