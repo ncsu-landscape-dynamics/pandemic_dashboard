@@ -755,25 +755,25 @@ console.log(myFeatures);
         //   console.log(features);
         // }, 500);
 
-        console.log(this.state.active)
-        const { presenceProperty } = this.state.active;
-        const presenceBool = data.features[0].properties[presenceProperty]
-        console.log(presenceBool)
+        // console.log(this.state.active)
+        // const { presenceProperty } = this.state.active;
+        // const presenceBool = data.features[0].properties[presenceProperty]
+        // console.log(presenceBool)
 
-        const markerEl = document.createElement('div');
-        markerEl.innerHTML = '🦟';
-        var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-        presence_data.features.forEach((marker) => {
-            presenceMarker
-              .setLngLat(marker.geometry.coordinates)
-              .addTo(this.map);
-                markerEl.addEventListener('click', () => {
-                  this.map.flyTo({
-                      center: marker.geometry.coordinates,
-                      zoom: 3,
-                  });
-                });
-        });
+        // const markerEl = document.createElement('div');
+        // markerEl.innerHTML = '🦟';
+        // var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+        // presence_data.features.forEach((marker) => {
+        //     presenceMarker
+        //       .setLngLat(marker.geometry.coordinates)
+        //       .addTo(this.map);
+        //         markerEl.addEventListener('click', () => {
+        //           this.map.flyTo({
+        //               center: marker.geometry.coordinates,
+        //               zoom: 3,
+        //           });
+        //         });
+        // });
         
     //// with custom styles:
       // this.map.addControl(new StylesControl({
