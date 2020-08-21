@@ -41,7 +41,7 @@ var stops =  [
   [0.3, 'rgba(141,52,123, 0.8)'], 
   [0.4, 'rgba(173,63,120, 0.8)'],	
   [0.5, 'rgba(205,74,118, 0.8)'], 
-  [0.6, 'rgba(210,103,103	, 0.8)'],		
+  [0.6, 'rgba(210,103,103, 0.8)'],		
   [0.7, 'rgba(216,132,89, 0.8)'], 
   [0.8, 'rgba(222,161,75, 0.8)'],	
   [0.9, 'rgba(228,190,61, 0.8)'],
@@ -815,10 +815,7 @@ console.log(myFeatures);
       stops
     },
     )
-    this.map.setPaintProperty('countries', 'fill-outline-color', {
-      property,
-      stops
-    },
+    this.map.setPaintProperty('countries', 'fill-outline-color', '#7F7F7F',
     )
     // this.map.setPaintProperty('arcLayer',  {
     //   arcId,
