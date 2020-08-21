@@ -51,121 +51,121 @@ var stops =  [
 const options = [{
   name: '2000',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2000',
+  property: 'Agg Prob Intro 2000',
   presenceProperty: 'Presence 2000',
   stops: stops
 }, {
   name: '2001',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2001',
+  property: 'Agg Prob Intro 2001',
   presenceProperty: 'Presence 2001',
   stops: stops
 }, {
   name: '2002',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2002',
+  property: 'Agg Prob Intro 2002',
   presenceProperty: 'Presence 2002',
   stops: stops
 }, {
   name: '2003',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2003',
+  property: 'Agg Prob Intro 2003',
   presenceProperty: 'Presence 2003',
   stops: stops
 }, {
   name: '2004',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2004',
+  property: 'Agg Prob Intro 2004',
   presenceProperty: 'Presence 2004',
   stops: stops
 }, {
   name: '2005',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2005',
+  property: 'Agg Prob Intro 2005',
   presenceProperty: 'Presence 2005',
   stops: stops
 }, {
   name: '2006',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2006',
+  property: 'Agg Prob Intro 2006',
   presenceProperty: 'Presence 2006',
   stops: stops
 }, {
   name: '2007',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2007',
+  property: 'Agg Prob Intro 2007',
   presenceProperty: 'Presence 2007',
   stops: stops
 }, {
   name: '2008',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2008',
+  property: 'Agg Prob Intro 2008',
   presenceProperty: 'Presence 2008',
   stops: stops
 }, {
   name: '2009',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2009',
+  property: 'Agg Prob Intro 2009',
   presenceProperty: 'Presence 2009',
   stops: stops
 }, {
   name: '2010',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2010',
+  property: 'Agg Prob Intro 2010',
   presenceProperty: 'Presence 2010',
   stops: stops
 }, {
   name: '2011',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2011',
+  property: 'Agg Prob Intro 2011',
   presenceProperty: 'Presence 2011',
   stops: stops
 }, {
   name: '2012',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2012',
+  property: 'Agg Prob Intro 2012',
   presenceProperty: 'Presence 2012',
   stops: stops
 }, {
   name: '2013',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2013',
+  property: 'Agg Prob Intro 2013',
   presenceProperty: 'Presence 2013',
   stops: stops
 }, {
   name: '2014',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2014',
+  property: 'Agg Prob Intro 2014',
   presenceProperty: 'Presence 2014',
   stops: stops
 }, {
   name: '2015',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2015',
+  property: 'Agg Prob Intro 2015',
   presenceProperty: 'Presence 2015',
   stops: stops
 }, {
   name: '2016',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2016',
+  property: 'Agg Prob Intro 2016',
   presenceProperty: 'Presence 2016',
   stops: stops
 }, {
   name: '2017',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2017',
+  property: 'Agg Prob Intro 2017',
   presenceProperty: 'Presence 2017',
   stops: stops
 }, {
   name: '2018',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2018',
+  property: 'Agg Prob Intro 2018',
   presenceProperty: 'Presence 2018',
   stops: stops
 }, {
   name: '2019',
   description: 'Introduction Probability',
-  property: 'Probability of introduction 2019',
+  property: 'Agg Prob Intro 2019',
   presenceProperty: 'Presence 2019',
   stops: stops
 }, /*{
