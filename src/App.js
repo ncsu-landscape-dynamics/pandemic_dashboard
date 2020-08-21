@@ -35,7 +35,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 var stops =  [
-  [0, 'rgba(45,69,132, 0.8)'],	
+  [0.0, 'rgba(33,33,33, 0.8)'],
+  [0.001, 'rgba(45,69,132, 0.8)'],
   [0.1, 'rgba(77,30,129, 0.8)'],	
   [0.2, 'rgba(109,41,126, 0.8)'],			
   [0.3, 'rgba(141,52,123, 0.8)'], 
