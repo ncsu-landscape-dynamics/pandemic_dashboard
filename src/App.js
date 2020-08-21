@@ -1,23 +1,11 @@
-import React from 'react';
 // import React, {useState, useRef, useCallback, Component }  from 'react';
 // import logo from './logo.svg';
-import './App.css';
-import mapboxgl from 'mapbox-gl'
-import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 // import MapGL, { NavigationControl, Marker, Popup } from "react-map-gl";
 // import { render } from "react-dom";
 // import { Icon } from "semantic-ui-react";
-import data from './pandemic_output.json'
-import presence_data from './presence_pandemic.json'
-import Tooltip from './components/tooltip'
-import ReactDOM from 'react-dom'
 // import ReactMapboxGl from 'react-mapbox-gl';
 // import DeckGL from '@deck.gl/react';
-import {ArcLayer} from '@deck.gl/layers';
 // import {StaticMap} from 'react-map-gl';
-import {MapboxLayer} from '@deck.gl/mapbox';
-import "mapbox-gl/dist/mapbox-gl.css";
-import  "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 // import StylesControl from 'mapbox-gl-controls/lib/styles';
 // import CompassControl from 'mapbox-gl-controls/lib/compass';
 // import RulerControl from 'mapbox-gl-controls/lib/ruler';
@@ -25,28 +13,38 @@ import  "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 // import LanguageControl from 'mapbox-gl-controls/lib/language';
 // import InspectControl from 'mapbox-gl-controls/lib/inspect';
 // import TooltipControl from 'mapbox-gl-controls/lib/tooltip';
-import arcData from './arcs.json'
 // import { json } from 'd3-request';
+import React from 'react';
+import './App.css';
+import mapboxgl from 'mapbox-gl'
+import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import data from './pandemic_output.json'
+import presence_data from './presence_pandemic.json'
+import Tooltip from './components/tooltip'
+import ReactDOM from 'react-dom'
+import {ArcLayer} from '@deck.gl/layers';
+import {MapboxLayer} from '@deck.gl/mapbox';
+import "mapbox-gl/dist/mapbox-gl.css";
+import  "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import arcData from './arcs.json'
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
-
-
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 var stops =  [
-  [0.0, 'rgba(33,33,33, 0.8)'],
+  [0.0, 'rgba(033,033,033, 0.8)'],
   [0.001, 'rgba(45,69,132, 0.8)'],
-  [0.1, 'rgba(77,30,129, 0.8)'],	
-  [0.2, 'rgba(109,41,126, 0.8)'],			
-  [0.3, 'rgba(141,52,123, 0.8)'], 
-  [0.4, 'rgba(173,63,120, 0.8)'],	
-  [0.5, 'rgba(205,74,118, 0.8)'], 
+  [0.1, 'rgba(077,030,129, 0.8)'],	
+  [0.2, 'rgba(109,041,126, 0.8)'],			
+  [0.3, 'rgba(141,052,123, 0.8)'], 
+  [0.4, 'rgba(173,063,120, 0.8)'],	
+  [0.5, 'rgba(205,074,118, 0.8)'], 
   [0.6, 'rgba(210,103,103, 0.8)'],		
-  [0.7, 'rgba(216,132,89, 0.8)'], 
-  [0.8, 'rgba(222,161,75, 0.8)'],	
-  [0.9, 'rgba(228,190,61, 0.8)'],
-  [1, 'rgba(240,249,33, 0.8)']
+  [0.7, 'rgba(216,132,089, 0.8)'], 
+  [0.8, 'rgba(222,161,075, 0.8)'],	
+  [0.9, 'rgba(228,190,061, 0.8)'],
+  [1.0, 'rgba(240,249,033, 0.8)']
 ]
 
 const options = [{
@@ -169,50 +167,7 @@ const options = [{
   property: 'Agg Prob Intro 2019',
   presenceProperty: 'Presence 2019',
   stops: stops
-}, /*{
-  name: '2013',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction 2013',
-  stops: stops,
-  arcId: '1993',
-}, {
-  name: '2014',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction 2014',
-  stops: stops,
-  arcId: '1993',
-}, {
-  name: '2015',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction 2015',
-  stops: stops,
-  arcId: '1993',
-}, {
-  name: '2016',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction 2016',
-  stops: stops,
-  arcId: '1993',
-}, {
-  name: '2017',
-  description: 'Introduction Probability',
-  property: 'Probability of introduction 2017',
-  stops: stops,
-  arcId: '1993',
-}, {
-  name: '2018',
-  description: 'Introduction Probability',
-<<<<<<< HEAD
-  property: 'Probability of introduction 2018',
-  stops: stops,
-  arcId: '1993',
-}
-]
-
-  property: 'Probability of introduction T25',
-  propertyPresence: 'Presence 1993',
-  stops: stops
-}*/
+},
 ]
 
 // const markerList = [{
@@ -339,55 +294,42 @@ const options = [{
 // }, {
 //   name: '1997',
 //   property: 'id',
-  
 // }, {
 //   name: '1998',
 //   property: 'id',
-  
 // }, {
 //   name: '1999',
 //   property: 'id',
-  
 // }, {
 //   name: '2000',
 //   property: 'id',
-  
 // }, {
 //   name: '2001',
 //   property: 'id',
-  
 // }, {
 //   name: '2002',
 //   property: 'id',
-  
 // }, {
 //   name: '2003',
 //   property: 'id',
-  
 // }, {
 //   name: '2004',
 //   property: 'id',
-  
 // }, {
 //   name: '2005',
 //   property: 'id',
-  
 // }, {
 //   name: '2006',
 //   property: 'id',
-  
 // }, {
 //   name: '2007',
 //   property: 'id',
-  
 // }, {
 //   name: '2008',
 //   property: 'id',
-  
 // }, {
 //   name: '2009',
 //   property: 'id',
-  
 // }
 // ]
 
@@ -595,7 +537,6 @@ console.log(myFeatures);
     // const {arcId } = this.state.active;
     // console.log(arcId);
 
-    
      // Original ES6 Class— https://github.com/tobinbradley/mapbox-gl-pitch-toggle-control
       // export default class PitchToggle {
         class PitchToggle {
@@ -607,8 +548,7 @@ console.log(myFeatures);
   
           onAdd(map) {
             this._map = map;
-            let _this = this;
-  
+            let _this = this;  
             this._btn = document.createElement("button");
             this._btn.className = "mapboxgl-ctrl-icon mapboxgl-ctrl-pitchtoggle-3d";
             this._btn.type = "button";
@@ -653,18 +593,15 @@ console.log(myFeatures);
         //     this._title = title;
         //     this._eventHandler = eventHandler;
         //   }
-  
         //   onAdd(map) {
         //     this._btn = document.createElement("button");
         //     this._btn.className = `mapboxgl-ctrl-icon${this._className}`;
         //     this._btn.type = "button";
         //     this._btn.title = this._title;
         //     this._btn.onclick = this._eventHandler;
-  
         //     this._container = document.createElement("div");
         //     this._container.className = "mapboxgl-ctrl-group mapboxgl-ctrl";
         //     this._container.appendChild(this._btn);
-  
         //     return this._container;
         //   }
   
