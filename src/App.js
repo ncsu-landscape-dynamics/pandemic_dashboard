@@ -34,17 +34,17 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2h
 
 var stops =  [
   [0.0, 'rgba(033,033,033, 0.8)'],
-  [0.001, 'rgba(45,69,132, 0.8)'],
-  [0.1, 'rgba(077,030,129, 0.8)'],	
-  [0.2, 'rgba(109,041,126, 0.8)'],			
-  [0.3, 'rgba(141,052,123, 0.8)'], 
-  [0.4, 'rgba(173,063,120, 0.8)'],	
-  [0.5, 'rgba(205,074,118, 0.8)'], 
-  [0.6, 'rgba(210,103,103, 0.8)'],		
-  [0.7, 'rgba(216,132,089, 0.8)'], 
-  [0.8, 'rgba(222,161,075, 0.8)'],	
-  [0.9, 'rgba(228,190,061, 0.8)'],
-  [1.0, 'rgba(240,249,033, 0.8)']
+  [0.001, 'rgba(255,255,204, 0.5)'],
+  //[0.1, 'rgba(255,240,168, 0.5)'],	
+  //[0.2, 'rgba(254,225,134, 0.5)'],			
+  //[0.3, 'rgba(254,201,101, 0.6)'], 
+  //[0.4, 'rgba(253,170,72, 0.6)'],	
+  [0.5, 'rgba(253,141,60, 0.7)'], 
+  //[0.6, 'rgba(252,90,45, 0.7)'],		
+  //[0.7, 'rgba(236,46,33, 0.8)'], 
+  //[0.8, 'rgba(211,15,32, 0.8)'],	
+  //[0.9, 'rgba(176,0,38, 0.8)'],
+  [1.0, 'rgba(128,0,38, 0.9)']
 ]
 
 const options = [{
@@ -167,7 +167,61 @@ const options = [{
   property: 'Agg Prob Intro 2019',
   presenceProperty: 'Presence 2019',
   stops: stops
-},
+}, {
+  name: '2020',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2020',
+  presenceProperty: 'Presence 2020',
+  stops: stops
+}, {
+  name: '2021',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2021',
+  presenceProperty: 'Presence 2021',
+  stops: stops
+}, {
+  name: '2022',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2022',
+  presenceProperty: 'Presence 2022',
+  stops: stops
+}, {
+  name: '2023',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2023',
+  presenceProperty: 'Presence 2023',
+  stops: stops
+}, {
+  name: '2024',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2024',
+  presenceProperty: 'Presence 2024',
+  stops: stops
+}, {
+  name: '2025',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2025',
+  presenceProperty: 'Presence 2025',
+  stops: stops
+}, {
+  name: '2026',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2026',
+  presenceProperty: 'Presence 2026',
+  stops: stops
+}, {
+  name: '2027',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2027',
+  presenceProperty: 'Presence 2027',
+  stops: stops
+}, {
+  name: '2028',
+  description: 'Introduction Probability',
+  property: 'Agg Prob Intro 2028',
+  presenceProperty: 'Presence 2028',
+  stops: stops
+}
 ]
 
 // const markerList = [{
