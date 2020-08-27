@@ -1,0 +1,72 @@
+{
+    "UN": 4,
+    "NAME": "Afghanistan",
+    "centroid_lon": 7350040.165684027,
+    "centroid_lat": 3983398.2172649624,
+    "Host Percent Area": 0.119,
+    "AREA": 93467114.58666217,
+    "Country Code": "AFG",
+    "data": [
+        {
+            "date": 2000,
+            "aggProb": {
+                "title":"Agg Prob Intro", 
+                "value": 0
+            }, 
+            "maxProb": {
+                "title":"Agg Max Prob", 
+                "value": 0
+            }, 
+            "presence": {
+                "title": "Presence", 
+                "value": false
+            }
+        },
+        {
+            "date": 2001,
+            "aggProb": {
+                "title":"Agg Prob Intro", 
+                "value": 0
+            }, 
+            "maxProb": {
+                "title":"Agg Max Prob", 
+                "value": 0
+            }, 
+            "presence": {
+                "title": "Presence", 
+                "value": false
+            }
+        },
+        {
+            "date": 2002,
+            "aggProb": {
+                "title":"Agg Prob Intro", 
+                "value": 0
+            }, 
+            "maxProb": {
+                "title":"Agg Max Prob", 
+                "value": 0
+            }, 
+            "presence": {
+                "title": "Presence", 
+                "value": false
+            }
+        },
+        {
+            "date": 2003,
+            "aggProb": {
+                "title":"Agg Prob Intro", 
+                "value": 0.0000010431249094500217
+            }, 
+            "maxProb": {
+                "title":"Agg Max Prob", 
+                "value": 0
+            }, 
+            "presence": {
+                "title": "Presence", 
+                "value": false
+            }
+        }
+    ]
+    
+}
