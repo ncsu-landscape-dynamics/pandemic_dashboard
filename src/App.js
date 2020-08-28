@@ -33,7 +33,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 var stops =  [
-  [0.0, 'rgba(033,033,033, 0.8)'],
+  [0.0, 'rgba(0,0,0, 0.36)'],
   [0.001, 'rgba(255,255,204, 0.5)'],
   //[0.1, 'rgba(255,240,168, 0.5)'],	
   //[0.2, 'rgba(254,225,134, 0.5)'],			
@@ -566,7 +566,7 @@ class App extends React.Component {
       
     //   presence_data.features.forEach((marker) => {
     //     const markerEl = document.createElement('div');
-    //     markerEl.innerHTML = '🦟';
+    //     markerEl.innerHTML = '🐞';
     //     new mapboxgl.Marker(markerEl, { offset: [5,-5] })
     //         .setLngLat(marker.geometry.coordinates)
     //         .addTo(this.map);
@@ -753,7 +753,7 @@ console.log(myFeatures);
         // console.log(presenceBool)
 
         // const markerEl = document.createElement('div');
-        // markerEl.innerHTML = '🦟';
+        // markerEl.innerHTML = '🐞';
         // var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
         // presence_data.features.forEach((marker) => {
         //     presenceMarker
