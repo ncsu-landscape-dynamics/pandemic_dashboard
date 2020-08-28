@@ -30,7 +30,7 @@ import arcData from './arcs.json'
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
-const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
+const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDsFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 var stops =  [
   [0.0, 'rgba(0,0,0, 0.36)'],
@@ -564,19 +564,19 @@ class App extends React.Component {
       // });
       // this.map.addControl(new mapboxgl.FullscreenControl());
       
-    //   presence_data.features.forEach((marker) => {
-    //     const markerEl = document.createElement('div');
-    //     markerEl.innerHTML = '🐞';
-    //     new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-    //         .setLngLat(marker.geometry.coordinates)
-    //         .addTo(this.map);
-    //     markerEl.addEventListener('click', () => {
-    //       this.map.flyTo({
-    //           center: marker.geometry.coordinates,
-    //           zoom: 11,
-    //       });
-    //     });
-    // });
+       presence_data.features.forEach((marker) => {
+         const markerEl = document.createElement('div');
+         markerEl.innerHTML = '🐞';
+         new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+             .setLngLat(marker.geometry.coordinates)
+             .addTo(this.map);
+         markerEl.addEventListener('click', () => {
+           this.map.flyTo({
+               center: marker.geometry.coordinates,
+               zoom: 11,
+           });
+         });
+     });
     var myFeatures = this.map.queryRenderedFeatures('countries', 
     {
         layers: 'countries',
