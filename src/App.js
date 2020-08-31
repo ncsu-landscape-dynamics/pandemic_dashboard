@@ -44,7 +44,7 @@ var stops =  [
   //[0.7, 'rgba(236,46,33, 0.8)'], 
   //[0.8, 'rgba(211,15,32, 0.8)'],	
   //[0.9, 'rgba(176,0,38, 0.8)'],
-  [1.0, 'rgba(255,25,25, 0.9)']
+  [1.0, 'rgba(255,25,25, .9)']
 ]
 
 const options = [{
@@ -393,8 +393,8 @@ const myDeckLayer = new MapboxLayer({
   id: 'connectionsArcs',
   type: ArcLayer,
   data: arcData,
-  getSourceColor: d => [144,238,144],
-  getTargetColor: d => [0, 128, 200],
+  getSourceColor: d => [0, 0, 0],
+  getTargetColor: d => [255, 255, 255],
   // getFillColor: [255, 0, 0],
   strokeWidth:0.1,
   getSourcePosition: d => d.START,
