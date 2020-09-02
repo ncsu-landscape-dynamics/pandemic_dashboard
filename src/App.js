@@ -19,7 +19,7 @@ import './App.css';
 import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './pandemic_output.json'
-import presence_data from './presence_pandemic.json'
+import presence_data from './presence_pandemic28.json'
 import native_data from './native.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
