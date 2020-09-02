@@ -20,12 +20,13 @@ import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './pandemic_output.json'
 import presence_data from './presence_pandemic.json'
+import native_data from './native.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
 import {ArcLayer} from '@deck.gl/layers';
 import {MapboxLayer} from '@deck.gl/mapbox';
 import "mapbox-gl/dist/mapbox-gl.css";
-import  "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import arcData from './arcs.json'
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
 
@@ -34,17 +35,17 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDsFvaTNrczR0d2
 
 var stops =  [
   [0.0, 'rgba(0,0,0, 0.36)'],
-  [0.001, 'rgba(125,0,100, 0.36)'],
+  [0.001, 'rgba(255,255,204, 0.5)'], //[0.001, 'rgba(125, 0, 100, 0.36)'],
   //[0.1, 'rgba(255,240,168, 0.5)'],	
   //[0.2, 'rgba(254,225,134, 0.5)'],			
   //[0.3, 'rgba(254,201,101, 0.6)'], 
   //[0.4, 'rgba(253,170,72, 0.6)'],	
-  //[0.5, 'rgba(224,0,97, 0.72)'], 
+  [0.5, 'rgba(253,141,60, 0.7)'], 
   //[0.6, 'rgba(252,90,45, 0.7)'],		
   //[0.7, 'rgba(236,46,33, 0.8)'], 
   //[0.8, 'rgba(211,15,32, 0.8)'],	
   //[0.9, 'rgba(176,0,38, 0.8)'],
-  [1.0, 'rgba(255,40,40, .9)']
+  [1.0, 'rgba(128,0,38, 0.9)'] //[1.0, 'rgba(255,40,40, .9)'] 
 ]
 
 const options = [{
@@ -393,7 +394,7 @@ const myDeckLayer = new MapboxLayer({
   id: 'connectionsArcs',
   type: ArcLayer,
   data: arcData,
-  getSourceColor: d => [0, 0, 0],
+  getSourceColor: d => [255, 0, 0],
   getTargetColor: d => [255, 255, 255],
   // getFillColor: [255, 0, 0],
   strokeWidth:0.1,
@@ -488,7 +489,7 @@ class App extends React.Component {
       minpitchZoom: 1,
       maxBounds: [ [-175, -80], [195, 86] ], // Sets bounds as max extent
       });
-          /* Zoom */
+      /* Zoom */
       // this.map.addControl(new ZoomControl(), 'top-right');
       // /* Ruler */
       // this.map.addControl(new RulerControl(), 'bottom-left');
@@ -498,20 +499,20 @@ class App extends React.Component {
       // this.map.addControl(new CompassControl(), 'top-right');
 
       // Load the data and layers once Mapbox map style loads
-    // this.map.on('style.load', () => {
-    //   json(arcData);
-    // });
+      // this.map.on('style.load', () => {
+      //   json(arcData);
+      // });
 
     this.map.on('load', () => {
       this.map.addLayer(myDeckLayer);
-      
+          
       // if (this.map.getLayer("countries")) {
       //   this.map.removeLayer("countries");
       // };
-
       // if (this.map.getSource("countries")) {
       //   this.map.removeSource("countries");
       // };
+
       this.map.addSource('countries', {
         type: 'geojson',
         data
@@ -521,6 +522,7 @@ class App extends React.Component {
         type: 'geojson',
         presence_data
       });
+
       // this.map.addSource('arcLayer', {
       //   type: 'ArcLayer',
       //   arcData
@@ -532,51 +534,59 @@ class App extends React.Component {
         source: 'countries'
       },'country-label'); 
 
+      this.map.addSource('native_data', {
+        type: 'geojson',
+        data: native_data
+      });
+
+      this.map.addLayer({
+        id: 'native_data',
+        type: 'fill',
+        source: 'native_data',
+        paint : {'fill-color' : '#AAAAAA', 'fill-opacity': 1} //'#198077'
+      },'country-label'); 
+
       // this.map.addLayer({
       //   id: 'presence_data',
-      //   interactive: true,
+      //   // interactive: true,
       //   type: "symbol",
-      //   source:  'countries',
-      //   // layout: {
-      //   //   'icon-image': 
-      //   //   ['concat', ['get', 'icon'], '-15'],
-      //   //   'text-field': ['get', 'title'],
-      //   //   'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-      //   //   'text-offset': [0, 0.6],
-      //   //   'text-anchor': 'top'
-      //   // }
+      //   source:  'presence_data',
+      //     layout: {
+      //       'icon-image': 
+      //       ['concat', ['get', 'icon'], '-15'],
+      //       'text-field': ['get', 'title'],
+      //       'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+      //       'text-offset': [0, 0.6],
+      //       'text-anchor': 'top'
+      //     }
       // }); 
-      
       // this.map.addLayer(arclayer, 'waterway-label');
-      
-    //   this.map.addLayer(myDeckLayer, {
-    //     id: 'arcLayer',
-    //     type: 'ArcLayer',
-    //   });
-
-    //   if (this.map.getLayer("arcLayer")) {
-    //     this.map.removeLayer("arcLayer");
-    // }
-
+      //   this.map.addLayer(myDeckLayer, {
+      //     id: 'arcLayer',
+      //     type: 'ArcLayer',
+      //   });
+      //   if (this.map.getLayer("arcLayer")) {
+      //     this.map.removeLayer("arcLayer");
+      // }
       // this.map.on('styledata', function () {
       //   // Triggered when `setStyle` is called.
       //   if (data) addLayer();
       // });
       // this.map.addControl(new mapboxgl.FullscreenControl());
       
-       presence_data.features.forEach((marker) => {
-         const markerEl = document.createElement('div');
-         markerEl.innerHTML = '🐞';
-         new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-             .setLngLat(marker.geometry.coordinates)
-             .addTo(this.map);
-         markerEl.addEventListener('click', () => {
-           this.map.flyTo({
-               center: marker.geometry.coordinates,
-               zoom: 11,
-           });
-         });
-     });
+    //    presence_data.features.forEach((marker) => {
+    //      const markerEl = document.createElement('div');
+    //      markerEl.innerHTML = '🐞';
+    //      new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+    //          .setLngLat(marker.geometry.coordinates)
+    //          .addTo(this.map);
+    //      markerEl.addEventListener('click', () => {
+    //        this.map.flyTo({
+    //            center: marker.geometry.coordinates,
+    //            zoom: 11,
+    //        });
+    //      });
+    //  });
     var myFeatures = this.map.queryRenderedFeatures('countries', 
     {
         layers: 'countries',
@@ -591,8 +601,8 @@ console.log(myFeatures);
     // const {arcId } = this.state.active;
     // console.log(arcId);
 
-     // Original ES6 Class— https://github.com/tobinbradley/mapbox-gl-pitch-toggle-control
-      // export default class PitchToggle {
+    // Original ES6 Class— https://github.com/tobinbradley/mapbox-gl-pitch-toggle-control
+    // export default class PitchToggle {
         class PitchToggle {
           constructor({ bearing = -20, pitch = 70, minpitchzoom = null }) {
             this._bearing = bearing;
@@ -809,16 +819,24 @@ console.log(myFeatures);
     )
     this.map.setPaintProperty('countries', 'fill-outline-color', '#7F7F7F',
     )
+
+    // this.map.setPaintProperty('countries', 'fill-color', {
+    //   presenceProperty,
+    //   stops
+    // },
+    // )
+    // this.map.setPaintProperty('native_data', 'fill-color', '#FFFFFF',
+    // )
     // this.map.setPaintProperty('arcLayer',  {
     //   arcId,
     //   // stops
     // },
     // )
-      // this.map.setTooltip('presence_data', '', {
-      //   property,
-      //   stops
-      // })  ;
-      // ;    
+    //this.map.setTooltip('presence_data', '', {
+    //  property,
+    //  stops
+    //})  ;
+    //;    
   }
   // addLayer() {
   //   const { arcId } = this.state.active;
@@ -828,8 +846,7 @@ console.log(myFeatures);
   //   )
   // }
 
-features () { 
-  
+features () {   
   this.mapRef.current.queryRenderedFeatures( { layers: ['countries'] })
   }
 
@@ -871,9 +888,7 @@ features () {
     // }
     
     return (
-      
       <div>
-        
         <div ref={this.mapRef} 
         {...viewport}
         width="100%"
