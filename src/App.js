@@ -574,20 +574,20 @@ class App extends React.Component {
       // });
       // this.map.addControl(new mapboxgl.FullscreenControl());
       
-    //    presence_data.features.forEach((marker) => {
-    //      const markerEl = document.createElement('div');
-    //      markerEl.innerHTML = '🐞';
-    //      new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-    //          .setLngLat(marker.geometry.coordinates)
-    //          .addTo(this.map);
-    //      markerEl.addEventListener('click', () => {
-    //        this.map.flyTo({
-    //            center: marker.geometry.coordinates,
-    //            zoom: 11,
-    //        });
-    //      });
-    //  });
-    
+       presence_data.features.forEach((marker) => {
+         const markerEl = document.createElement('div');
+         markerEl.innerHTML = '🐞';
+         new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+             .setLngLat(marker.geometry.coordinates)
+             .addTo(this.map);
+         markerEl.addEventListener('click', () => {
+           this.map.flyTo({
+               center: marker.geometry.coordinates,
+               zoom: 11,
+           });
+         });
+     });
+
     var myFeatures = this.map.queryRenderedFeatures('countries', 
     {
         layers: 'countries',
@@ -763,20 +763,20 @@ console.log(myFeatures);
         // const presenceBool = data.features[0].properties[presenceProperty]
         // console.log(presenceBool)
 
-        const markerEl = document.createElement('div');
-        markerEl.innerHTML = '🐞';
-        var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-        presence_data.features.forEach((marker) => {
-            presenceMarker
-              .setLngLat(marker.geometry.coordinates)
-              .addTo(this.map);
-                markerEl.addEventListener('click', () => {
-                  this.map.flyTo({
-                      center: marker.geometry.coordinates,
-                      zoom: 3,
-                  });
-                });
-        });
+        // const markerEl = document.createElement('div');
+        // markerEl.innerHTML = '🐞';
+        // var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+        // presence_data.features.forEach((marker) => {
+        //     presenceMarker
+        //       .setLngLat(marker.geometry.coordinates)
+        //       .addTo(this.map);
+        //         markerEl.addEventListener('click', () => {
+        //           this.map.flyTo({
+        //               center: marker.geometry.coordinates,
+        //               zoom: 3,
+        //           });
+        //         });
+        // });
         
     //// with custom styles:
       // this.map.addControl(new StylesControl({
