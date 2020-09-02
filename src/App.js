@@ -394,8 +394,8 @@ const myDeckLayer = new MapboxLayer({
   id: 'connectionsArcs',
   type: ArcLayer,
   data: arcData,
-  getSourceColor: d => [128, 0, 0],
-  getTargetColor: d => [255, 255, 255],
+  getSourceColor: d => [128, 0, 0, 0],
+  getTargetColor: d => [255, 255, 255, 0],
   // getFillColor: [255, 0, 0],
   strokeWidth:0.1,
   getSourcePosition: d => d.START,
@@ -543,7 +543,7 @@ class App extends React.Component {
         id: 'native_data',
         type: 'fill',
         source: 'native_data',
-        paint : {'fill-color' : '#AAAAAA', 'fill-opacity': 1} //'#198077'
+        paint : {'fill-color' : '#cccccc', 'fill-opacity': 1} //'#198077'
       },'country-label'); 
 
       // this.map.addLayer({
@@ -574,19 +574,20 @@ class App extends React.Component {
       // });
       // this.map.addControl(new mapboxgl.FullscreenControl());
       
-       presence_data.features.forEach((marker) => {
-         const markerEl = document.createElement('div');
-         markerEl.innerHTML = '🐞';
-         new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-             .setLngLat(marker.geometry.coordinates)
-             .addTo(this.map);
-         markerEl.addEventListener('click', () => {
-           this.map.flyTo({
-               center: marker.geometry.coordinates,
-               zoom: 11,
-           });
-         });
-     });
+    //    presence_data.features.forEach((marker) => {
+    //      const markerEl = document.createElement('div');
+    //      markerEl.innerHTML = '🐞';
+    //      new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+    //          .setLngLat(marker.geometry.coordinates)
+    //          .addTo(this.map);
+    //      markerEl.addEventListener('click', () => {
+    //        this.map.flyTo({
+    //            center: marker.geometry.coordinates,
+    //            zoom: 11,
+    //        });
+    //      });
+    //  });
+    
     var myFeatures = this.map.queryRenderedFeatures('countries', 
     {
         layers: 'countries',
@@ -762,20 +763,20 @@ console.log(myFeatures);
         // const presenceBool = data.features[0].properties[presenceProperty]
         // console.log(presenceBool)
 
-        // const markerEl = document.createElement('div');
-        // markerEl.innerHTML = '🐞';
-        // var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
-        // presence_data.features.forEach((marker) => {
-        //     presenceMarker
-        //       .setLngLat(marker.geometry.coordinates)
-        //       .addTo(this.map);
-        //         markerEl.addEventListener('click', () => {
-        //           this.map.flyTo({
-        //               center: marker.geometry.coordinates,
-        //               zoom: 3,
-        //           });
-        //         });
-        // });
+        const markerEl = document.createElement('div');
+        markerEl.innerHTML = '🐞';
+        var presenceMarker = new mapboxgl.Marker(markerEl, { offset: [5,-5] })
+        presence_data.features.forEach((marker) => {
+            presenceMarker
+              .setLngLat(marker.geometry.coordinates)
+              .addTo(this.map);
+                markerEl.addEventListener('click', () => {
+                  this.map.flyTo({
+                      center: marker.geometry.coordinates,
+                      zoom: 3,
+                  });
+                });
+        });
         
     //// with custom styles:
       // this.map.addControl(new StylesControl({
