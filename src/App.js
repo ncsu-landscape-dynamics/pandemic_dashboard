@@ -394,7 +394,7 @@ const myDeckLayer = new MapboxLayer({
   id: 'connectionsArcs',
   type: ArcLayer,
   data: arcData,
-  getSourceColor: d => [128, 0, 38],
+  getSourceColor: d => [128, 0, 0],
   getTargetColor: d => [255, 255, 255],
   // getFillColor: [255, 0, 0],
   strokeWidth:0.1,
