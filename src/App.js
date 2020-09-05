@@ -3,7 +3,6 @@ import './App.css';
 import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './data/pandemic_output.json'
-import presence_data from './data/presence_pandemic28.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
 import {ArcLayer} from '@deck.gl/layers';
@@ -371,10 +370,10 @@ class App extends React.Component {
         data
       });
 
-      this.map.addSource('presence_data', {
-        type: 'geojson',
-        presence_data
-      });
+      // this.map.addSource('presence_data', {
+      //   type: 'geojson',
+      //   presence_data
+      // });
 
       // this.map.addSource('arcLayer', {
       //   type: 'ArcLayer',
@@ -402,10 +401,10 @@ class App extends React.Component {
         interactive: true,
         layout: {
           // "icon-image": "SLF_Vector",
-          "icon-image": "pest_icon_halo-01",
+          "icon-image": "pest_icon_outline_01",
           'icon-allow-overlap': false,
           // 'icon-anchor': data.
-          'icon-size':0.75,
+          'icon-size':0.70,
           // 'icon-color':'#fff'
         },
       },'country-label'); 
@@ -575,7 +574,8 @@ console.log(myFeatures);
     )
   
     this.map.setPaintProperty('native-data', "fill-pattern", 
-    'hatch'); 
+    // 'diagonal'); 
+    'diagonal_lines'); 
    
     // this.map.setPaintProperty('countries', 'fill-outline-color', {
     // stops
@@ -630,11 +630,11 @@ features () {
         width="100%"
         height="100%"
         // mapStyle="mapbox://styles/mapbox/dark-v9"
-        onViewportChange={viewport}
+        // onViewportChange={viewport}
         // mapboxApiAccessToken={MAPBOX_TOKEN}
         // queryRenderedFeatures={features} 
         className="absolute top right left bottom align-middle grid" />
-        <label className=" align-middle top  txt-s mb30 mt3 ml18 ctxt-bold pa0 color-white absolute bg-transparent shadow-darken50 " ><b>Select Year:</b></label>
+        <label className=" align-middle top  txt-s mb30 mt3 ml18 ctxt-bold pa0 color-white absolute bg-transparent" ><b>Select Year:</b></label>
         <div className="toggle-group grid-2 grid mt24 pl3 pr3 align-middle top ctxt-bold  color-white absolute border border--2 border--white bg-transparent shadow-darken10  ">
         {options.map(renderOptions)} 
         </div>
