@@ -575,7 +575,8 @@ console.log(myFeatures);
   
     this.map.setPaintProperty('native-data', "fill-pattern", 
     // 'diagonal'); 
-    'diagonal_lines'); 
+    // 'diagonal_lines'); 
+    'diagonal_lines_lightgrey_works_thin-01');
    
     // this.map.setPaintProperty('countries', 'fill-outline-color', {
     // stops
