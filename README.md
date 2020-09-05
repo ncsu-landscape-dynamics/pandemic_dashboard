@@ -59,7 +59,7 @@ You can now see the app running in the localhost browser popup like this:
 * The publication process for this application is automated with [GitHub Actions](https://docs.github.com/en/actions/getting-started-with-github-actions/about-github-actions)
 * So when the following commands are run on your local machine, the entire [npm](https://www.npmjs.com/get-npm) publishing process is automatically activated (as specified by this configured [Workflow file](https://raw.githubusercontent.com/ncsu-landscape-dynamics/pandemic_dashboard/master/.github/workflows/deploy.yml))
     * In your terminal / cmd, run your typical GitHub commands to upload your changes:
-        > `git add `  
+        > `git add . `  
         > `git commit -m "text describing changes / updates" `  
         > `git push `  
 

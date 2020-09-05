@@ -4,7 +4,6 @@ import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './data/pandemic_output.json'
 import presence_data from './data/presence_pandemic28.json'
-// import native_data from './data/native.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
 import {ArcLayer} from '@deck.gl/layers';
@@ -351,6 +350,11 @@ class App extends React.Component {
       // });
 
     this.map.on('load', () => {
+      // this.map.loadImage(
+      //   'https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png',
+      //   function(error, image) {
+      //   if (error) throw error;
+      //   map.addImage('cat', image);
       this.map.addLayer(myDeckLayer);
           
       // if (this.map.getLayer("countries")) {
@@ -397,11 +401,11 @@ class App extends React.Component {
         source: 'countries',
         interactive: true,
         layout: {
-          "icon-image": "SLF_Vector",
-          // "icon-image": "viewpoint-15",
+          // "icon-image": "SLF_Vector",
+          "icon-image": "pest_icon_halo-01",
           'icon-allow-overlap': false,
           // 'icon-anchor': data.
-          'icon-size':0.05,
+          'icon-size':0.75,
           // 'icon-color':'#fff'
         },
       },'country-label'); 
@@ -551,7 +555,11 @@ console.log(myFeatures);
       property,
       stops
     },
-    
+    )
+    this.map.setPaintProperty('countries', 'fill-outline-color', {
+      property,
+      stops
+    },
     )
     this.map.setPaintProperty('presence', 'icon-opacity', {
         property: presenceProperty,
@@ -569,8 +577,11 @@ console.log(myFeatures);
     this.map.setPaintProperty('native-data', "fill-pattern", 
     'hatch'); 
    
-    this.map.setPaintProperty('countries', 'fill-outline-color', '#7F7F7F',
-    )
+    // this.map.setPaintProperty('countries', 'fill-outline-color', {
+    // stops
+    // // '#7F7F7F',
+    // }
+    // )
 
   
   }
