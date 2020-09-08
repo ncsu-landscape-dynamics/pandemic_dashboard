@@ -17,12 +17,12 @@ import {COORDINATE_SYSTEM} from '@deck.gl/core';
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
 // Color scale & legend agreed upon by team:
-var stops =  [
-  [0.0, 'rgba(033,033,033, 0.005)'],
-  [0.001, 'rgba(255, 247, 236, 0.6)'],
-  [0.5, 'rgba(208,129,91, 0.6)'], 
-  [1.0, 'rgba(127,0,0, 0.6)']
-]
+// var stops =  [
+//   [0.0, 'rgba(033,033,033, 0.005)'],
+//   [0.001, 'rgba(255, 247, 236, 0.6)'],
+//   [0.5, 'rgba(208,129,91, 0.6)'], 
+//   [1.0, 'rgba(127,0,0, 0.6)']
+// ]
 // NOTE: ^ scale above is simplified version of full scale range:
 // [0.0, 'rgba(033,033,033, 0.005)'],
 // [0.001, 'rgba(255, 247, 236, 0.6)'],
@@ -37,6 +37,15 @@ var stops =  [
 // [0.9, 'rgba(144,37,18, 0.6)'],
 // [1.0, 'rgba(127,0,0, 0.6)']
 // ]
+//Thom's BRRD
+var stops =  [
+  [0.0, 'rgba(0,0,0, 0.36)'],
+  [0.001, 'rgba(40, 33, 27, .8)'],
+  [0.25, 'rgba(132, 82, 33, .8)'],
+  [0.5, 'rgba(194, 116, 37, .8)'], 
+  [0.75, 'rgba(213, 77, 40, .8)'],
+  [1.0, 'rgba(196, 37, 37, .8)']
+]
 var stopsSymbol = [
   ['true', 1],
   ['false', 0.0],
@@ -426,7 +435,7 @@ class App extends React.Component {
         id: 'native-data',
         type: 'fill',
         source: 'countries',
-        filter: ["in", "NAME", "China", "India", "Vietnam"],
+        filter: ["in", "NAME", "China", "India", "Viet Nam"],
       },'country-label'); 
       // const { property } = this.state.active;
       // const prob_intro = data.features[0].properties[property]
@@ -614,11 +623,8 @@ console.log(myFeatures);
     'diagonal_lines'); 
     // 'noun_stripes_2098710');
    
-    // this.map.setPaintProperty('countries', 'fill-outline-color', {
-    // stops
-    // // '#7F7F7F',
-    // }
-    // )
+   // This does country borders on top of everything else 
+   //this.map.setPaintProperty('countries', 'fill-outline-color', '#7F7F7F')
 
   
   }
