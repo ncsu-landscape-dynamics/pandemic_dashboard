@@ -437,6 +437,12 @@ class App extends React.Component {
         source: 'countries',
         filter: ["in", "NAME", "China", "India", "Viet Nam"],
       },'country-label'); 
+      this.map.addLayer({
+        id: 'native-data2',
+        type: 'fill',
+        source: 'countries',
+        filter: ["in", "NAME", "China", "India", "Viet Nam"],
+      },'country-label'); 
       // const { property } = this.state.active;
       // const prob_intro = data.features[0].properties[property]
       this.map.addLayer({
@@ -618,7 +624,9 @@ console.log(myFeatures);
     
     )
   
-    this.map.setPaintProperty('native-data', "fill-pattern", 
+    this.map.setPaintProperty('native-data', 'fill-color', 'rgba(100, 100, 100, 1)')
+    
+    this.map.setPaintProperty('native-data2', "fill-pattern", 
     // 'diagonal'); 
     'diagonal_lines'); 
     // 'noun_stripes_2098710');
