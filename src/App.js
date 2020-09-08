@@ -5,9 +5,10 @@ import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './data/pandemic_output.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
-import {ArcLayer, ScatterplotLayer} from '@deck.gl/layers';
+import {ArcLayer} from '@deck.gl/layers';
+// import {ArcLayer, ScatterplotLayer} from '@deck.gl/layers';
 import {MapboxLayer} from '@deck.gl/mapbox';
-import {Deck} from '@deck.gl/core';
+// import {Deck} from '@deck.gl/core';
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import arcData from './data/arcs.json'
