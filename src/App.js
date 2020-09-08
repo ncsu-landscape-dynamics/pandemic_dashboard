@@ -5,8 +5,9 @@ import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './data/pandemic_output.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
-import {ArcLayer} from '@deck.gl/layers';
+import {ArcLayer, ScatterplotLayer} from '@deck.gl/layers';
 import {MapboxLayer} from '@deck.gl/mapbox';
+import {Deck} from '@deck.gl/core';
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import arcData from './data/arcs.json'
@@ -252,6 +253,7 @@ const myDeckLayer = new MapboxLayer({
   id: 'connectionsArcs',
   type: ArcLayer,
   data: arcData,
+  // layers: [layers],
   getSourceColor: d => [128, 0, 0, 0],
   getTargetColor: d => [255, 255, 255, 0],
   // getFillColor: [255, 0, 0],
@@ -261,7 +263,7 @@ const myDeckLayer = new MapboxLayer({
   pickable: true,
   auto_highlight: true
 });
-
+console.log(myDeckLayer)
 class App extends React.Component {
   mapRef = React.createRef();
 
@@ -334,6 +336,22 @@ class App extends React.Component {
       minpitchZoom: 1,
       maxBounds: [ [-175, -80], [195, 86] ], // Sets bounds as max extent
       });
+
+    //   const deck = new Deck({
+    //     gl: this.map.painter.context.gl,
+    //     layers: [
+    //         new ScatterplotLayer({
+    //             id: 'my-scatterplot',
+    //             data: [
+    //                 {position: [-74.5, 40], size: 100}
+    //             ],
+    //             getPosition: d => d.position,
+    //             getRadius: d => d.size,
+    //             getFillColor: [255, 0, 0]
+    //         })
+    //     ]
+    // });
+
       /* Zoom */
       // this.map.addControl(new ZoomControl(), 'top-right');
       // /* Ruler */
@@ -349,6 +367,23 @@ class App extends React.Component {
       // });
 
     this.map.on('load', () => {
+      // add to mapbox
+    // map.addLayer(new MapboxLayer({id: 'my-scatterplot', deck}));
+
+    // // update the layer
+    // deck.setProps({
+    //     layers: [
+    //         new ScatterplotLayer({
+    //             id: 'my-scatterplot',
+    //             data: [
+    //                 {position: [-74.5, 40], size: 100}
+    //             ],
+    //             getPosition: d => d.position,
+    //             getRadius: d => d.size,
+    //             getFillColor: [0, 0, 255]
+    //         })
+    //     ]
+    // });
       // this.map.loadImage(
       //   'https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png',
       //   function(error, image) {
@@ -575,8 +610,8 @@ console.log(myFeatures);
   
     this.map.setPaintProperty('native-data', "fill-pattern", 
     // 'diagonal'); 
-    // 'diagonal_lines'); 
-    'diagonal_lines_lightgrey_works_thin-01');
+    'diagonal_lines'); 
+    // 'noun_stripes_2098710');
    
     // this.map.setPaintProperty('countries', 'fill-outline-color', {
     // stops
