@@ -3,7 +3,7 @@ import './App.css';
 import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './data/pandemic_output.json'
-import presence from './data/presence_pandemic.json'
+// import presence from './data/presence_pandemic.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
 // import {ArcLayer} from '@deck.gl/layers';
@@ -27,9 +27,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d
 // Color scale & legend agreed upon by team:
 var stops =  [
   [0.0, 'rgba(033,033,033, 0.005)'],
-  [0.001, 'rgba(255, 247, 236, 0.6)'],
-  [0.5, 'rgba(208,129,91, 0.6)'], 
-  [1.0, 'rgba(127,0,0, 0.6)']
+  [0.001, 'rgba(255, 247, 236, 0.7)'],
+  [0.25, 'rgba(246,197,165, 0.7)'],		
+  [0.5, 'rgba(208,129,91, 0.7)'], 
+  [0.75, 'rgba(177,84,52, 0.7)'],
+  [1.0, 'rgba(190, 37, 37, 0.7)']
+]
 // NOTE: ^ scale above is simplified version of full scale range:
 // [0.0, 'rgba(033,033,033, 0.005)'],
 // [0.001, 'rgba(255, 247, 236, 0.6)'],
@@ -43,8 +46,16 @@ var stops =  [
 // [0.8, 'rgba(161,62,34, 0.6)'],	
 // [0.9, 'rgba(144,37,18, 0.6)'],
 // [1.0, 'rgba(127,0,0, 0.6)']
-]
-
+// ]
+//Thom's BRRD
+// var stops =  [
+//   [0.0, 'rgba(0,0,0, 0.36)'],
+//   [0.001, 'rgba(40, 33, 27, .8)'],
+//   [0.25, 'rgba(132, 82, 33, .8)'],
+//   [0.5, 'rgba(194, 116, 37, .8)'], 
+//   [0.75, 'rgba(213, 77, 40, .8)'],
+//   [1.0, 'rgba(196, 37, 37, .8)']
+// ]
 var stopsSymbol = [
   ['true', 1],
   ['false', 0.0],
@@ -680,10 +691,10 @@ class App extends React.Component {
         data
       });
 
-      this.map.addSource('presencedata', {
-        type: 'geojson',
-        presence
-      });
+      // this.map.addSource('presencedata', {
+      //   type: 'geojson',
+      //   presence
+      // });
 // console.log(presenceData)
       // this.map.addSource('arcLayer', {
       //   type: 'ArcLayer',
@@ -705,9 +716,13 @@ class App extends React.Component {
         id: 'native-data',
         type: 'fill',
         source: 'countries',
-        filter: 
-        ["in", "NAME", "China", "India", "Viet Nam"],
-      
+        filter: ["in", "NAME", "China", "India", "Viet Nam"],
+      },'country-label'); 
+      this.map.addLayer({
+        id: 'native-data2',
+        type: 'fill',
+        source: 'countries',
+        filter: ["in", "NAME", "China", "India", "Viet Nam"],
       },'country-label'); 
 
       // const { coordinates } = this.state.active;
@@ -764,7 +779,7 @@ class App extends React.Component {
           // "icon-image": "SLF_Vector",
           "icon-image": "pest_icon_outline_01",
           'icon-allow-overlap': false,
-          'icon-ignore-placement': true,
+          'icon-ignore-placement': false,
           // 'icon-anchor': data.
           'icon-size':0.70,
           // 'icon-color':'#fff'
@@ -920,7 +935,15 @@ class App extends React.Component {
     )
     this.map.setPaintProperty('countries', 'fill-outline-color', {
       property,
-      stops
+      stops:
+      [
+        [0.0, 'rgba(033,033,033, 0.005)'],
+        [0.001, 'rgba(255, 247, 236, 1)'],
+        [0.25, 'rgba(246,197,165, 1)'],		
+        [0.5, 'rgba(208,129,91, 1)'], 
+        [0.75, 'rgba(177,84,52, 1)'],
+        [1.0, 'rgba(127,0,0, 1)']
+      ]
     },
     )
     this.map.setPaintProperty('presence', 'icon-opacity', {
@@ -935,22 +958,18 @@ class App extends React.Component {
           },
     
     )
-    this.map.setPaintProperty('native-data', 'fill-color', 
-      '#737373'
-    );
-    this.map.setPaintProperty('native-data', "fill-pattern", 
+  
+    this.map.setPaintProperty('native-data', 'fill-color', 'rgba(100, 100, 100, 1)')
+    
+    this.map.setPaintProperty('native-data2', "fill-pattern", 
     // 'diagonal'); 
     'diagonal_lines'); 
     // 'noun_stripes_2098710');
    
-    // this.map.setPaintProperty('countries', 'fill-outline-color', {
-    // stops
-    // // '#7F7F7F',
-    // }
-    // )
-    var presenceFeatures = this.map.queryRenderedFeatures ( { layers: ['presence'] })
-  console.log(presenceFeatures)
-  // relatedFeatures[0].geometry.coordinates[0]
+   // This does country borders on top of everything else 
+   //this.map.setPaintProperty('countries', 'fill-outline-color', '#7F7F7F')
+
+  
   }
   // addLayer() {
   //   const { arcId } = this.state.active;
