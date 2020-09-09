@@ -3,16 +3,24 @@ import './App.css';
 import mapboxgl from 'mapbox-gl'
 import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import data from './data/pandemic_output.json'
+import presence from './data/presence_pandemic.json'
 import Tooltip from './components/tooltip'
 import ReactDOM from 'react-dom'
-import {ArcLayer} from '@deck.gl/layers';
+// import {ArcLayer} from '@deck.gl/layers';
 // import {ArcLayer, ScatterplotLayer} from '@deck.gl/layers';
 import {MapboxLayer} from '@deck.gl/mapbox';
-// import {Deck} from '@deck.gl/core';
+// import DeckGL, {ArcLayer} from 'deck.gl';
+import {ArcLayer} from 'deck.gl';
+// import * as d3 from 'd3';
+// import turf, {polygon} from '@turf/turf';
+// import DeckGL, {ArcLayer, ScatterplotLayer} from 'deck.gl';
+// import {StaticMap} from 'react-map-gl';
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import arcData from './data/arcs.json'
+// import arcData from './data/arcs.json'
 import {COORDINATE_SYSTEM} from '@deck.gl/core';
+// import {LineLayer} from '@deck.gl/layers';
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw'
 
@@ -22,7 +30,6 @@ var stops =  [
   [0.001, 'rgba(255, 247, 236, 0.6)'],
   [0.5, 'rgba(208,129,91, 0.6)'], 
   [1.0, 'rgba(127,0,0, 0.6)']
-]
 // NOTE: ^ scale above is simplified version of full scale range:
 // [0.0, 'rgba(033,033,033, 0.005)'],
 // [0.001, 'rgba(255, 247, 236, 0.6)'],
@@ -36,7 +43,8 @@ var stops =  [
 // [0.8, 'rgba(161,62,34, 0.6)'],	
 // [0.9, 'rgba(144,37,18, 0.6)'],
 // [1.0, 'rgba(127,0,0, 0.6)']
-// ]
+]
+
 var stopsSymbol = [
   ['true', 1],
   ['false', 0.0],
@@ -249,23 +257,277 @@ const options = [{
 }
 ]
 
+// migrate out - red
+var SOURCE_COLOR = [35, 181, 184];
+// migrate in - blue
+var TARGET_COLOR =  [166, 3, 3];
+
+// var RADIUS_SCALE = d3.scaleSqrt().domain([0, 8000]).range([1000, 20000]);
+// var WIDTH_SCALE = 400;
+
 const myDeckLayer = new MapboxLayer({
   coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
   id: 'connectionsArcs',
   type: ArcLayer,
-  data: arcData,
+  pickable: true,
+    getWidth: 5,
+  // data: arcData,
+  // data: 
+  // [
+  //     {
+  //       "2000": 2000,
+  //       "START": [
+  //         116.363625,
+  //         39.913818
+          
+  //       ],
+  //       "END": [
+  //         115.188919,
+  //         -8.409518
+        
+  //       ]
+  //     },
+  //     {
+  //       "2001": 2000,
+  //       "START": [
+  //         103.851959,
+  //         1.29027
+          
+  //       ],
+  //       "END": [
+  //         101.693207,,
+  //         3.140853
+  //       ]
+  //     },
+  //     {
+  //       "2002": 2002,
+  //       "START": [
+  //         103.851959,
+  //         1.29027
+  //       ],
+  //       "END": [
+  //         114.177216,
+  //         22.302711
+  //       ]
+  //     },
+  //     {
+  //       "2003": 2003,
+  //       "START": [ 
+  //         100.523186,
+  //         13.736717
+  //       ],
+  //       "END": [ 
+  //         101.693207,
+  //         3.140853
+  //       ]
+  //     },
+  //     {
+  //       "2004": 2004,
+  //       "START": [
+  //         116.363625,
+  //         39.913818
+  //       ],
+  //       "END": [
+  //         114.177216,
+  //         22.302711
+  //       ]
+  //     },
+  //     {
+  //       "2005": 2005,
+  //       "START": [
+  //         101.693207,
+  //         3.140853
+  //       ],
+  //       "END": [ 
+  //         103.851959,
+  //         1.29027
+  //       ]
+  //     },
+  //     {
+  //       "2006": 2006,
+  //       "START": [   139.839478,
+  //         35.652832
+  //       ],
+  //       "END": [101.693207,
+  //         3.140853
+  //       ]
+  //     },
+  //     {
+  //       "2007": 2007,
+  //       "START": [
+  //         116.363625,
+  //         39.913818
+  //       ],
+  //       "END": [103.851959,
+  //         1.29027
+  //       ]
+  //     },
+  //     {
+  //       "2008": 2008,
+  //       "START": [   
+  //         114.177216,
+  //         22.302711
+  //       ],
+  //       "END": [ 
+  //         101.693207,
+  //         3.140853
+  //       ]
+  //     },
+  //     {
+  //       "2009": 2009,
+  //       "START": [ 101.693207,
+  //         3.140853
+  //       ],
+  //       "END": [  114.177216,
+  //         22.302711
+  //       ]
+  //     },
+  //     {
+  //       "2010": 2010,
+  //       "START": [
+  //         100.523186,
+  //         13.736717
+  //       ],
+  //       "END": [
+  //         103.851959,
+  //         1.29027
+  //       ]
+  //     },
+  //     {
+  //       "2011": 2011,
+  //       "START": [
+  //         114.177216,
+  //         22.302711
+  //       ],
+  //       "END": [
+  //         116.363625,
+  //         39.913818
+  //       ]
+  //     },
+  //     {
+  //       "2012": 2012,
+  //       "START": [
+  //         100.523186,
+  //         13.736717
+  //       ],
+  //       "END": [
+  //         114.177216,
+  //         22.302711
+  //       ]
+  //     },
+  //     {
+  //       "2013": 2013,
+  //       "START": [
+  //         116.363625,
+  //         39.913818 
+  //       ],
+  //       "END": [
+  //         139.839478,
+  //         35.652832
+  //       ]
+  //     },
+  //     {
+  //       "2014": 2014,
+  //       "START": [
+  //         139.839478,
+  //         35.652832
+  //       ],
+  //       "END": [
+  //         115.188919,
+  //         -8.409518
+  //       ]
+  //     },
+  //     {
+  //       "2015": 2015,
+  //       "START": [
+  //         100.523186,
+  //         13.736717
+  //       ],
+  //       "END": [
+  //         115.188919,
+  //         -8.409518
+  //       ]
+  //     },
+  //     {
+  //       "2016": 2016,
+  //       "START": [
+  //         103.851959,
+  //         1.29027
+  //       ],
+  //       "END": [
+  //         114.177216,
+  //         22.302711
+  //       ]
+  //     },
+  //   ],
   // layers: [layers],
-  getSourceColor: d => [128, 0, 0, 0],
-  getTargetColor: d => [255, 255, 255, 0],
+  // getSourceColor: d => [128, 0, 0, 0],
+  // getTargetColor: d => [255, 255, 255, 0],
   // getFillColor: [255, 0, 0],
-  strokeWidth:0.1,
+  
   getSourcePosition: d => d.START,
   getTargetPosition: d => d.END,
-  pickable: true,
+  getSourceColor: SOURCE_COLOR,
+  getTargetColor: TARGET_COLOR,
+//   updateTriggers: {
+//     getSourceColor: 0,
+//     getTargetColor: 2000
+//  },
+  // strokeWidth:20000,
+  // getStrokeWidth: WIDTH_SCALE,
+  // getSourceColor: d => [128, 0, 0, 0][d.quantile],
+  // getTargetColor: d => [255, 255, 255, 0][d.quantile],
+  // pickable: true,
+  transitions: {
+  // getFillColor: 3000,
+// getRadius: {
+//   duration: 3000,
+//   easing: d3.easeBackInOut,
+// },
+  },
   auto_highlight: true
 });
+
 console.log(myDeckLayer)
+
+
+// const INITIAL_VIEW_STATE = {
+//   longitude: -122.41669,
+//   latitude: 37.7853,
+//   zoom: 13,
+//   pitch: 0,
+//   bearing: 0
+// };
+
+// // Data to be used by the LineLayer
+// const deckData = [
+//   {sourcePosition: [-122.41669, 37.7853], targetPosition: [-122.41669, 37.781]}
+// ];
+// var turfCentroid = require('turf-centroid');
+// var result = {
+//   "type": "FeatureCollection",
+//   "features": []
+// };
+
+// for (var i = 0; i < data.features.length; i++) {
+//   result.features.push(
+//       {
+//           "type": "Feature",
+//           "properties": {"id": data.features[i].properties.UN},
+//           "geometry": turfCentroid(data.features[i]).geometry
+//       }
+//   );
+// }
+// console.log(result)
 class App extends React.Component {
+  // _onWebGLInitialized = (gl) => {
+  //   this.setState({gl});
+  // }
+
+  
+  
+
+
   mapRef = React.createRef();
 
   handleViewportChange = viewport => {
@@ -303,6 +565,7 @@ class App extends React.Component {
   }
 
   constructor(props: Props) {
+    
     super(props);
     this.state = {
       active: options[0],
@@ -325,6 +588,9 @@ class App extends React.Component {
 
 
   componentDidMount() {
+    // const layers = [
+    //   new LineLayer({id: 'line-layer', deckData})
+    // ];
     // const mapRef = useRef()
     this.tooltipContainer = document.createElement('div');
     this.map = new mapboxgl.Map({
@@ -338,7 +604,7 @@ class App extends React.Component {
       maxBounds: [ [-175, -80], [195, 86] ], // Sets bounds as max extent
       });
 
-    //   const deck = new Deck({
+    //   const deck = new DeckGL({
     //     gl: this.map.painter.context.gl,
     //     layers: [
     //         new ScatterplotLayer({
@@ -368,6 +634,9 @@ class App extends React.Component {
       // });
 
     this.map.on('load', () => {
+      // const deck = this._deck;
+      // this.map.addLayer(new MapboxLayer({id: 'my-scatterplot', deck}), 'waterway-label');
+
       // add to mapbox
     // map.addLayer(new MapboxLayer({id: 'my-scatterplot', deck}));
 
@@ -390,7 +659,8 @@ class App extends React.Component {
       //   function(error, image) {
       //   if (error) throw error;
       //   map.addImage('cat', image);
-      this.map.addLayer(myDeckLayer);
+      // this.map.addLayer(myDeckLayer);
+      console.log(this.map.addLayer(myDeckLayer))
           
       // if (this.map.getLayer("countries")) {
       //   this.map.removeLayer("countries");
@@ -398,19 +668,23 @@ class App extends React.Component {
       // if (this.map.getSource("countries")) {
       //   this.map.removeSource("countries");
       // };
-      if (this.map.getLayer("presence")) {
-        this.map.removeLayer("presence");
-      };
+      // if (this.map.getLayer("presence")) {
+      //   this.map.removeLayer("presence");
+      // };
+      // if (this.map.getSource("presence")) {
+      //   this.map.removeSource("presence");
+      // };
+
       this.map.addSource('countries', {
         type: 'geojson',
         data
       });
 
-      // this.map.addSource('presence_data', {
-      //   type: 'geojson',
-      //   presence_data
-      // });
-
+      this.map.addSource('presencedata', {
+        type: 'geojson',
+        presence
+      });
+// console.log(presenceData)
       // this.map.addSource('arcLayer', {
       //   type: 'ArcLayer',
       //   arcData
@@ -420,25 +694,77 @@ class App extends React.Component {
         id: 'countries',
         type: 'fill',
         source: 'countries',
+        filter: ["all",
+        ["!=", "NAME", "China"],
+        ["!=", "NAME", "India"],
+        ["!=", "NAME", "Viet Nam"],
+     ]
       },'country-label'); 
 
       this.map.addLayer({
         id: 'native-data',
         type: 'fill',
         source: 'countries',
-        filter: ["in", "NAME", "China", "India", "Vietnam"],
+        filter: 
+        ["in", "NAME", "China", "India", "Viet Nam"],
+      
       },'country-label'); 
-      // const { property } = this.state.active;
-      // const prob_intro = data.features[0].properties[property]
+
+      // const { coordinates } = this.state.active;
+      // const polygon = polygon(
+      //   data.features[0].geometry.coordinates, 
+      //   data.features[0].properties
+      //   // { name: 'poly1', population: 400}
+      //   );
+        console.log(data.features[0]);
+        const centroid_lat = data.features[0].properties.centroid_lat[0]
+        const centroid_lon = data.features[0].properties.centroid_lon[0]
+        console.log(centroid_lat)
+        console.log(centroid_lon)
+    // const  centroid  = turf.point([centroid_lat,centroid_lon])
+    // console.log(centroid)
+      // const points = turf.featureCollection(data.features[0])
+      // ;
+      // const coords = data.features[0].geometry.coordinates[0][0]
+      // const centroid = JSON.stringify(coords);
+      // JSON.stringify(centroid)
+      
+      // const points = turf.points([[centroid]])
+      
+      // var max_area_polygon;
+      // var max_area = 0 ;
+      
+      // for(poly in (data.features[0].coordinates[0])){                              
+      //     polygon = turf.polygon((data.features[0].geometry.coordinates)[poly])
+      //     area = turf.area(polygon); 
+      
+      //     if(area > max_area){
+      //         max_area = area
+      //         max_area_polygon = polygon // polygon with the largest area
+      //     }
+      // }
+      // const center = turf.centerOfMass(max_area_polygon);
+      // console.log(center);
+
+      // polygonCenter({
+      //   let polygon = turfHelpers.multiPolygon([[centroid]])
+      //   let centroid = turf.centroid(polygon)
+      //   return centroid.geometry.coordinates
+      // });
+      // )
       this.map.addLayer({
         id: 'presence',
         type: 'symbol',
         source: 'countries',
+        // filter:
+        // ["==", "$geometry.coordinates", 1],
+        // sourceLayer: 'presencedata',
         interactive: true,
         layout: {
           // "icon-image": "SLF_Vector",
           "icon-image": "pest_icon_outline_01",
           'icon-allow-overlap': false,
+          'icon-ignore-placement': true,
           // 'icon-anchor': data.
           'icon-size':0.70,
           // 'icon-color':'#fff'
@@ -459,15 +785,16 @@ class App extends React.Component {
       // });
       // this.map.addControl(new mapboxgl.FullscreenControl());
       //
-
-    var myFeatures = this.map.queryRenderedFeatures(
-    {layers:['countries','presence']
-        // layers: 'countries', 'presence'
-       // i'm confident there is data matching this filter 
-    }
-    );
-
-console.log(myFeatures);
+     
+    
+    // var myFeatures = this.map.queryRenderedFeatures(
+    // {layers:['countries','presence']
+    //     // layers: 'countries', 'presence'
+    //    // i'm confident there is data matching this filter 
+    // }
+    // );
+   
+// console.log(myFeatures);
     this.setFill();
     });
 
@@ -608,7 +935,9 @@ console.log(myFeatures);
           },
     
     )
-  
+    this.map.setPaintProperty('native-data', 'fill-color', 
+      '#737373'
+    );
     this.map.setPaintProperty('native-data', "fill-pattern", 
     // 'diagonal'); 
     'diagonal_lines'); 
@@ -619,8 +948,9 @@ console.log(myFeatures);
     // // '#7F7F7F',
     // }
     // )
-
-  
+    var presenceFeatures = this.map.queryRenderedFeatures ( { layers: ['presence'] })
+  console.log(presenceFeatures)
+  // relatedFeatures[0].geometry.coordinates[0]
   }
   // addLayer() {
   //   const { arcId } = this.state.active;
@@ -635,6 +965,48 @@ features () {
   }
 
   render() {
+    // const {gl} = this.state;
+    // const myDeckLayer = new MapboxLayer({
+    //   coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
+    //   id: 'connectionsArcs',
+    //   type: ArcLayer,
+    //   data: arcData,
+    //   // layers: [layers],
+    //   getSourceColor: d => [128, 0, 0, 0],
+    //   getTargetColor: d => [255, 255, 255, 0],
+    //   // getFillColor: [255, 0, 0],
+    //   strokeWidth:0.1,
+    //   getSourcePosition: d => d.START,
+    //   getTargetPosition: d => d.END,
+    //   pickable: true,
+    //   auto_highlight: true
+    // });
+
+    // const layers = [
+    //   new ScatterplotLayer({
+    //     coordinateSystem: COORDINATE_SYSTEM.LNGLAT_OFFSETS,
+    //   id: 'my-scatterplot',
+    //   type: ArcLayer,
+    //   data: arcData,
+    //   // layers: [layers],
+    //   getSourceColor: d => [128, 0, 0, 0],
+    //   getTargetColor: d => [255, 255, 255, 0],
+    //   // getFillColor: [255, 0, 0],
+    //   strokeWidth:0.1,
+    //   getSourcePosition: d => d.START,
+    //   getTargetPosition: d => d.END,
+    //   pickable: true,
+    //   auto_highlight: true
+
+    //     // id: 'my-scatterplot',
+    //     // data: [
+    //     //   {position: [-74.5, 40], size: 10000}
+    //     // ],
+    //     // getPosition: d => d.position,
+    //     // getRadius: d => d.size,
+    //     // getColor: [255, 0, 0]
+    //   })
+    // ];
     const { 
       viewport,
     } = this.state
@@ -661,7 +1033,37 @@ features () {
   
     
     return (
+      <React.Fragment>
+      
+
       <div>
+      {/* <DeckGL
+      initialViewState={INITIAL_VIEW_STATE}
+      controller={true}
+      layers={layers} />; */}
+      {/* <DeckGL
+        ref={ref => {
+          // save a reference to the Deck instance
+          this._deck = ref && ref.deck;
+        }}
+        layers={layers}
+        initialViewState={INITIAL_VIEW_STATE}
+        controller={true}
+        onWebGLInitialized={this._onWebGLInitialized}
+      >
+        {gl && (
+          <StaticMap
+            ref={ref => {
+              // save a reference to the mapboxgl.Map instance
+              this._map = ref && ref.getMap();
+            }}
+            gl={gl}
+            // mapStyle="mapbox://styles/mapbox/light-v9"
+            mapboxApiAccessToken="pk.eyJ1IjoiZ2NtaWxsYXIiLCJhIjoiY2pvcDhrbGl4MDFvaTNrczR0d2hxcjdnNSJ9.JYgBw6y2pEq_AEAOCaoQpw"
+            onLoad={this._onMapLoad}
+          />
+        )}
+      </DeckGL> */}
         <div ref={this.mapRef} 
         {...viewport}
         width="100%"
@@ -685,6 +1087,7 @@ features () {
           {/* {stopsSymbol.map(renderLegendKeys)} */}
         </div>
       </div>
+      </React.Fragment>
     );//absolute top left ml12 mt12 border border--2 border--white bg-white shadow-darken10 z1
   }
 }
