@@ -6,6 +6,7 @@
 <p align="center">
   <a href="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/actions?query=workflow%3A%22Node.js+CI%22"><img alt="app build status" height="26" src="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/workflows/Node.js%20CI/badge.svg"></a>
 </p>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ---
 
@@ -18,10 +19,46 @@
 
 <!-- ---  -->
 
+## Contributing
+
+This section is designed to clarify the branch structure of this repository and where new features and bug fixes should go.
+
+### Reproducibility
+1.  Spend time ensuring that your **code** is _easy for others_ to
+    read:
+  
+    * Make sure you've used spaces and your variable names are concise, but
+      informative
+  
+    * Use comments to indicate where your problem lies
+  
+    * Do your best to remove everything that is not related to the problem.  
+     The shorter your code is, the easier it is to understand.
+
+### Branch Structure
+
+1. **master** is the stable version of the model that is used for official releases and is the production branch of this repository. 
+2. **staging** is the branch used to test new functionality in a live testing (i.e. the same as production) environment. This is where new functionality is implemented and testing before being merged with Master and 
+2. **bugfix/thingnotworking** are branched off of **master** then merged back via a pull request once the bug is fixed.
+3. **feature/new_feature** is where new features are developed before they are merged into **staging** via a pull request. For example, we are adding steering (aka adapative management) but this dramatically changes the dashboard and database so it is being built to test in **staging** before going to production.
+
+### Bug Fixes
+
+Most bugs/issues will be found in the **master** branch as it is the branch being used in production. Thus bug fixes should be merged into **master** once tested. Bug fixes should be released as minor versions (e.g. if major release is 1.0 then the first bug fix would be released as version 1.1).
+
+### New Features
+
+When creating new features create a branch from **master** using the following syntax **feature/new_feature**. For example, we want to add a new display feature for visualizing regional pest introductions, the branch created would be named feature/regional_introductions_display (or similar). New features will be merged into **master** once tested based on the priorities of our stakeholders first. Once new features are tested in a live testing environment with any other new features being included in the next major release we will merge them into **master** and create an official major release version (e.g. update from version 1.1 to version 2.0). 
+
+If you are interested in contributing to Pandemic Dashboard development and are not a core developer on the model, please take a look at the following
+documents to make the process as seamless as possible.
+
+1. [Contributor Code of Conduct](contributing_docs/CODE_OF_CONDUCT.md)
+<!-- 1. [PoPS Style Guide](contributing_docs/STYLE_GUIDE.md) -->
+2. [Contributor Guide](contributing_docs/CONTRIBUTING.md)
 
 
 ## Running the Application 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
 #### Prerequisites:
