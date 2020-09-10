@@ -396,7 +396,7 @@ class App extends React.Component {
           'icon-allow-overlap': true,
           'icon-ignore-placement': false,
           // 'icon-anchor': data.
-          'icon-size':0.65,
+          'icon-size':0.55,
           // 'icon-color':'#fff'
         },
       },'country-label'); 
