@@ -6,6 +6,7 @@
 <p align="center">
   <a href="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/actions?query=workflow%3A%22Node.js+CI%22"><img alt="app build status" height="26" src="https://github.com/ncsu-landscape-dynamics/pandemic_dashboard/workflows/Node.js%20CI/badge.svg"></a>
 </p>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ---
